@@ -1,0 +1,132 @@
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #1c1613;
+    box-shadow: 0 1px 5px rgba(240, 240, 240, 0.25);
+    transition: 200ms linear all;
+    height: 6vh;
+}
+
+.nav-bar:hover {
+    box-shadow: 0 1px 10px rgba(255, 255, 255, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 6vh;
+    aspect-ratio: 91/41;
+}
+
+.logo span {
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 10px;
+    user-focus-pointer: none;
+    cursor: default;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/*Login en barra de navegación*/
+.login {
+    display: flex;
+    align-items: center;
+}
+
+.login input[type=text], .login input[type=password] {
+    width: 150px;
+    padding: 5px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--body-color);
+    color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.login input[type=text]:focus, .login input[type=password]:focus {
+    border-color: var(--accent-color);
+}
+
+.login a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin-left: 10px;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #1c1613;
+        position: absolute;
+        top: 6vh;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+}

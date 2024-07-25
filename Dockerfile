@@ -12,4 +12,4 @@ RUN yarn build
 
 FROM nginx:alpine as runner
 
-COPY --from=builder app/dist/ /usr/share/nginx/html
+COPY --from=builder app/build/ /usr/share/nginx/html
