@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 import './App.css';
+import { AppRoutesConstants } from '../contexts/shared/domain/model/constants/AppRoutes.Constants';
 import AppNavigator from '../contexts/navigate/infrastructure/entry-points/UI/components/AppNavigator';
-import { AppRoutesConstants } from '../contexts/shared/domain/constants/AppRoutes.Constants';
+import { Loading } from '../contexts/shared/infrastructure/entry-points/UI/molecule/Loading';
 
 const router: RouteObject[] = [
     {
@@ -14,7 +15,7 @@ const router: RouteObject[] = [
         path: AppRoutesConstants.MATCHES_PAGE,
     },
     {
-        element: <div>ay papi usted donde se intento meter?</div>,
+        element: <div>Error 404 la pagina solicitada no existe</div>,
         path: '*',
     },
 ];
@@ -22,7 +23,8 @@ const router: RouteObject[] = [
 function App() {
     return (
         <div className="App">
-            <AppNavigator isLogged={false} />
+            <Loading />
+            <AppNavigator />
             <RouterProvider router={createBrowserRouter(router)} />
         </div>
     );

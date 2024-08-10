@@ -2,3 +2,19 @@
   text-align: center;
   width: 100%;
 }
+
+input[type="submit"]{
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  border: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease;
+}
+input[type="submit"]:hover{
+  box-shadow: 0 1px 10px var(--secondary-color);
+}
+
+.error-input{
+  border: var(--accent-color) dotted 2px !important;
+}

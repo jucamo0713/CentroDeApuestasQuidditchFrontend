@@ -27,8 +27,23 @@ function searchDirectory(directoryPath: string) {
         const stats = statSync(filePath);
         if (stats.isDirectory() && !excludedDirs.has(file)) {
             searchDirectory(filePath);
-        }
-        if (stats.isFile() && file.endsWith('.yml')) {
+        } else if (stats.isFile() && file.endsWith('.tsx')) {
+            const data = readFileSync(filePath).toString();
+            const matches = data.match(new RegExp(/process\.env\.\w+/, 'g'));
+            if (matches) {
+                matches.forEach((match) => {
+                    const key = match.split('process.env.').pop()?.trim();
+                    if (key) {
+                        allUsedKeys.add(key);
+                        if (!listDefaultsKeys.has(key)) {
+                            if (!exampleKeys.has(key)) {
+                                keysNotInExample.add(key);
+                            }
+                        }
+                    }
+                });
+            }
+        } else if (stats.isFile() && file.endsWith('.yml')) {
             const data = readFileSync(filePath).toString();
             const matches = data.match(new RegExp(/\$\{\s*\w+\s*(-\s*\w+\s*)?}/, 'g'));
             if (matches) {
