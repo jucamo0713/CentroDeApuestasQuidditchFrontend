@@ -6,3 +6,6 @@ export const SessionManageInstance = new SessionManageUseCase(
     new LocalStorageAuthRepository(),
     new HttpAuthRepository(),
 );
+SessionManageInstance.loadSessionData().finally(() => {
+    console.log('SessionDataLoaded');
+});

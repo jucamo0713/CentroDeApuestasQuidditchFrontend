@@ -77,21 +77,9 @@
     border-color: var(--accent-color);
 }
 
-.nav-bar .login Link {
+.nav-bar .login a {
     color: var(--accent-color);
     text-decoration: none;
     margin-left: 10px;
     z-index: 1000;
-}
-
-.nav-bar section {
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.balance-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

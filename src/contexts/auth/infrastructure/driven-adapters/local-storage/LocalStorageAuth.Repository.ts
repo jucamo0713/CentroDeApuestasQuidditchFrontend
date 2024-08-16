@@ -11,4 +11,8 @@ export class LocalStorageAuthRepository implements AuthRepository {
     async setSessionData(sessionData: SessionData): Promise<void> {
         localStorage.setItem(LocalStorageKeysConstants.AUTH_DATA, JSON.stringify(sessionData));
     }
+
+    async unsetSessionData(): Promise<void> {
+        localStorage.removeItem(LocalStorageKeysConstants.AUTH_DATA);
+    }
 }

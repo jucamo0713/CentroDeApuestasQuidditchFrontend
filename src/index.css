@@ -3,7 +3,7 @@
   --secondary-color: #eedd82;
   --accent-color: #a40000;
   --body-color: #312621;
-  --section-color: #231c18;
+  --section-color: #1c1613;
 }
 body {
   background-color: var(--body-color);

@@ -1,4 +1,4 @@
-export class SessionData {
-    token: string | undefined;
-    refreshToken: string | undefined;
+export interface SessionData {
+    refreshToken: string;
+    token: string;
 }
