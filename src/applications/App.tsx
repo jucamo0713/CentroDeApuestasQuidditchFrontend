@@ -11,6 +11,7 @@ import { BetDetail } from '../contexts/bet/infrastructure/entry-point/UI/compone
 import { Teams } from '../contexts/teams/infrastructure/entry-point/UI/components/Teams';
 import { Events } from '../contexts/events/infrastructure/entry-point/UI/components/Events';
 import { Matches } from '../contexts/matches/infrastructure/entry-point/UI/components/Matches';
+import { Results } from '../contexts/results/infrastructure/entry-point/UI/components/Results';
 import { Favorites } from '../contexts/favorites/infrastructure/entry-point/UI/components/Favorites';
 import { Home } from '../contexts/shared/infrastructure/entry-points/UI/components/Home';
 
@@ -24,7 +25,7 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.MATCHES_PAGE,
     },
     {
-        element: <div>Results!</div>,
+        element: <Results />,
         path: AppRoutesConstants.RESULTS_PAGE,
     },
     {

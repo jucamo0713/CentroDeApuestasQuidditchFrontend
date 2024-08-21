@@ -25,6 +25,7 @@ export default function Profile() {
         return (
             <main className="main-section">
                 <section className="dashboard">
+                    <h2>Mi perfil</h2>
                     <ProfileForm loginData={loginData} />
                     <br />
                     <input
