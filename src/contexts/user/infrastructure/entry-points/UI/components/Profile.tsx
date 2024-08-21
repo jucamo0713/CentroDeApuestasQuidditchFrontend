@@ -5,40 +5,46 @@ import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
 import { useNavigate } from 'react-router-dom';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
+import { BetHistory } from '../../../../../bet/infrastructure/entry-point/UI/molecule/BetHistory';
+import { ProfileForm } from '../molecules/ProfileForm';
 
 export default function Profile() {
     const navigate = useNavigate();
-    // TODO
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [loginData, setLoginData] = useState<SessionData | undefined>(undefined);
     useEffect(() => {
         SessionManageUseCase.subjectOfSessionData.subscribe({
-            next: setLoginData,
+            next: (v) => {
+                if (!v) {
+                    navigate('/');
+                }
+                setLoginData(v);
+            },
         });
-    }, []);
-
-    useEffect(() => {
-        SessionManageUseCase.subjectOfSessionData.subscribe({
-            next: setLoginData,
-        });
-    }, []);
-    return (
-        <main className="main-section">
-            <section className="dashboard">
-                <input
-                    type="submit"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        LoadingSourceUseCase.setLoading();
-                        SessionManageInstance.closeSession().finally(() => {
-                            LoadingSourceUseCase.unsetLoading();
-                            navigate('/');
-                        });
-                    }}
-                    className="magic-button"
-                    value="CERRAR SESION"
-                />
-            </section>
-        </main>
-    );
+    }, [navigate]);
+    if (loginData) {
+        return (
+            <main className="main-section">
+                <section className="dashboard">
+                    <ProfileForm loginData={loginData} />
+                    <br />
+                    <input
+                        type="submit"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            LoadingSourceUseCase.setLoading();
+                            SessionManageInstance.closeSession().finally(() => {
+                                LoadingSourceUseCase.unsetLoading();
+                                navigate('/');
+                            });
+                        }}
+                        className="magic-button"
+                        value="CERRAR SESION"
+                    />
+                </section>
+                <BetHistory loginData={loginData} />
+            </main>
+        );
+    } else {
+        return <>Unauthorized</>;
+    }
 }

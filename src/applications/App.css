@@ -27,4 +27,25 @@ input[type="submit"]:hover {
     border-radius: 8px;
     box-sizing: border-box;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: #fff;
+}
+
+thead {
+    color: var(--secondary-color)
+}
+
+tbody {
+    color: #fff;
+}
+
+input[type="button"] {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    border: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: box-shadow 0.3s ease;
 }
