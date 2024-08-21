@@ -6,6 +6,7 @@ import AppNavigator from '../contexts/navigate/infrastructure/entry-points/UI/co
 import { Loading } from '../contexts/shared/infrastructure/entry-points/UI/molecule/Loading';
 import { ToastContainer } from 'react-toastify';
 import Profile from '../contexts/user/infrastructure/entry-points/UI/components/Profile';
+import { BetDetail } from '../contexts/bet/infrastructure/entry-point/UI/components/BetDetail';
 
 const routes: RouteObject[] = [
     {
@@ -19,6 +20,10 @@ const routes: RouteObject[] = [
     {
         element: <Profile />,
         path: AppRoutesConstants.PROFILE,
+    },
+    {
+        element: <BetDetail />,
+        path: AppRoutesConstants.BET_DETAIL,
     },
     {
         element: <div>Error 404 la pagina solicitada no existe</div>,

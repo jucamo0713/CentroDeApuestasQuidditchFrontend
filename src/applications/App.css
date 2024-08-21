@@ -10,6 +10,7 @@ input[type="submit"] {
     font-size: 0.8rem;
     font-weight: bold;
     transition: box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 input[type="submit"]:hover {
@@ -48,4 +49,9 @@ input[type="button"] {
     font-size: 0.8rem;
     font-weight: bold;
     transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    box-shadow: 0 1px 10px var(--accent-color);
 }

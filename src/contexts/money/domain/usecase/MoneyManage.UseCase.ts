@@ -22,4 +22,19 @@ export class MoneyManageUseCase {
         }
         return currentData;
     }
+
+    async rechargeMoney(moneyToRecharge: MoneyData, loginData: SessionData): Promise<MoneyData> {
+        const updatedMoneyData: MoneyData = await this.httpMoneyRepository.rechargeMoney(moneyToRecharge, loginData);
+        const currentData = await firstValueFrom(MoneyManageUseCase.MoneyData$);
+        if (
+            !currentData ||
+            currentData.galleons !== updatedMoneyData.galleons ||
+            currentData.sickles !== updatedMoneyData.sickles ||
+            currentData.knuts !== updatedMoneyData.knuts
+        ) {
+            MoneyManageUseCase.MoneyData$.next(updatedMoneyData);
+            return updatedMoneyData;
+        }
+        return currentData;
+    }
 }
