@@ -12,10 +12,11 @@ import { Teams } from '../contexts/teams/infrastructure/entry-point/UI/component
 import { Events } from '../contexts/events/infrastructure/entry-point/UI/components/Events';
 import { Matches } from '../contexts/matches/infrastructure/entry-point/UI/components/Matches';
 import { Favorites } from '../contexts/favorites/infrastructure/entry-point/UI/components/Favorites';
+import { Home } from '../contexts/shared/infrastructure/entry-points/UI/components/Home';
 
 const routes: RouteObject[] = [
     {
-        element: <div>Hello world!</div>,
+        element: <Home />,
         path: AppRoutesConstants.MAIN_PAGE,
     },
     {
