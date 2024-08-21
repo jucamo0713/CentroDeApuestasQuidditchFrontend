@@ -10,6 +10,8 @@ import Recharge from '../contexts/money/infrastructure/entry-points/UI/component
 import { BetDetail } from '../contexts/bet/infrastructure/entry-point/UI/components/BetDetail';
 import { Teams } from '../contexts/teams/infrastructure/entry-point/UI/components/Teams';
 import { Events } from '../contexts/events/infrastructure/entry-point/UI/components/Events';
+import { Matches } from '../contexts/matches/infrastructure/entry-point/UI/components/Matches';
+import { Favorites } from '../contexts/favorites/infrastructure/entry-point/UI/components/Favorites';
 
 const routes: RouteObject[] = [
     {
@@ -17,7 +19,7 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.MAIN_PAGE,
     },
     {
-        element: <div>Matches!</div>,
+        element: <Matches />,
         path: AppRoutesConstants.MATCHES_PAGE,
     },
     {
@@ -29,7 +31,7 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.EVENTS_PAGE,
     },
     {
-        element: <div>Favorites!</div>,
+        element: <Favorites />,
         path: AppRoutesConstants.FAVORITE,
     },
     {
@@ -47,6 +49,10 @@ const routes: RouteObject[] = [
     {
         element: <BetDetail />,
         path: AppRoutesConstants.BET_DETAIL,
+    },
+    {
+        element: <div>MatchDetail!</div>,
+        path: AppRoutesConstants.MATCH_DETAIL,
     },
     {
         element: <div>Error 404 la pagina solicitada no existe</div>,

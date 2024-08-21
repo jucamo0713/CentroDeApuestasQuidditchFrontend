@@ -4,6 +4,7 @@ export enum AppRoutesConstants {
     FAVORITE = '/favorites',
     MAIN_PAGE = '/',
     MATCHES_PAGE = '/matches',
+    MATCH_DETAIL = '/match/:matchId',
     PROFILE = '/profile',
     RECHARGE = '/recharge-account',
     RECOVER_ACCOUNT_PAGE = '/recover-password',
