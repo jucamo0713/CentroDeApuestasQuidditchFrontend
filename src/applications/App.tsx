@@ -9,6 +9,7 @@ import Profile from '../contexts/user/infrastructure/entry-points/UI/components/
 import Recharge from '../contexts/money/infrastructure/entry-points/UI/components/Recharge';
 import { BetDetail } from '../contexts/bet/infrastructure/entry-point/UI/components/BetDetail';
 import { Teams } from '../contexts/teams/infrastructure/entry-point/UI/components/Teams';
+import { Events } from '../contexts/events/infrastructure/entry-point/UI/components/Events';
 
 const routes: RouteObject[] = [
     {
@@ -24,7 +25,7 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.RESULTS_PAGE,
     },
     {
-        element: <div>Events!</div>,
+        element: <Events />,
         path: AppRoutesConstants.EVENTS_PAGE,
     },
     {
