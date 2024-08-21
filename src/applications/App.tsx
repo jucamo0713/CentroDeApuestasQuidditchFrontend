@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import Profile from '../contexts/user/infrastructure/entry-points/UI/components/Profile';
 import Recharge from '../contexts/money/infrastructure/entry-points/UI/components/Recharge';
 import { BetDetail } from '../contexts/bet/infrastructure/entry-point/UI/components/BetDetail';
+import { Teams } from '../contexts/teams/infrastructure/entry-point/UI/components/Teams';
 
 const routes: RouteObject[] = [
     {
@@ -27,16 +28,16 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.EVENTS_PAGE,
     },
     {
-        element: <div>Teams!</div>,
-        path: AppRoutesConstants.TEAMS_PAGE,
-    },
-    {
         element: <div>Favorites!</div>,
         path: AppRoutesConstants.FAVORITE,
     },
     {
         element: <Recharge />,
         path: AppRoutesConstants.RECHARGE,
+    },
+    {
+        element: <Teams />,
+        path: AppRoutesConstants.TEAMS_PAGE,
     },
     {
         element: <Profile />,
