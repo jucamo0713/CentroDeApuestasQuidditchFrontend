@@ -6,6 +6,7 @@ import AppNavigator from '../contexts/navigate/infrastructure/entry-points/UI/co
 import { Loading } from '../contexts/shared/infrastructure/entry-points/UI/molecule/Loading';
 import { ToastContainer } from 'react-toastify';
 import Profile from '../contexts/user/infrastructure/entry-points/UI/components/Profile';
+import Recharge from '../contexts/money/infrastructure/entry-points/UI/components/Recharge';
 import { BetDetail } from '../contexts/bet/infrastructure/entry-point/UI/components/BetDetail';
 
 const routes: RouteObject[] = [
@@ -16,6 +17,26 @@ const routes: RouteObject[] = [
     {
         element: <div>Matches!</div>,
         path: AppRoutesConstants.MATCHES_PAGE,
+    },
+    {
+        element: <div>Results!</div>,
+        path: AppRoutesConstants.RESULTS_PAGE,
+    },
+    {
+        element: <div>Events!</div>,
+        path: AppRoutesConstants.EVENTS_PAGE,
+    },
+    {
+        element: <div>Teams!</div>,
+        path: AppRoutesConstants.TEAMS_PAGE,
+    },
+    {
+        element: <div>Favorites!</div>,
+        path: AppRoutesConstants.FAVORITE,
+    },
+    {
+        element: <Recharge />,
+        path: AppRoutesConstants.RECHARGE,
     },
     {
         element: <Profile />,

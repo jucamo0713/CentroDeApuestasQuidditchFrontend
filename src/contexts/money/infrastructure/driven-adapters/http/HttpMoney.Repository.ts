@@ -18,12 +18,15 @@ export class HttpMoneyRepository implements MoneyHttpRepository {
     //TODO
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async rechargeMoney(moneyToRecharge: MoneyData, loginData: SessionData): Promise<MoneyData> {
-        HttpMoneyRepository.data.knuts += moneyToRecharge.knuts;
-        const aux1 = Math.floor(HttpMoneyRepository.data.knuts / 29);
-        HttpMoneyRepository.data.knuts = HttpMoneyRepository.data.knuts % 29;
-        HttpMoneyRepository.data.sickles += moneyToRecharge.sickles + aux1;
-        const aux2 = Math.floor(HttpMoneyRepository.data.galleons / 17);
-        HttpMoneyRepository.data.galleons += moneyToRecharge.galleons + aux2;
+        const aux = { ...HttpMoneyRepository.data };
+        aux.knuts += moneyToRecharge.knuts;
+        const aux1 = Math.floor(aux.knuts / 29);
+        aux.knuts = aux.knuts % 29;
+        aux.sickles += moneyToRecharge.sickles + aux1;
+        const aux2 = Math.floor(aux.sickles / 17);
+        aux.sickles = aux.sickles % 17;
+        aux.galleons += moneyToRecharge.galleons + aux2;
+        HttpMoneyRepository.data = aux;
         return HttpMoneyRepository.data;
     }
 }
