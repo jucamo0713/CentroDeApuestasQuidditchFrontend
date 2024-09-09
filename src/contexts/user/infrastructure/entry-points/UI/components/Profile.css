@@ -83,3 +83,10 @@
     margin-left: 10px;
     z-index: 1000;
 }
+
+/* Estilo para las etiquetas */
+label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
