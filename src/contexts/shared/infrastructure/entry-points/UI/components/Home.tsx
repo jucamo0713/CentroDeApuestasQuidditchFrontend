@@ -5,15 +5,36 @@ import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
 import { AppRoutesConstants } from '../../../../domain/model/constants/AppRoutes.Constants';
 
-//TODO
+// Definimos el tipo para los datos de los partidos
+interface MatchData {
+    A: string;
+    B: string;
+    empate: string;
+    teamA: string;
+    teamB: string;
+}
+
 export function Home() {
     const navigate = useNavigate();
     const [loginData, setLoginData] = useState<SessionData | undefined>(undefined);
+    const [matches, setMatches] = useState<MatchData[]>([]);
+
+    // Cargar los datos de los partidos desde el archivo JSON
     useEffect(() => {
-        SessionManageUseCase.subjectOfSessionData.subscribe({
+        fetch('/matches.json')
+            .then((response) => response.json())
+            .then((data) => setMatches(data))
+            .catch((error) => console.error('Error al cargar los datos de los partidos:', error));
+    }, []);
+
+    // Gestionar la sesión
+    useEffect(() => {
+        const subscription = SessionManageUseCase.subjectOfSessionData.subscribe({
             next: setLoginData,
         });
+        return () => subscription.unsubscribe();
     }, [navigate]);
+
     return (
         <main className="main-section">
             {!loginData && (
@@ -32,27 +53,42 @@ export function Home() {
             )}
 
             <h2>Partidos del Día</h2>
-            <section className="dashboard">
-                <div className="scheme">
-                    <h3>Equipo A vs. Equipo B</h3>
-                    <p>Estadísticas, Horario, Cuotas de Apuestas, etc.</p>
-                    <br />
-                    <Link to={AppRoutesConstants.MATCH_DETAIL}>
-                        <input type="button" value="Detalle" />
-                    </Link>
-                </div>
-            </section>
 
-            <section className="dashboard">
-                <div className="scheme">
-                    <h3>Equipo G vs. Equipo H</h3>
-                    <p>Estadísticas, Horario, Cuotas de Apuestas, etc.</p>
-                    <br />
-                    <Link to={AppRoutesConstants.MATCH_DETAIL}>
-                        <input type="button" value="Detalle" />
-                    </Link>
-                </div>
-            </section>
+            {matches.length > 0 ? (
+                matches.map((match, index) => (
+                    <section className="dashboard" key={index}>
+                        <div className="scheme">
+                            <h3>
+                                {match.teamA} vs. {match.teamB}
+                            </h3>
+                            <button
+                                className="ApostarButton"
+                                onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}
+                            >
+                                {match.teamA}: {match.A}
+                            </button>
+
+                            <button className="ApostarButton" onClick={() => alert('Empate seleccionado')}>
+                                Empate: {match.empate}
+                            </button>
+
+                            <button
+                                className="ApostarButton"
+                                onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}
+                            >
+                                {match.teamB}: {match.B}
+                            </button>
+
+                            <br />
+                            <Link to={AppRoutesConstants.MATCH_DETAIL}>
+                                <input type="button" value="Detalle" />
+                            </Link>
+                        </div>
+                    </section>
+                ))
+            ) : (
+                <p>Cargando partidos...</p>
+            )}
         </main>
     );
 }
