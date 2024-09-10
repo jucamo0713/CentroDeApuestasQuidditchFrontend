@@ -13,9 +13,8 @@ import { Events } from '../contexts/events/infrastructure/entry-point/UI/compone
 import { Matches } from '../contexts/matches/infrastructure/entry-point/UI/components/Matches';
 import { Results } from '../contexts/results/infrastructure/entry-point/UI/components/Results';
 import { Favorites } from '../contexts/favorites/infrastructure/entry-point/UI/components/Favorites';
-import { LoginPage } from '../contexts/login/infrastructure/entry-point/UI/components/LoginPage'; 
+import { LoginPage } from '../contexts/login/infrastructure/entry-point/UI/components/LoginPage';
 import { Home } from '../contexts/shared/infrastructure/entry-points/UI/components/Home';
-
 
 const routes: RouteObject[] = [
     {

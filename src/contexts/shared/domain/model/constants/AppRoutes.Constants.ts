@@ -2,6 +2,7 @@ export enum AppRoutesConstants {
     BET_DETAIL = '/bet/:betId',
     EVENTS_PAGE = '/events',
     FAVORITE = '/favorites',
+    LOGIN_PAGE = '/login',
     MAIN_PAGE = '/',
     MATCHES_PAGE = '/matches',
     MATCH_DETAIL = '/match/:matchId',
@@ -9,7 +10,6 @@ export enum AppRoutesConstants {
     RECHARGE = '/recharge-account',
     RECOVER_ACCOUNT_PAGE = '/recover-password',
     RESULTS_PAGE = '/results',
-    LOGIN_PAGE = '/login',
     SIGNUP = '/signup',
     TEAMS_PAGE = '/teams',
 }
