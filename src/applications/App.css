@@ -17,9 +17,6 @@
     font-family: 'Poppins', sans-serif;
     background-color: #1c1613;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-flow: column;
-    align-items: center;
     color: #fff;
     min-height: 100vh;
 }
@@ -32,11 +29,12 @@ h2 {
 /*Tarjetas*/
 
 .scheme {
-    background-color: var(--body-color);
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
     padding: 20px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .scheme:hover {
@@ -59,16 +57,19 @@ input[type="button"] {
     background-color: #b3923b;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin-top: 20px;
     cursor: pointer;
     margin: 10px 10px 0 10px;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover,
 input[type="button"]:hover {
-    box-shadow: 0 1px 10px var(--accent-color);
+    background-color: #f0c84a;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
 }
 
 a {
@@ -95,15 +96,24 @@ a:hover {
     background-color: #6b5e3e;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
+    padding: 12px 30px;
+    border-radius: 25px;
     cursor: pointer;
-    margin: 10px 5px 0 10px;
-    transition: background-color 0.3s ease;
+    margin: 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
 }
 
 .ApostarButton:hover{
     box-shadow: 0 1px 10px var(--accent-color);
+    background-color: #8c7a5b;
+    transform: translateY(-3px);
+}
+
+.ApostarButton:active {
+    transform: translateY(0);
 }
 
 
