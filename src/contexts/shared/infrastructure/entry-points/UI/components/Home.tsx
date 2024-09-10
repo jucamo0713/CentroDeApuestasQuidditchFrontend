@@ -36,6 +36,7 @@ export function Home() {
                 <div className="scheme">
                     <h3>Equipo A vs. Equipo B</h3>
                     <p>Estadísticas, Horario, Cuotas de Apuestas, etc.</p>
+                    <br />
                     <Link to={AppRoutesConstants.MATCH_DETAIL}>
                         <input type="button" value="Detalle" />
                     </Link>

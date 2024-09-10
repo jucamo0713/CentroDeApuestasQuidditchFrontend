@@ -9,6 +9,8 @@ import { SessionManageUseCase } from '../../../../../auth/domain/usecase/Session
 export default function Recharge() {
     const navigate = useNavigate();
     const [loginData, setLoginData] = useState<SessionData | undefined>(undefined);
+    const [selectedCurrency, setSelectedCurrency] = useState('galleons'); // Estado para la moneda seleccionada
+
     useEffect(() => {
         SessionManageUseCase.subjectOfSessionData.subscribe({
             next: (v) => {
@@ -29,39 +31,47 @@ export default function Recharge() {
                             onSubmit={(e) => {
                                 e.preventDefault();
                                 LoadingSourceUseCase.setLoading();
-                                const galleons = e.currentTarget.galleons;
-                                const sickles = e.currentTarget.sickles;
-                                const knuts = e.currentTarget.knuts;
+                                const amountInput = e.currentTarget.amount;
+                                const amountValue = parseInt(amountInput.value);
 
-                                const nGalleons = parseInt(galleons.value);
-                                const nSickles = parseInt(sickles.value);
-                                const nKnuts = parseInt(knuts.value);
-
-                                if (nGalleons >= 0 && nSickles >= 0 && nSickles < 17 && nKnuts >= 0 && nKnuts < 29) {
-                                    MoneyManageInstance.rechargeMoney(
-                                        { galleons: nGalleons, knuts: nKnuts, sickles: nSickles },
-                                        loginData,
-                                    ).finally(() => {
-                                        LoadingSourceUseCase.unsetLoading();
-                                    });
-                                } else {
-                                    nGalleons < 0 && (galleons.className = 'error-input');
-                                    nSickles < 0 && (sickles.className = 'error-input');
-                                    nSickles > 16 && (sickles.className = 'error-input');
-                                    nKnuts < 0 && (knuts.className = 'error-input');
-                                    nKnuts > 28 && (knuts.className = 'error-input');
+                                // Validar que el input no esté vacío o tenga valores negativos
+                                if (amountInput.value === '' || isNaN(amountValue) || amountValue < 0) {
+                                    amountInput.className = 'error-input';
+                                    amountInput.setCustomValidity('El valor debe ser un número positivo.');
+                                    amountInput.reportValidity();
                                     LoadingSourceUseCase.unsetLoading();
+                                    return;
                                 }
+
+                                // Dependiendo de la moneda seleccionada, recargar la correspondiente
+                                const rechargeData = {
+                                    galleons: selectedCurrency === 'galleons' ? amountValue : 0,
+                                    knuts: selectedCurrency === 'knuts' ? amountValue : 0,
+                                    sickles: selectedCurrency === 'sickles' ? amountValue : 0,
+                                };
+
+                                MoneyManageInstance.rechargeMoney(rechargeData, loginData).finally(() => {
+                                    LoadingSourceUseCase.unsetLoading();
+                                });
                             }}
                         >
-                            <label htmlFor="galleons">Galleons:</label>
-                            <input type="number" min={0} step={1} name="galleons" />
+                            <label htmlFor="currency">Seleccionar moneda:</label>
+                            <select
+                                name="currency"
+                                value={selectedCurrency}
+                                onChange={(e) => setSelectedCurrency(e.target.value)}
+                            >
+                                <option value="galleons">Galleons</option>
+                                <option value="sickles">Sickles</option>
+                                <option value="knuts">Knuts</option>
+                            </select>
 
-                            <label htmlFor="sickles">Sickles:</label>
-                            <input type="number" min={0} max={16} step={1} name="sickles" />
+                            <br />
 
-                            <label htmlFor="knuts">Knuts:</label>
-                            <input type="number" min={0} max={28} step={1} name="knuts" />
+                            <label htmlFor="amount">
+                                {selectedCurrency.charAt(0).toUpperCase() + selectedCurrency.slice(1)}:
+                            </label>
+                            <input type="number" name="amount" min={0} step={1} required />
 
                             <br />
                             <br />

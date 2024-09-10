@@ -8,8 +8,6 @@
 body {
   background-color: var(--body-color);
   margin: 0;
-  font-family: 'Harry P', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding: 0;
 }
