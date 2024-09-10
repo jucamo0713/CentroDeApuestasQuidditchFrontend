@@ -1,3 +1,5 @@
+/*Estilo para la tabla*/
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -32,7 +34,7 @@ td input[type="button"]:hover {
     background-color: #c4a44b; /* Color al pasar el ratón sobre el botón */
 }
 
-/*css para la paginación*/
+/*Estilo para la paginación*/
 
 .pagination-container {
     display: flex;
@@ -58,11 +60,11 @@ td input[type="button"]:hover {
 }
 
 .pagination-container button.active {
-    background-color: #d4af37;
+    box-shadow: 0 1px 10px var(--accent-color);
 }
 
 .pagination-container button:hover:not(:disabled) {
-    background-color: #c4a44b;
+    box-shadow: 0 1px 10px var(--accent-color);
 }
 
 .pagination-info {

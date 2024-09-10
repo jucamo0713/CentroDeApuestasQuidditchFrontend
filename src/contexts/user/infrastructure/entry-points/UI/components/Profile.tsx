@@ -39,8 +39,7 @@ export default function Profile() {
                                     navigate('/');
                                 });
                             }}
-                            className="magic-button"
-                            value="CERRAR SESION"
+                            value="Cerrar sesión"
                         />
                     </div>
                 </section>

@@ -85,7 +85,6 @@ export function ProfileForm(params: { loginData: SessionData }) {
                 <div>
                     <input
                         type="submit"
-                        className="magic-button"
                         onClick={(e) => {
                             e.preventDefault();
                             setEdit(false);
@@ -93,7 +92,7 @@ export function ProfileForm(params: { loginData: SessionData }) {
                         }}
                         value="Descartar Cambios"
                     />
-                    <input type="submit" className="magic-button" value="Guardar Cambios" />
+                    <input type="submit" value="Guardar Cambios" />
                 </div>
             </form>
         );
@@ -118,7 +117,6 @@ export function ProfileForm(params: { loginData: SessionData }) {
                 </div>
                 <input
                     type="submit"
-                    className="magic-button"
                     onClick={(e) => {
                         e.preventDefault();
                         setEdit(true);

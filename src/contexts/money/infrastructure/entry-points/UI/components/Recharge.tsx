@@ -23,49 +23,51 @@ export default function Recharge() {
         return (
             <main className="main-section">
                 <section className="dashboard">
-                    <h2>Recargar</h2>
-                    <form
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            LoadingSourceUseCase.setLoading();
-                            const galleons = e.currentTarget.galleons;
-                            const sickles = e.currentTarget.sickles;
-                            const knuts = e.currentTarget.knuts;
+                    <div className="scheme">
+                        <h2>Recargar</h2>
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                LoadingSourceUseCase.setLoading();
+                                const galleons = e.currentTarget.galleons;
+                                const sickles = e.currentTarget.sickles;
+                                const knuts = e.currentTarget.knuts;
 
-                            const nGalleons = parseInt(galleons.value);
-                            const nSickles = parseInt(sickles.value);
-                            const nKnuts = parseInt(knuts.value);
+                                const nGalleons = parseInt(galleons.value);
+                                const nSickles = parseInt(sickles.value);
+                                const nKnuts = parseInt(knuts.value);
 
-                            if (nGalleons >= 0 && nSickles >= 0 && nSickles < 17 && nKnuts >= 0 && nKnuts < 29) {
-                                MoneyManageInstance.rechargeMoney(
-                                    { galleons: nGalleons, knuts: nKnuts, sickles: nSickles },
-                                    loginData,
-                                ).finally(() => {
+                                if (nGalleons >= 0 && nSickles >= 0 && nSickles < 17 && nKnuts >= 0 && nKnuts < 29) {
+                                    MoneyManageInstance.rechargeMoney(
+                                        { galleons: nGalleons, knuts: nKnuts, sickles: nSickles },
+                                        loginData,
+                                    ).finally(() => {
+                                        LoadingSourceUseCase.unsetLoading();
+                                    });
+                                } else {
+                                    nGalleons < 0 && (galleons.className = 'error-input');
+                                    nSickles < 0 && (sickles.className = 'error-input');
+                                    nSickles > 16 && (sickles.className = 'error-input');
+                                    nKnuts < 0 && (knuts.className = 'error-input');
+                                    nKnuts > 28 && (knuts.className = 'error-input');
                                     LoadingSourceUseCase.unsetLoading();
-                                });
-                            } else {
-                                nGalleons < 0 && (galleons.className = 'error-input');
-                                nSickles < 0 && (sickles.className = 'error-input');
-                                nSickles > 16 && (sickles.className = 'error-input');
-                                nKnuts < 0 && (knuts.className = 'error-input');
-                                nKnuts > 28 && (knuts.className = 'error-input');
-                                LoadingSourceUseCase.unsetLoading();
-                            }
-                        }}
-                    >
-                        <label htmlFor="galleons">Galleons:</label>
-                        <input type="number" min={0} step={1} name="galleons" />
+                                }
+                            }}
+                        >
+                            <label htmlFor="galleons">Galleons:</label>
+                            <input type="number" min={0} step={1} name="galleons" />
 
-                        <label htmlFor="sickles">Sickles:</label>
-                        <input type="number" min={0} max={16} step={1} name="sickles" />
+                            <label htmlFor="sickles">Sickles:</label>
+                            <input type="number" min={0} max={16} step={1} name="sickles" />
 
-                        <label htmlFor="knuts">Knuts:</label>
-                        <input type="number" min={0} max={28} step={1} name="knuts" />
+                            <label htmlFor="knuts">Knuts:</label>
+                            <input type="number" min={0} max={28} step={1} name="knuts" />
 
-                        <br />
-                        <br />
-                        <input type="submit" className="magic-button" value="Recargar" />
-                    </form>
+                            <br />
+                            <br />
+                            <input type="submit" value="Recargar" />
+                        </form>
+                    </div>
                 </section>
             </main>
         );

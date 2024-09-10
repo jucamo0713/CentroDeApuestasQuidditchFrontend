@@ -118,7 +118,7 @@ export default function AppNavigator() {
                         <input type="text" id="email" name="email" />
                         <label htmlFor="password">Password: </label>
                         <input type="password" id="password" name="password" />
-                        <input type="submit" className="magic-button" value="ENTRAR" />
+                        <input type="submit" value="Entrar" />
                         <a href={AppRoutesConstants.RECOVER_ACCOUNT_PAGE}>¿Olvidaste tu Contraseña?</a>
                     </form>
                 )}

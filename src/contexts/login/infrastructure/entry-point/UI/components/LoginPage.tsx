@@ -54,7 +54,7 @@ export function LoginPage() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
-                        <input type="submit" className="magic-button" value="ENTRAR" />
+                        <input type="submit" value="Entrar" />
                     </form>
                     <a href={AppRoutesConstants.RECOVER_ACCOUNT_PAGE}>¿Olvidaste tu contraseña?</a>
                 </div>

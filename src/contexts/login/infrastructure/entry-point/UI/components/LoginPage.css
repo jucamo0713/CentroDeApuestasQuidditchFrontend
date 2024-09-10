@@ -1,5 +1,3 @@
-
-
 /* Estilo general para los inputs */
 input[type="password"],
 input[type="email"]{
@@ -43,3 +41,4 @@ a:hover {
     color: #ff4d4d;
     margin-bottom: 15px;
 }
+
