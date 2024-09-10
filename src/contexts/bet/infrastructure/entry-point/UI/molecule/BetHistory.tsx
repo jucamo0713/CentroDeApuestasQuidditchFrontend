@@ -26,7 +26,7 @@ export function BetHistory(params: { loginData: SessionData }) {
             <div className="scheme">
                 <h2>Historial de Apuestas</h2>
                 <div>
-                    <table>
+                    <table className="results-table">
                         <thead>
                             <tr>
                                 <th>#</th>

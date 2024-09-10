@@ -71,3 +71,35 @@ td input[type="button"]:hover {
     margin-left: 15px;
     color: #fff;
 }
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .results-table th, .results-table td {
+        padding: 10px;
+        font-size: 12px; /* Reducir tamaño de fuente */
+    }
+
+    .pagination-container button {
+        font-size: 12px;
+        padding: 8px 12px; /* Ajustar el botón a pantallas móviles */
+    }
+
+    .pagination-info {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .results-table th, .results-table td {
+        font-size: 10px; /* Aún más pequeña la fuente en pantallas móviles */
+    }
+
+    .pagination-container button {
+        font-size: 10px;
+        padding: 6px 10px; /* Ajustar el botón a pantallas móviles */
+    }
+
+    .pagination-info {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,51 @@
+/*Estilo para la tabla*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #b3923b;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #3a3a3a; /* Cambia el color cuando pasas el ratón sobre la fila */
+}
+
+td input[type="button"] {
+    background-color: #b3923b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+td input[type="button"]:hover {
+    background-color: #c4a44b; /* Color al pasar el ratón sobre el botón */
+}
+
+/* Media Queries para pantallas pequeñas */
+
+@media (max-width: 768px) {
+    .matches-table th, .matches-table td {
+        padding: 10px;
+        font-size: 12px; /* Reducir tamaño de fuente */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .matches-table th, .matches-table td {
+        font-size: 10px; /* Aún más pequeña la fuente en pantallas móviles */
+    }
+}

@@ -1,0 +1,25 @@
+[
+    {
+        "teamA": "Gryffindor",
+        "teamB": "Slytherin",
+        "teamWinning": "Gryffindor",
+        "result": "2 - 1"
+    },
+    {
+        "teamA": "Argentina",
+        "teamB": "Brasil",
+        "teamWinning": "Brasil",
+        "result": "2 - 3"
+    },
+    {
+        "teamA": "Perú",
+        "teamB": "Holanda",
+        "teamWinning": "Holanda",
+        "result": "2 - 5"
+    },    {
+        "teamA": "Colombia",
+        "teamB": "Argentina",
+        "teamWinning": "Colombia",
+        "result": "10 - 1"
+    }
+]
