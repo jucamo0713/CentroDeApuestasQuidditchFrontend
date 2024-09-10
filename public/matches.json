@@ -1,0 +1,52 @@
+[
+    {
+      "teamA": "Appleby Arrows",
+      "teamB": "Avispas de Wimbourne",
+      "A" : "3.5",
+      "B" : "1.4",
+      "empate": "2"
+    },
+    {
+      "teamA": "Gryffindor",
+      "teamB": "Slytherin",
+      "A" : "3.5",
+      "B" : "1.4",
+      "empate": "2"
+    },
+    {
+      "teamA": "Argentina",
+      "teamB": "Brasil",
+      "A" : "3.5",
+      "B" : "1.4",
+      "empate": "2"
+    },
+    {
+        "teamA": "Perú",
+        "teamB": "Brasil",
+        "A" : "3.5",
+        "B" : "1.4",
+        "empate": "2"
+    },
+    {
+        "teamA": "Irlanda",
+        "teamB": "Nueva Zelanda",
+        "A" : "3.5",
+        "B" : "1.4",
+        "empate": "2"
+    },
+    {
+        "teamA": "Hufflepuff",
+        "teamB": "Ravenclaw",
+        "A" : "3.5",
+        "B" : "1.4",
+        "empate": "2"
+    },
+    {
+        "teamA": "Gryffindor",
+        "teamB": "Hufflepuff",
+        "A" : "3.5",
+        "B" : "1.4",
+        "empate": "2"
+    }
+  ]
+  

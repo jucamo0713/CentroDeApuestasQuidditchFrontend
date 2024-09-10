@@ -1,41 +1,55 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
+import './Matches.css';
 
-//TODO
+// Definimos el tipo para los datos de los partidos
+interface MatchData {
+    A: '';
+    B: '';
+    empate: '';
+    teamA: '';
+    teamB: '';
+}
+
 export function Matches() {
+    const [matches, setMatches] = useState<MatchData[]>([]);
+
+    useEffect(() => {
+        // Cargar el archivo JSON
+        fetch('/matches.json') // Ajusta el path dependiendo de donde tengas tu archivo
+            .then((response) => response.json())
+            .then((data) => setMatches(data))
+            .catch((error) => console.error('Error al cargar los datos de los partidos:', error));
+    }, []);
+
     return (
         <main className="main-section">
-            <section id="dashboard">
-                <div className="scheme">
-                    <h3>Equipo A vs. Equipo B</h3>
-                    <p>Estadísticas Previas, Cuotas de Apuestas, etc.</p>
-                    <br />
-                    <Link to={AppRoutesConstants.MATCH_DETAIL}>
-                        <input type="button" value="Detalle" />
-                    </Link>
-                </div>
-            </section>
-            <section id="dashboard">
-                <div className="scheme">
-                    <h3>Equipo C vs. Equipo D</h3>
-                    <p>Estadísticas Previas, Cuotas de Apuestas, etc.</p>
-                    <br />
-                    <Link to={AppRoutesConstants.MATCH_DETAIL}>
-                        <input type="button" value="Detalle" />
-                    </Link>
-                </div>
-            </section>
-            <section id="dashboard">
-                <div className="scheme">
-                    <h3>Equipo R vs. Equipo E</h3>
-                    <p>Estadísticas Previas, Cuotas de Apuestas, etc.</p>
-                    <br />
-                    <Link to={AppRoutesConstants.MATCH_DETAIL}>
-                        <input type="button" value="Detalle" />
-                    </Link>
-                </div>
-            </section>
+            {matches.map((match, index) => (
+                <section id="dashboard" key={index}>
+                    <div className="scheme">
+                        <h3>
+                            {match.teamA} vs. {match.teamB}
+                        </h3>
+                        <button className="ApostarButton" onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}>
+                            {match.teamA}: {match.A}
+                        </button>
+
+                        <button className="ApostarButton" onClick={() => alert('Empate seleccionado')}>
+                            Empate: {match.empate}
+                        </button>
+
+                        <button className="ApostarButton" onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}>
+                            {match.teamB}: {match.B}
+                        </button>
+
+                        <br />
+                        <Link to={AppRoutesConstants.MATCH_DETAIL}>
+                            <input type="button" value="Detalle" />
+                        </Link>
+                    </div>
+                </section>
+            ))}
         </main>
     );
 }

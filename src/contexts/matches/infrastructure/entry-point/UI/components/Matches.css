@@ -1,0 +1,32 @@
+/*main section matches*/
+
+.main-section-matches {
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1c1613;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #fff;
+    min-height: 70vh;
+    gap: 20px;
+}
+
+/*Tarjetas*/
+
+.scheme-matches {
+    background-color: var(--body-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    min-width: 30vh;
+}
+
+.scheme-matches p{
+    font-size: 1rem;
+    line-height: 1;
+}
