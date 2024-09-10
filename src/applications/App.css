@@ -4,13 +4,15 @@
 }
 
 input[type="submit"] {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
+    background-color: #b3923b;
+    color: white;
     border: none;
-    font-size: 0.8rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
     font-weight: bold;
-    transition: box-shadow 0.3s ease;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
@@ -21,17 +23,32 @@ input[type="submit"]:hover {
     border: var(--accent-color) dotted 2px !important;
 }
 
-.main-section section {
+.main-section {
     margin: 20px;
     padding: 20px;
-    background-color: var(--section-color);
-    border-radius: 8px;
     box-sizing: border-box;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1c1613;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     display: flex;
     flex-flow: column;
     align-items: center;
     color: #fff;
+    min-height: 100vh;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.scheme {
+    background-color: var(--body-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 thead {
@@ -43,15 +60,35 @@ tbody {
 }
 
 input[type="button"] {
-    background-color: var(--secondary-color);
-    color: var(--accent-color);
+    display: inline-block;
+    background-color: #b3923b;
+    color: #fff;
     border: none;
-    font-size: 0.8rem;
-    font-weight: bold;
-    transition: box-shadow 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
 }
 
 input[type="button"]:hover {
     box-shadow: 0 1px 10px var(--accent-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.dashboard h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.dashboard p {
+    font-size: 1rem;
+    line-height: 1.5;
 }
