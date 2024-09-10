@@ -1,5 +1,6 @@
 import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { useEffect, useState } from 'react';
+import './ProfileForm.css';
 import { UserUseCaseInstance } from '../../../../application/dependencyInjection/UserUseCaseInstance';
 import { User } from '../../../../domain/model/User';
 import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
@@ -99,10 +100,22 @@ export function ProfileForm(params: { loginData: SessionData }) {
     } else {
         return (
             <>
-                <p>Nombre: {profile.fullName}</p>
-                <p>Email: {profile.email}</p>
-                <p>Usuario: {profile.username}</p>
-                <p>Fecha de nacimiento: {profile.dateBirth.toLocaleDateString()}</p>
+                <div>
+                    <label htmlFor="fullName">Nombre:</label>
+                    <p>{profile.fullName}</p>
+                </div>
+                <div>
+                    <label htmlFor="email">Email:</label>
+                    <p>{profile.email}</p>
+                </div>
+                <div>
+                    <label htmlFor="name">Usuario:</label>
+                    <p>{profile.username}</p>
+                </div>
+                <div>
+                    <label htmlFor="birthDate">Fecha de nacimiento:</label>
+                    <p>{profile.dateBirth.toLocaleDateString()}</p>
+                </div>
                 <input
                     type="submit"
                     className="magic-button"
