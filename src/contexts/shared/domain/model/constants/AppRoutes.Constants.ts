@@ -10,6 +10,6 @@ export enum AppRoutesConstants {
     RECHARGE = '/recharge-account',
     RECOVER_ACCOUNT_PAGE = '/recover-password',
     RESULTS_PAGE = '/results',
-    SIGNUP = '/signup',
+    SIGNUP_PAGE = '/signup',
     TEAMS_PAGE = '/teams',
 }

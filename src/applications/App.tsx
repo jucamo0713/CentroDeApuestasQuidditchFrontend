@@ -14,6 +14,7 @@ import { Matches } from '../contexts/matches/infrastructure/entry-point/UI/compo
 import { Results } from '../contexts/results/infrastructure/entry-point/UI/components/Results';
 import { Favorites } from '../contexts/favorites/infrastructure/entry-point/UI/components/Favorites';
 import { LoginPage } from '../contexts/login/infrastructure/entry-point/UI/components/LoginPage';
+import { SignUp } from '../contexts/signup/infrastructure/entry-points/UI/components/SignUp';
 import { Home } from '../contexts/shared/infrastructure/entry-points/UI/components/Home';
 
 const routes: RouteObject[] = [
@@ -60,6 +61,10 @@ const routes: RouteObject[] = [
     {
         element: <LoginPage />,
         path: AppRoutesConstants.LOGIN_PAGE,
+    },
+    {
+        element: <SignUp />,
+        path: AppRoutesConstants.SIGNUP_PAGE,
     },
     {
         element: <div>Error 404 la pagina solicitada no existe</div>,

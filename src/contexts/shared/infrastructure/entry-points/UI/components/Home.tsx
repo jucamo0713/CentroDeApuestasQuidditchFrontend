@@ -47,7 +47,7 @@ export function Home() {
                         <Link to={AppRoutesConstants.LOGIN_PAGE}>
                             <input type="button" value="Iniciar sesión" />
                         </Link>
-                        <Link to={AppRoutesConstants.SIGNUP}>
+                        <Link to={AppRoutesConstants.SIGNUP_PAGE}>
                             <input type="button" value="Regístrate" />
                         </Link>
                     </div>
