@@ -5,6 +5,10 @@ import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
 import { useNavigate } from 'react-router-dom';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
+import './Recharge.css';
+import { GalleonIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/galleons/GalleonIcon';
+import { KnutIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/knuts/KnutIcon';
+import { SicklesIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/sickles/SicklesIcon';
 
 export default function Recharge() {
     const navigate = useNavigate();
@@ -27,6 +31,11 @@ export default function Recharge() {
                 <section className="dashboard">
                     <div className="scheme">
                         <h2>Recargar</h2>
+                        <p>
+                            <GalleonIcon />
+                            <SicklesIcon />
+                            <KnutIcon />
+                        </p>
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
@@ -61,9 +70,15 @@ export default function Recharge() {
                                 value={selectedCurrency}
                                 onChange={(e) => setSelectedCurrency(e.target.value)}
                             >
-                                <option value="galleons">Galleons</option>
-                                <option value="sickles">Sickles</option>
-                                <option value="knuts">Knuts</option>
+                                <option value="galleons">
+                                    <GalleonIcon /> | Galleons
+                                </option>
+                                <option value="sickles">
+                                    <SicklesIcon /> | Sickles
+                                </option>
+                                <option value="knuts">
+                                    <KnutIcon /> | Knuts
+                                </option>
                             </select>
 
                             <br />

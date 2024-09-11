@@ -38,7 +38,7 @@ export function LoginPage() {
                     <form onSubmit={handleLogin}>
                         <label htmlFor="email">Correo:</label>
                         <input
-                            type="text"
+                            type="email"
                             id="email"
                             name="email"
                             value={email}
@@ -54,8 +54,10 @@ export function LoginPage() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
+                        <br />
                         <input type="submit" value="Entrar" />
                     </form>
+                    <br />
                     <a href={AppRoutesConstants.RECOVER_ACCOUNT_PAGE}>¿Olvidaste tu contraseña?</a>
                 </div>
             </section>

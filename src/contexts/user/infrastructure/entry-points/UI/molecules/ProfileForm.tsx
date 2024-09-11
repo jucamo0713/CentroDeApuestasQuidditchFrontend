@@ -4,6 +4,7 @@ import './ProfileForm.css';
 import { UserUseCaseInstance } from '../../../../application/dependencyInjection/UserUseCaseInstance';
 import { User } from '../../../../domain/model/User';
 import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
+import './ProfileForm.css';
 
 export function ProfileForm(params: { loginData: SessionData }) {
     const [edit, setEdit] = useState(false);

@@ -3,6 +3,7 @@
 input[type="number"],
 select{
     width: 100%; /* Ocupa el 100% del espacio disponible */
+    max-width: 400px; /* Limita el ancho máximo a 400px */
     padding: 10px;
     margin: 10px 0;
     box-sizing: border-box;
