@@ -2,115 +2,143 @@
   "britain_ireland": [
     {
       "name": "Appleby Arrows",
-      "description": "Equipo del norte de inglaterra fundado en 1612. Mayor momento de gloria en 1923. Hay una tradición rivalidad entre los Arrows y las Avispas de Wimbourne."
+      "description": "Equipo del norte de inglaterra fundado en 1612. Mayor momento de gloria en 1923. Hay una tradición rivalidad entre los Arrows y las Avispas de Wimbourne.",
+      "image": "/images/Appleby_Arrows.jpeg"
     },
     {
       "name": "Avispas de Wimbourne",
-      "description": "Fundado en 1312. ha ganado dieciocho veces la liga y ha llegado hasta dos semifinales de la Eurcopa."
+      "description": "Fundado en 1312. ha ganado dieciocho veces la liga y ha llegado hasta dos semifinales de la Eurcopa.",
+      "image": "/images/Avispas_Wimbourne.jpeg"
     },
     {
       "name": "Caerphilly Catapults",
-      "description": "Los Catapults de Gales se formaron en 1402. Tienen dieciocho triunfos en la liga y un célebre triunfo en la final de la copa Europea de 1956."
+      "description": "Los Catapults de Gales se formaron en 1402. Tienen dieciocho triunfos en la liga y un célebre triunfo en la final de la copa Europea de 1956.",
+      "image": "/images/Caerphilly_Catapults.jpeg"
     },
     {
       "name": "Chudley Cannons",
-      "description": "Han ganado la liga en veitiuna ocasiones, la ultima vez fue en 1892."
+      "description": "Han ganado la liga en veitiuna ocasiones, la ultima vez fue en 1892.",
+      "image": "/images/Chudley_Cannons.jpeg"
+      
     },
     {
       "name": "Falmouth Falcons",
-      "description": "Conocidos por jugar duro."
+      "description": "Conocidos por jugar duro.",
+      "image": "/images/Falmouth_Falcons.jpeg"
     },
     {
       "name": "Holyhead Harpies",
-      "description": "Equipo Galés fundado en 1203. Único por sólo ha fichado brujas en toda su historia."
+      "description": "Equipo Galés fundado en 1203. Único por sólo ha fichado brujas en toda su historia.",
+      "image": "/images/Holyhead_Harpies.jpeg"
     },
     {
       "name": "Kenmare Kestrels",
-      "description": "Equipo Irlandés fundado en 1291."
+      "description": "Equipo Irlandés fundado en 1291.",
+      "image": "/images/Kenmare_Kestrels.jpeg"
     },
     {
       "name": "Montrose Magpies",
-      "description": "Es el equipo que acumula más éxitos en la historia de la liga de Irlanda y Gran Bretaña, treinta y dos ediciones. Han sido dos veces campeones de Europa."
+      "description": "Es el equipo que acumula más éxitos en la historia de la liga de Irlanda y Gran Bretaña, treinta y dos ediciones. Han sido dos veces campeones de Europa.",
+      "image": "/images/Montrose_Magpies.jpeg"
     },
     {
       "name": "Murciélagos de Ballycastle",
-      "description": "Ha ganado la Liga de quidditch un total de veintiseis veces, lo que lo convierte en el segundo equipo más éxito en la historia de la competición.. Es el equipo más famoso de Irlanda del Norte."
+      "description": "Ha ganado la Liga de quidditch un total de veintiseis veces, lo que lo convierte en el segundo equipo más éxito en la historia de la competición.. Es el equipo más famoso de Irlanda del Norte.",
+      "image": "/images/Murcielagos_Ballycastle.jpeg"
     },
     {
       "name": "Pride of Portree",
-      "description": "Fundado en 1292 en la Isla de Skye. Llamados como Los Prides han ganado dos veces La Liga en 1960."
+      "description": "Fundado en 1292 en la Isla de Skye. Llamados como Los Prides han ganado dos veces La Liga en 1960.",
+      "image": "/images/Pride_Portree.jpeg"
     },
     {
       "name": "Puddlemere United",
-      "description": "Fundado en 1163 es el equipo más antiguo de La Liga. Posee veintedós titulos de la Liga y dos de la Copa de Europa."
+      "description": "Fundado en 1163 es el equipo más antiguo de La Liga. Posee veintedós titulos de la Liga y dos de la Copa de Europa.",
+      "image": "/images/Puddlemere_United.jpeg"
     },
     {
       "name": "Tutshill Tornados",
-      "description": "Fundado en 1520, disfrutó de su mayor racha de éxitos a principios del siglo XX, cuando ganó el campeonato de Liga cinco veves seguidas, un record tanto en inglaterra como en Gran Bretaña."
+      "description": "Fundado en 1520, disfrutó de su mayor racha de éxitos a principios del siglo XX, cuando ganó el campeonato de Liga cinco veves seguidas, un record tanto en inglaterra como en Gran Bretaña.",
+      "image": "/images/Tutshill_Tornados.jpeg"
     },
     {
       "name": "Wigtown Wanderers",
-      "description": "Fundado en 1422 por los siete descendientes de un mago carnicero llamado Walter Parkin."
+      "description": "Fundado en 1422 por los siete descendientes de un mago carnicero llamado Walter Parkin.",
+      "image": "/images/Wigtown_Wanderers.jpeg"
     }
   ],
   "hogwarts": [
     {
       "name": "Gryffindor",
-      "description": "Es una parte emblemática de la historia de Hogwarts. Fundado hace siglos junto con la fundación de la escuela misma, el equipo de Gryffindor ha sido un contendiente destacado en el mundo del Quidditch durante generaciones."
+      "description": "Es una parte emblemática de la historia de Hogwarts. Fundado hace siglos junto con la fundación de la escuela misma, el equipo de Gryffindor ha sido un contendiente destacado en el mundo del Quidditch durante generaciones.",
+      "image": "/images/Gryffindor.jpeg"
     },
     {
       "name": "Hufflepuff",
-      "description": "Conocido por su lealtad, trabajo en equipo y fair play en el campo de juego. Aunque no se destaquen tanto como otros equipos en cuanto a trofeos y campeonatos, los Hufflepuff son admirados por su ética de juego y su dedicación."
+      "description": "Conocido por su lealtad, trabajo en equipo y fair play en el campo de juego. Aunque no se destaquen tanto como otros equipos en cuanto a trofeos y campeonatos, los Hufflepuff son admirados por su ética de juego y su dedicación.",
+      "image": "/images/Hufflepuff.jpeg"
     },
     {
       "name": "Ravenclaw",
-      "description": "Conocido por su lealtad, trabajo en equipo y fair play en el campo de juego. Aunque no se destaquen tanto como otros equipos en cuanto a trofeos y campeonatos, los Hufflepuff son admirados por su ética de juego y su dedicación."
+      "description": "Conocido por su lealtad, trabajo en equipo y fair play en el campo de juego. Aunque no se destaquen tanto como otros equipos en cuanto a trofeos y campeonatos, los Hufflepuff son admirados por su ética de juego y su dedicación.",
+      "image": "/images/Ravenclaw.jpeg"
     },
     {
       "name": "Slytherin",
-      "description": "Conocido por su astucia, ambición y determinación en el campo de juego. Ha mantenido una reputación de excelencia y competitividad en el Quidditch, gracias a su enfoque en la estrategia y la victoria a cualquier costo."
+      "description": "Conocido por su astucia, ambición y determinación en el campo de juego. Ha mantenido una reputación de excelencia y competitividad en el Quidditch, gracias a su enfoque en la estrategia y la victoria a cualquier costo.",
+      "image": "/images/Slytherin.jpeg"
     }
   ],
   "world": [
     {
       "name": "Argentina",
-      "description": ""
+      "description": "",
+      "image": "/images/Argentina.jpeg"
     },
     {
       "name": "Brasil",
-      "description": ""
+      "description": "",
+      "image": "/images/Brasil.jpeg"
     },
     {
       "name": "Perú",
-      "description": ""
+      "description": "",
+      "image": "/images/Peru.jpeg"
     },
     {
       "name": "Colombia",
-      "description": ""
+      "description": "",
+      "image": "/images/Colombia.jpeg"
     },
     {
       "name": "Noruega",
-      "description": ""
+      "description": "",
+      "image": "/images/Noruega.jpeg"
     },
     {
       "name": "Irlanda",
-      "description": ""
+      "description": "",
+      "image": "/images/Irlanda.jpeg"
     },
     {
       "name": "Nueva Zelanda",
-      "description": ""
+      "description": "",
+      "image": "/images/Nueva_Zelanda.jpeg"
     },
     {
       "name": "Australia",
-      "description": ""
+      "description": "",
+      "image": "/images/Australia.jpeg"
     },
     {
       "name": "Uganda",
-      "description": ""
+      "description": "",
+      "image": "/images/Uganda.jpeg"
     },
     {
       "name": "Canadá",
-      "description": ""
+      "description": "",
+      "image": "/images/Canada.jpeg"
     }
   ]
 }
