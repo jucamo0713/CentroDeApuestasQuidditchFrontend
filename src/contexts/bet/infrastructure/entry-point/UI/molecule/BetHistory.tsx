@@ -26,13 +26,14 @@ export function BetHistory(params: { loginData: SessionData }) {
             <div className="scheme">
                 <h2>Historial de Apuestas</h2>
                 <div>
-                    <table className="results-table">
+                    <table className="history-table">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Valor</th>
                                 <th>Multiplicador</th>
                                 <th>Estado</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,16 +41,17 @@ export function BetHistory(params: { loginData: SessionData }) {
                                 const status = v.finished ? (v.won ? 'Ganada' : 'Perdida') : 'Pendiente';
                                 return (
                                     <tr key={i}>
-                                        <td>{1 + i + (page - 1) * LIMIT_PER_PAGE}</td>
-                                        <td>
+                                        <td data-label="#">{1 + i + (page - 1) * LIMIT_PER_PAGE}</td>
+                                        <td data-label="Valor">
                                             <Balance
                                                 galleons={v.value.galleons}
                                                 knuts={v.value.knuts}
                                                 sickles={v.value.sickles}
                                             />
                                         </td>
-                                        <td>x{v.profit}</td>
+                                        <td data-label="Multiplicador">x{v.profit}</td>
                                         <td
+                                            data-label="Estado"
                                             style={{
                                                 color:
                                                     status === 'Ganada'
@@ -61,7 +63,7 @@ export function BetHistory(params: { loginData: SessionData }) {
                                         >
                                             {status}
                                         </td>
-                                        <td>
+                                        <td data-label="Acción">
                                             <input
                                                 type="button"
                                                 value="Detalle"

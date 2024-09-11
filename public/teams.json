@@ -1,0 +1,116 @@
+{
+  "britain_ireland": [
+    {
+      "name": "Appleby Arrows",
+      "description": "Equipo del norte de inglaterra fundado en 1612. Mayor momento de gloria en 1923. Hay una tradición rivalidad entre los Arrows y las Avispas de Wimbourne."
+    },
+    {
+      "name": "Avispas de Wimbourne",
+      "description": "Fundado en 1312. ha ganado dieciocho veces la liga y ha llegado hasta dos semifinales de la Eurcopa."
+    },
+    {
+      "name": "Caerphilly Catapults",
+      "description": "Los Catapults de Gales se formaron en 1402. Tienen dieciocho triunfos en la liga y un célebre triunfo en la final de la copa Europea de 1956."
+    },
+    {
+      "name": "Chudley Cannons",
+      "description": "Han ganado la liga en veitiuna ocasiones, la ultima vez fue en 1892."
+    },
+    {
+      "name": "Falmouth Falcons",
+      "description": "Conocidos por jugar duro."
+    },
+    {
+      "name": "Holyhead Harpies",
+      "description": "Equipo Galés fundado en 1203. Único por sólo ha fichado brujas en toda su historia."
+    },
+    {
+      "name": "Kenmare Kestrels",
+      "description": "Equipo Irlandés fundado en 1291."
+    },
+    {
+      "name": "Montrose Magpies",
+      "description": "Es el equipo que acumula más éxitos en la historia de la liga de Irlanda y Gran Bretaña, treinta y dos ediciones. Han sido dos veces campeones de Europa."
+    },
+    {
+      "name": "Murciélagos de Ballycastle",
+      "description": "Ha ganado la Liga de quidditch un total de veintiseis veces, lo que lo convierte en el segundo equipo más éxito en la historia de la competición.. Es el equipo más famoso de Irlanda del Norte."
+    },
+    {
+      "name": "Pride of Portree",
+      "description": "Fundado en 1292 en la Isla de Skye. Llamados como Los Prides han ganado dos veces La Liga en 1960."
+    },
+    {
+      "name": "Puddlemere United",
+      "description": "Fundado en 1163 es el equipo más antiguo de La Liga. Posee veintedós titulos de la Liga y dos de la Copa de Europa."
+    },
+    {
+      "name": "Tutshill Tornados",
+      "description": "Fundado en 1520, disfrutó de su mayor racha de éxitos a principios del siglo XX, cuando ganó el campeonato de Liga cinco veves seguidas, un record tanto en inglaterra como en Gran Bretaña."
+    },
+    {
+      "name": "Wigtown Wanderers",
+      "description": "Fundado en 1422 por los siete descendientes de un mago carnicero llamado Walter Parkin."
+    }
+  ],
+  "hogwarts": [
+    {
+      "name": "Gryffindor",
+      "description": "Es una parte emblemática de la historia de Hogwarts. Fundado hace siglos junto con la fundación de la escuela misma, el equipo de Gryffindor ha sido un contendiente destacado en el mundo del Quidditch durante generaciones."
+    },
+    {
+      "name": "Hufflepuff",
+      "description": "Conocido por su lealtad, trabajo en equipo y fair play en el campo de juego. Aunque no se destaquen tanto como otros equipos en cuanto a trofeos y campeonatos, los Hufflepuff son admirados por su ética de juego y su dedicación."
+    },
+    {
+      "name": "Ravenclaw",
+      "description": "Conocido por su lealtad, trabajo en equipo y fair play en el campo de juego. Aunque no se destaquen tanto como otros equipos en cuanto a trofeos y campeonatos, los Hufflepuff son admirados por su ética de juego y su dedicación."
+    },
+    {
+      "name": "Slytherin",
+      "description": "Conocido por su astucia, ambición y determinación en el campo de juego. Ha mantenido una reputación de excelencia y competitividad en el Quidditch, gracias a su enfoque en la estrategia y la victoria a cualquier costo."
+    }
+  ],
+  "world": [
+    {
+      "name": "Argentina",
+      "description": ""
+    },
+    {
+      "name": "Brasil",
+      "description": ""
+    },
+    {
+      "name": "Perú",
+      "description": ""
+    },
+    {
+      "name": "Colombia",
+      "description": ""
+    },
+    {
+      "name": "Noruega",
+      "description": ""
+    },
+    {
+      "name": "Irlanda",
+      "description": ""
+    },
+    {
+      "name": "Nueva Zelanda",
+      "description": ""
+    },
+    {
+      "name": "Australia",
+      "description": ""
+    },
+    {
+      "name": "Uganda",
+      "description": ""
+    },
+    {
+      "name": "Canadá",
+      "description": ""
+    }
+  ]
+}

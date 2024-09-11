@@ -25,31 +25,41 @@ export function Matches() {
 
     return (
         <main className="main-section">
-            {matches.map((match, index) => (
-                <section id="dashboard" key={index}>
-                    <div className="scheme">
-                        <h3>
-                            {match.teamA} vs. {match.teamB}
-                        </h3>
-                        <button className="ApostarButton" onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}>
-                            {match.teamA}: {match.A}
-                        </button>
+            {matches.length > 0 ? (
+                matches.map((match, index) => (
+                    <section id="dashboard" key={index}>
+                        <div className="scheme">
+                            <h3>
+                                {match.teamA} vs. {match.teamB}
+                            </h3>
+                            <button
+                                className="ApostarButton"
+                                onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}
+                            >
+                                {match.teamA}: {match.A}
+                            </button>
 
-                        <button className="ApostarButton" onClick={() => alert('Empate seleccionado')}>
-                            Empate: {match.empate}
-                        </button>
+                            <button className="ApostarButton" onClick={() => alert('Empate seleccionado')}>
+                                Empate: {match.empate}
+                            </button>
 
-                        <button className="ApostarButton" onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}>
-                            {match.teamB}: {match.B}
-                        </button>
+                            <button
+                                className="ApostarButton"
+                                onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}
+                            >
+                                {match.teamB}: {match.B}
+                            </button>
 
-                        <br />
-                        <Link to={AppRoutesConstants.MATCH_DETAIL}>
-                            <input type="button" value="Detalle" />
-                        </Link>
-                    </div>
-                </section>
-            ))}
+                            <br />
+                            <Link to={AppRoutesConstants.MATCH_DETAIL}>
+                                <input type="button" value="Detalle" />
+                            </Link>
+                        </div>
+                    </section>
+                ))
+            ) : (
+                <p>Cargando partidos...</p>
+            )}
         </main>
     );
 }
