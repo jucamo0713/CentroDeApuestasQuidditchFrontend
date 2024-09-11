@@ -8,6 +8,8 @@ interface MatchData {
     A: '';
     B: '';
     empate: '';
+    imageA: '';
+    imageB: '';
     teamA: '';
     teamB: '';
 }
@@ -25,41 +27,44 @@ export function Matches() {
 
     return (
         <main className="main-section">
-            {matches.length > 0 ? (
-                matches.map((match, index) => (
-                    <section id="dashboard" key={index}>
-                        <div className="scheme">
+            <section className="dashboard-matches">
+                {matches.length > 0 ? (
+                    matches.map((match, index) => (
+                        <div className="scheme" key={index}>
                             <h3>
                                 {match.teamA} vs. {match.teamB}
                             </h3>
-                            <button
-                                className="ApostarButton"
-                                onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}
-                            >
-                                {match.teamA}: {match.A}
-                            </button>
+                            <img src={match.imageA} alt={match.imageA} />
+                            <img src={match.imageB} alt={match.imageB} />
+                            <div className="buttons-container">
+                                <button
+                                    className="ApostarButton"
+                                    onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}
+                                >
+                                    {match.teamA}: {match.A}
+                                </button>
 
-                            <button className="ApostarButton" onClick={() => alert('Empate seleccionado')}>
-                                Empate: {match.empate}
-                            </button>
+                                <button className="ApostarButton" onClick={() => alert('Empate seleccionado')}>
+                                    Empate: {match.empate}
+                                </button>
 
-                            <button
-                                className="ApostarButton"
-                                onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}
-                            >
-                                {match.teamB}: {match.B}
-                            </button>
+                                <button
+                                    className="ApostarButton"
+                                    onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}
+                                >
+                                    {match.teamB}: {match.B}
+                                </button>
 
-                            <br />
-                            <Link to={AppRoutesConstants.MATCH_DETAIL}>
-                                <input type="button" value="Detalle" />
-                            </Link>
+                                <Link to={AppRoutesConstants.MATCH_DETAIL}>
+                                    <input type="button" value="Detalle" />
+                                </Link>
+                            </div>
                         </div>
-                    </section>
-                ))
-            ) : (
-                <p>Cargando partidos...</p>
-            )}
+                    ))
+                ) : (
+                    <p>Cargando partidos...</p>
+                )}
+            </section>
         </main>
     );
 }

@@ -2,9 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
+import './Teams.css';
 
 interface Team {
     description: '';
+    image: '';
     name: '';
 }
 
@@ -39,11 +41,12 @@ export function Teams() {
 
     return (
         <main className="main-section">
-            <section className="dashboard">
-                <h2>Equipos de Gran Bretaña e Irlanda</h2>
+            <h2>Equipos de Gran Bretaña e Irlanda</h2>
+            <section className="dashboard-teams">
                 {teamsData.britain_ireland && teamsData.britain_ireland.length > 0 ? (
                     teamsData.britain_ireland.map((team, index) => (
                         <div className="scheme" key={index}>
+                            <img src={team.image} alt={team.name} />
                             <h3>{team.name}</h3>
                             <p>{team.description}</p>
                             {loginData && <input type="button" value="Agregar a Favoritos" onClick={addToFavorites} />}
@@ -54,11 +57,12 @@ export function Teams() {
                 )}
             </section>
 
-            <section className="dashboard">
-                <h2>Equipos de Hogwarts</h2>
+            <h2>Equipos de Hogwarts</h2>
+            <section className="dashboard-teams">
                 {teamsData.hogwarts && teamsData.hogwarts.length > 0 ? (
                     teamsData.hogwarts.map((team, index) => (
                         <div className="scheme" key={index}>
+                            <img src={team.image} alt={team.name} />
                             <h3>{team.name}</h3>
                             <p>{team.description}</p>
                             {loginData && <input type="button" value="Agregar a Favoritos" onClick={addToFavorites} />}
@@ -69,11 +73,12 @@ export function Teams() {
                 )}
             </section>
 
-            <section className="dashboard">
-                <h2>Equipos del mundo</h2>
+            <h2>Equipos del mundo</h2>
+            <section className="dashboard-teams">
                 {teamsData.world && teamsData.world.length > 0 ? (
                     teamsData.world.map((team, index) => (
                         <div className="scheme" key={index}>
+                            <img src={team.image} alt={team.name} />
                             <h3>{team.name}</h3>
                             <p>{team.description || 'Información pendiente'}</p>
                             {loginData && <input type="button" value="Agregar a Favoritos" onClick={addToFavorites} />}

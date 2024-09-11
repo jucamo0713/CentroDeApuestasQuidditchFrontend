@@ -35,10 +35,19 @@ h2 {
     padding: 20px;
     margin-bottom: 20px;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .scheme:hover {
+    transform: translateY(-3px);
     box-shadow: 0 1px 10px rgba(255, 255, 255, 0.5);
+}
+
+.scheme img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 thead {
@@ -88,32 +97,6 @@ a:hover {
 .dashboard p {
     font-size: 1rem;
     line-height: 1.5;
-}
-
-/*Estilo para los botones de apostar*/
-.ApostarButton{
-    display: inline-block;
-    background-color: #6b5e3e;
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    cursor: pointer;
-    margin: 10px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-}
-
-.ApostarButton:hover{
-    box-shadow: 0 1px 10px var(--accent-color);
-    background-color: #8c7a5b;
-    transform: translateY(-3px);
-}
-
-.ApostarButton:active {
-    transform: translateY(0);
 }
 
 /* Estilo para la tabla */
