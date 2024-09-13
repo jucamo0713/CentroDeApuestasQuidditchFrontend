@@ -2,3 +2,52 @@
     color: red;
     margin-top: 5px;
   }
+
+.input-text {
+    font-family: inherit;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+    max-width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@media (max-width: 768px) {
+  input[type="password"], input[type="email"], h2, input[type="submit"], input[type="text"], .error-message {
+      font-size: 12px;
+      padding: 8px 12px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  input[type="password"], input[type="email"], h2, input[type="submit"], input[type="text"], .error-message {
+      font-size: 10px;
+      padding: 6px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2{
+      font-size: 25px;
+      padding: 8px 12px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  h2{
+      font-size: 15px;
+      padding: 6px 10px;
+  }
+}

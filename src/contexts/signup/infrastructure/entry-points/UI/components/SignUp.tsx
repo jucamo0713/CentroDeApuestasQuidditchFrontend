@@ -84,53 +84,52 @@ export function SignUp() {
         <main className="main-section">
             <section className="dashboard">
                 <div className="scheme">
-                    <h2>Registro de Usuario</h2>
-                    <form onSubmit={handleSignUp}>
-                        <label htmlFor="username">Nombre de Usuario</label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            value={formData.username}
-                            onChange={handleInputChange}
-                        />
-                        <br />
-                        {errors.username && <span className="error-message">{errors.username}</span>}
+                    <form className="form" onSubmit={handleSignUp}>
+                        <h2>Registro de Usuario</h2>
+                        <div className="input-text">
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                value={formData.username}
+                                placeholder="Nombre de Usuario"
+                                onChange={handleInputChange}
+                            />
+                            {errors.username && <span className="error-message">{errors.username}</span>}
 
-                        <label htmlFor="email">Correo Electrónico</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                        />
-                        <br />
-                        {errors.email && <span className="error-message">{errors.email}</span>}
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                placeholder="Correo Electrónico"
+                                onChange={handleInputChange}
+                            />
+                            {errors.email && <span className="error-message">{errors.email}</span>}
 
-                        <label htmlFor="password">Contraseña</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleInputChange}
-                        />
-                        <br />
-                        {errors.password && <span className="error-message">{errors.password}</span>}
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={formData.password}
+                                placeholder="Contraseña"
+                                onChange={handleInputChange}
+                            />
+                            {errors.password && <span className="error-message">{errors.password}</span>}
 
-                        <label htmlFor="confirmPassword">Confirmar Contraseña</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            value={formData.confirmPassword}
-                            onChange={handleInputChange}
-                        />
-                        <br />
-                        {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
-                        <br />
-                        <input type="submit" value="Registrarse" />
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                value={formData.confirmPassword}
+                                placeholder="Confirmar Contraseña"
+                                onChange={handleInputChange}
+                            />
+                            {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
+                        </div>
+                        <div>
+                            <input type="submit" value="Registrarse" />
+                        </div>
                     </form>
                 </div>
             </section>

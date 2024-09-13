@@ -61,30 +61,46 @@ export default function AppNavigator() {
             <nav className={`menu ${isMenuOpen ? 'active' : ''}`}>
                 <ul>
                     <li>
-                        <Link to={AppRoutesConstants.MAIN_PAGE}>Inicio</Link>
+                        <Link to={AppRoutesConstants.MAIN_PAGE} onClick={toggleMenu}>
+                            Inicio
+                        </Link>
                     </li>
                     <li>
-                        <Link to={AppRoutesConstants.MATCHES_PAGE}>Partidos</Link>
+                        <Link to={AppRoutesConstants.MATCHES_PAGE} onClick={toggleMenu}>
+                            Partidos
+                        </Link>
                     </li>
                     <li>
-                        <Link to={AppRoutesConstants.RESULTS_PAGE}>Resultados</Link>
+                        <Link to={AppRoutesConstants.RESULTS_PAGE} onClick={toggleMenu}>
+                            Resultados
+                        </Link>
                     </li>
                     <li>
-                        <Link to={AppRoutesConstants.EVENTS_PAGE}>Eventos</Link>
+                        <Link to={AppRoutesConstants.EVENTS_PAGE} onClick={toggleMenu}>
+                            Eventos
+                        </Link>
                     </li>
                     <li>
-                        <Link to={AppRoutesConstants.TEAMS_PAGE}>Equipos</Link>
+                        <Link to={AppRoutesConstants.TEAMS_PAGE} onClick={toggleMenu}>
+                            Equipos
+                        </Link>
                     </li>
                     {loginData && (
                         <>
                             <li>
-                                <Link to={AppRoutesConstants.FAVORITE}>Favoritos</Link>
+                                <Link to={AppRoutesConstants.FAVORITE} onClick={toggleMenu}>
+                                    Favoritos
+                                </Link>
                             </li>
                             <li>
-                                <Link to={AppRoutesConstants.RECHARGE}>Recargar</Link>
+                                <Link to={AppRoutesConstants.RECHARGE} onClick={toggleMenu}>
+                                    Recargar
+                                </Link>
                             </li>
                             <li>
-                                <Link to={AppRoutesConstants.PROFILE}>Perfil</Link>
+                                <Link to={AppRoutesConstants.PROFILE} onClick={toggleMenu}>
+                                    Perfil
+                                </Link>
                             </li>
                         </>
                     )}
