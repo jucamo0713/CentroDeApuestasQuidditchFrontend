@@ -33,32 +33,37 @@ export function LoginPage() {
         <main className="main-section">
             <section className="dashboard">
                 <div className="scheme">
-                    <h2>Iniciar Sesión</h2>
                     {error && <p className="error">{error}</p>}
-                    <form onSubmit={handleLogin}>
-                        <label htmlFor="email">Correo:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                        <label htmlFor="password">Contraseña:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                        <br />
-                        <input type="submit" value="Entrar" />
+                    <form className="form" onSubmit={handleLogin}>
+                        <h2>Iniciar Sesión</h2>
+                        <div className="input-text">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                placeholder="Correo electrónico"
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={password}
+                                placeholder="Contraseña"
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <input type="submit" value="Entrar" />
+                        </div>
+                        <div>
+                            <a href={AppRoutesConstants.RECOVER_ACCOUNT_PAGE}>¿Olvidaste tu contraseña?</a>
+                        </div>
                     </form>
                     <br />
-                    <a href={AppRoutesConstants.RECOVER_ACCOUNT_PAGE}>¿Olvidaste tu contraseña?</a>
                 </div>
             </section>
         </main>

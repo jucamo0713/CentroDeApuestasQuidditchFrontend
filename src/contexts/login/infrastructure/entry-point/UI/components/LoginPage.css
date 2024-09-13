@@ -21,17 +21,28 @@ input[type="email"]:focus{
     box-shadow: 0 0 5px rgba(179, 146, 59, 0.5); /* Añade una sombra suave */
 }
 
-/* Estilo para las etiquetas */
-label {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+input[type="submit"] {
+    display: inline-block;
+    background-color: #b3923b;
     color: #fff;
-    display: block; /* Asegura que las etiquetas estén separadas de los inputs */
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px 10px 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover{
+    background-color: #f0c84a;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
 }
 
 a {
     color: #b3923b;
     text-decoration: none;
+
 }
 
 a:hover {
@@ -43,3 +54,51 @@ a:hover {
     margin-bottom: 15px;
 }
 
+.input-text {
+    font-family: inherit;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+    max-width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@media (max-width: 768px) {
+    input[type="password"], input[type="email"], h2, input[type="submit"], a {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    input[type="password"], input[type="email"], h2, input[type="submit"], a {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    h2{
+        font-size: 25px;
+        padding: 8px 12px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    h2{
+        font-size: 15px;
+        padding: 6px 10px;
+    }
+}

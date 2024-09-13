@@ -1,3 +1,28 @@
+.scheme img {
+    max-width: 100%; /* Para asegurarte que las imágenes se ajusten al contenedor */
+    height: auto;
+}
+
+.dashboard-matches {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajustar mínimo a 250px */
+}
+
+@media (max-width: 480px) {
+    .scheme {
+        padding: 15px;
+    }
+
+    .scheme img {
+        width: 80px; /* Reducir el tamaño de las imágenes en pantallas pequeñas */
+    }
+
+    .buttons-container button {
+        font-size: 0.8rem;
+    }
+}
+
+
+
 /*Grid Container*/
 .dashboard-matches {
     display: grid;
