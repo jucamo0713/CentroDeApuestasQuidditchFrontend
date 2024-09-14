@@ -26,21 +26,24 @@ export default function Profile() {
             <main className="main-section">
                 <section className="dashboard">
                     <div className="scheme">
-                        <h2>Mi perfil</h2>
-                        <ProfileForm loginData={loginData} />
-
-                        <input
-                            type="submit"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                LoadingSourceUseCase.setLoading();
-                                SessionManageInstance.closeSession().finally(() => {
-                                    LoadingSourceUseCase.unsetLoading();
-                                    navigate('/');
-                                });
-                            }}
-                            value="Cerrar sesión"
-                        />
+                        <form className="form-edit">
+                            <h2>Mi perfil</h2>
+                            <ProfileForm loginData={loginData} />
+                            <div className="buttons-container">
+                                <input
+                                    type="submit"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        LoadingSourceUseCase.setLoading();
+                                        SessionManageInstance.closeSession().finally(() => {
+                                            LoadingSourceUseCase.unsetLoading();
+                                            navigate('/');
+                                        });
+                                    }}
+                                    value="Cerrar sesión"
+                                />
+                            </div>
+                        </form>
                     </div>
                 </section>
                 <BetHistory loginData={loginData} />

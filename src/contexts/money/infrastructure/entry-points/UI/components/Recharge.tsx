@@ -30,67 +30,70 @@ export default function Recharge() {
             <main className="main-section">
                 <section className="dashboard">
                     <div className="scheme">
-                        <h2>Recargar</h2>
-                        <p>
-                            <GalleonIcon />
-                            <SicklesIcon />
-                            <KnutIcon />
-                        </p>
-                        <form
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                LoadingSourceUseCase.setLoading();
-                                const amountInput = e.currentTarget.amount;
-                                const amountValue = parseInt(amountInput.value);
+                        <form className="form-edit">
+                            <h2>Recargar</h2>
+                            <p>
+                                <GalleonIcon />
+                                <SicklesIcon />
+                                <KnutIcon />
+                            </p>
+                            <form
+                                className="form-edit"
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    LoadingSourceUseCase.setLoading();
+                                    const amountInput = e.currentTarget.amount;
+                                    const amountValue = parseInt(amountInput.value);
 
-                                // Validar que el input no esté vacío o tenga valores negativos
-                                if (amountInput.value === '' || isNaN(amountValue) || amountValue < 0) {
-                                    amountInput.className = 'error-input';
-                                    amountInput.setCustomValidity('El valor debe ser un número positivo.');
-                                    amountInput.reportValidity();
-                                    LoadingSourceUseCase.unsetLoading();
-                                    return;
-                                }
+                                    // Validar que el input no esté vacío o tenga valores negativos
+                                    if (amountInput.value === '' || isNaN(amountValue) || amountValue < 0) {
+                                        amountInput.className = 'error-input';
+                                        amountInput.setCustomValidity('El valor debe ser un número positivo.');
+                                        amountInput.reportValidity();
+                                        LoadingSourceUseCase.unsetLoading();
+                                        return;
+                                    }
 
-                                // Dependiendo de la moneda seleccionada, recargar la correspondiente
-                                const rechargeData = {
-                                    galleons: selectedCurrency === 'galleons' ? amountValue : 0,
-                                    knuts: selectedCurrency === 'knuts' ? amountValue : 0,
-                                    sickles: selectedCurrency === 'sickles' ? amountValue : 0,
-                                };
+                                    // Dependiendo de la moneda seleccionada, recargar la correspondiente
+                                    const rechargeData = {
+                                        galleons: selectedCurrency === 'galleons' ? amountValue : 0,
+                                        knuts: selectedCurrency === 'knuts' ? amountValue : 0,
+                                        sickles: selectedCurrency === 'sickles' ? amountValue : 0,
+                                    };
 
-                                MoneyManageInstance.rechargeMoney(rechargeData, loginData).finally(() => {
-                                    LoadingSourceUseCase.unsetLoading();
-                                });
-                            }}
-                        >
-                            <label htmlFor="currency">Seleccionar moneda:</label>
-                            <select
-                                name="currency"
-                                value={selectedCurrency}
-                                onChange={(e) => setSelectedCurrency(e.target.value)}
+                                    MoneyManageInstance.rechargeMoney(rechargeData, loginData).finally(() => {
+                                        LoadingSourceUseCase.unsetLoading();
+                                    });
+                                }}
                             >
-                                <option value="galleons">
-                                    <GalleonIcon /> | Galleons
-                                </option>
-                                <option value="sickles">
-                                    <SicklesIcon /> | Sickles
-                                </option>
-                                <option value="knuts">
-                                    <KnutIcon /> | Knuts
-                                </option>
-                            </select>
-
-                            <br />
-
-                            <label htmlFor="amount">
-                                {selectedCurrency.charAt(0).toUpperCase() + selectedCurrency.slice(1)}:
-                            </label>
-                            <input type="number" name="amount" min={0} step={1} required />
-
-                            <br />
-                            <br />
-                            <input type="submit" value="Recargar" />
+                                <div className="input-container">
+                                    <label htmlFor="currency">Seleccionar moneda:</label>
+                                    <select
+                                        name="currency"
+                                        value={selectedCurrency}
+                                        onChange={(e) => setSelectedCurrency(e.target.value)}
+                                    >
+                                        <option value="galleons">
+                                            <GalleonIcon /> | Galleons
+                                        </option>
+                                        <option value="sickles">
+                                            <SicklesIcon /> | Sickles
+                                        </option>
+                                        <option value="knuts">
+                                            <KnutIcon /> | Knuts
+                                        </option>
+                                    </select>
+                                </div>
+                                <div className="input-container">
+                                    <label htmlFor="amount">
+                                        {selectedCurrency.charAt(0).toUpperCase() + selectedCurrency.slice(1)}:
+                                    </label>
+                                    <input type="number" name="amount" min={0} step={1} required />
+                                </div>
+                                <div className="buttons-container">
+                                    <input type="submit" value="Recargar" />
+                                </div>
+                            </form>
                         </form>
                     </div>
                 </section>

@@ -9,13 +9,7 @@ export class UserUseCase {
         return this.httpRepository.getUser(session);
     }
 
-    async updateUser(
-        email: string,
-        username: string,
-        birthDate: Date,
-        name: string,
-        loginData: SessionData,
-    ): Promise<User> {
-        return this.httpRepository.updateUser(email, username, birthDate, name, loginData);
+    async updateUser(email: string, username: string, name: string, loginData: SessionData): Promise<User> {
+        return this.httpRepository.updateUser(email, username, name, loginData);
     }
 }

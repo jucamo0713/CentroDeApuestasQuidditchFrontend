@@ -5,7 +5,6 @@ import { UserHttpRepository } from '../../../domain/model/gateways/UserHttp.Repo
 export class HttpUserRepository implements UserHttpRepository {
     //TODO: delete
     private static exampleUser: User = {
-        dateBirth: new Date(2000, 0, 1, 0, 0, 0, 0),
         email: 'harrypotter@gmail.com',
         fullName: 'Harry James Potter',
         username: 'H.J.Potter',
@@ -19,7 +18,6 @@ export class HttpUserRepository implements UserHttpRepository {
     async updateUser(
         email: string,
         username: string,
-        birthDate: Date,
         name: string,
         //TODO:
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -27,7 +25,6 @@ export class HttpUserRepository implements UserHttpRepository {
     ): Promise<User> {
         HttpUserRepository.exampleUser.email = email;
         HttpUserRepository.exampleUser.username = username;
-        HttpUserRepository.exampleUser.dateBirth = new Date(birthDate);
         HttpUserRepository.exampleUser.fullName = name;
         return HttpUserRepository.exampleUser;
     }

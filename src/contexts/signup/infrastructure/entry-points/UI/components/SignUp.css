@@ -21,7 +21,7 @@
 }
 
 @media (max-width: 768px) {
-  input[type="password"], input[type="email"], h2, input[type="submit"], input[type="text"], .error-message {
+  input[type="password"], input[type="email"], h2, input[type="submit"], input[type="text"], input[type="date"], .error-message {
       font-size: 12px;
       padding: 8px 12px;
   }
@@ -30,7 +30,7 @@
 }
 
 @media (max-width: 480px) {
-  input[type="password"], input[type="email"], h2, input[type="submit"], input[type="text"], .error-message {
+  input[type="password"], input[type="email"], h2, input[type="submit"], input[type="text"], input[type="date"], .error-message {
       font-size: 10px;
       padding: 6px 10px;
   }

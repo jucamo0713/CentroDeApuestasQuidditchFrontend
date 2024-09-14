@@ -9,7 +9,6 @@ import './ProfileForm.css';
 export function ProfileForm(params: { loginData: SessionData }) {
     const [edit, setEdit] = useState(false);
     const [profile, setProfile] = useState<User>({
-        dateBirth: new Date(),
         email: '',
         fullName: '',
         username: '',
@@ -37,16 +36,9 @@ export function ProfileForm(params: { loginData: SessionData }) {
                     LoadingSourceUseCase.setLoading();
                     const email = e.currentTarget.email;
                     const username = e.currentTarget.username;
-                    const birthDate = e.currentTarget.birthDate;
                     const name = e.currentTarget.fullName;
-                    if (email.value && username.value && birthDate.value && name.value) {
-                        UserUseCaseInstance.updateUser(
-                            email.value,
-                            username.value,
-                            new Date(birthDate.value),
-                            name.value,
-                            params.loginData,
-                        )
+                    if (email.value && username.value && name.value) {
+                        UserUseCaseInstance.updateUser(email.value, username.value, name.value, params.loginData)
                             .then((v) => {
                                 setProfile(v);
                             })
@@ -57,36 +49,27 @@ export function ProfileForm(params: { loginData: SessionData }) {
                     } else {
                         !email.value && (email.className = 'error-input');
                         !username.value && (username.className = 'error-input');
-                        !birthDate.value && (username.className = 'error-input');
                         !name.value && (username.className = 'error-input');
                         LoadingSourceUseCase.unsetLoading();
                     }
                 }}
             >
-                <div className="input-edit">
-                    <div className="algo">
-                        <label htmlFor="fullName">Nombre:</label>
-                        <input onChange={handleChange} type="text" name="fullName" value={editableData.fullName} />
-                    </div>
+                <div className="input-container">
+                    <label htmlFor="fullName">Nombre:</label>
+                    <input onChange={handleChange} type="text" name="fullName" value={editableData.fullName} />
                 </div>
-                <div>
+
+                <div className="input-container">
                     <label htmlFor="email">Email:</label>
                     <input onChange={handleChange} type="email" name="email" value={editableData.email} />
                 </div>
-                <div>
-                    <label htmlFor="name">Usuario:</label>
+
+                <div className="input-container">
+                    <label htmlFor="username">Usuario:</label>
                     <input onChange={handleChange} type="text" name="username" value={editableData.username} />
                 </div>
-                <div>
-                    <label htmlFor="birthDate">Fecha de nacimiento:</label>
-                    <input
-                        onChange={handleChange}
-                        type="date"
-                        name="birthDate"
-                        value={editableData.dateBirth.toISOString().split('T')[0]}
-                    />
-                </div>
-                <div>
+
+                <div className="buttons-container">
                     <input
                         type="submit"
                         onClick={(e) => {
@@ -103,30 +86,30 @@ export function ProfileForm(params: { loginData: SessionData }) {
     } else {
         return (
             <>
-                <div>
-                    <label htmlFor="fullName">Nombre:</label>
-                    <p>{profile.fullName}</p>
-                </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <p>{profile.email}</p>
-                </div>
-                <div>
-                    <label htmlFor="name">Usuario:</label>
-                    <p>{profile.username}</p>
-                </div>
-                <div>
-                    <label htmlFor="birthDate">Fecha de nacimiento:</label>
-                    <p>{profile.dateBirth.toLocaleDateString()}</p>
-                </div>
-                <input
-                    type="submit"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setEdit(true);
-                    }}
-                    value="Editar"
-                />
+                <form className="form-edit">
+                    <div className="input-container">
+                        <label htmlFor="fullName">Nombre:</label>
+                        <p className="p-data">{profile.fullName}</p>
+                    </div>
+                    <div className="input-container">
+                        <label htmlFor="email">Email:</label>
+                        <p className="p-data">{profile.email}</p>
+                    </div>
+                    <div className="input-container">
+                        <label htmlFor="name">Usuario:</label>
+                        <p className="p-data">{profile.username}</p>
+                    </div>
+                    <div className="buttons-container">
+                        <input
+                            type="submit"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setEdit(true);
+                            }}
+                            value="Editar"
+                        />
+                    </div>
+                </form>
             </>
         );
     }
