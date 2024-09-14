@@ -182,7 +182,9 @@ td input[type="button"]:hover {
         padding: 8px 12px; /* Botones más pequeños en pantallas pequeñas */
     }
 
-
+    .pagination-container{
+        display: block;
+    }
 }
 
 @media (max-width: 480px) {

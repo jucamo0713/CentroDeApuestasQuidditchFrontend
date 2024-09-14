@@ -40,11 +40,11 @@ export function Results() {
                             {matches.length > 0 ? (
                                 matches.map((match, index) => (
                                     <tr key={index}>
-                                        <td data-label="Equipo A">{match.teamA}</td>
-                                        <td data-label="Equipo B">{match.teamB}</td>
-                                        <td data-label="Equipo Ganador">{match.teamWinning}</td>
-                                        <td data-label="Resultado">{match.result}</td>
-                                        <td data-label="Acción">
+                                        <td>{match.teamA}</td>
+                                        <td>{match.teamB}</td>
+                                        <td>{match.teamWinning}</td>
+                                        <td>{match.result}</td>
+                                        <td>
                                             <Link to={AppRoutesConstants.MATCH_DETAIL}>
                                                 <input type="button" value="Detalle" />
                                             </Link>

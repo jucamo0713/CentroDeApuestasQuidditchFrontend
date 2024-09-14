@@ -31,6 +31,7 @@ export function ProfileForm(params: { loginData: SessionData }) {
     if (edit) {
         return (
             <form
+                className="form-edit"
                 onSubmit={(e) => {
                     e.preventDefault();
                     LoadingSourceUseCase.setLoading();
@@ -62,9 +63,11 @@ export function ProfileForm(params: { loginData: SessionData }) {
                     }
                 }}
             >
-                <div>
-                    <label htmlFor="fullName">Nombre:</label>
-                    <input onChange={handleChange} type="text" name="fullName" value={editableData.fullName} />
+                <div className="input-edit">
+                    <div className="algo">
+                        <label htmlFor="fullName">Nombre:</label>
+                        <input onChange={handleChange} type="text" name="fullName" value={editableData.fullName} />
+                    </div>
                 </div>
                 <div>
                     <label htmlFor="email">Email:</label>

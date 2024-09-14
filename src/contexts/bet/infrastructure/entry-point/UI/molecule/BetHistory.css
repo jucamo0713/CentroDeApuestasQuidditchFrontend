@@ -21,43 +21,10 @@
     }
 }
 
-@media (max-width: 480px) {
-    /* Ocultar el encabezado de la tabla */
-    thead {
-        display: none;
-    }
-
-    /* Cada fila se convierte en un bloque tipo tarjeta */
-    tbody, tr, td {
-        display: block;
-        width: 100%;
-    }
-
-    tbody tr {
-        margin-bottom: 15px;
-        border-bottom: 2px solid #b3923b;
-    }
-
-    td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    /* Mostrar los títulos de las columnas antes del contenido */
-    td::before {
-        content: attr(data-label); /* Utiliza los atributos personalizados como etiquetas */
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        text-align: left;
-        font-weight: bold;
-    }
-
-    td input[type="button"] {
-        display: block;
-        margin: 10px auto;
-        width: 80%; /* Ajustar tamaño del botón en pantallas pequeñas */
+@media (max-width: 480PX) {
+    .history-table th, .history-table td {
+        padding: 8px;
+        font-size: 10px; /* Reducir tamaño de fuente */
     }
 
     .pagination-container button {
@@ -69,3 +36,4 @@
         font-size: 10px;
     }
 }
+

@@ -44,12 +44,14 @@ export function Home() {
                     <div className="scheme">
                         <h2>Bienvenido al Centro de Apuestas Quidditch</h2>
                         <p>La emoción del Quidditch en tus manos. ¿Listo para apostar?</p>
-                        <Link to={AppRoutesConstants.LOGIN_PAGE}>
-                            <input type="button" value="Iniciar sesión" />
-                        </Link>
-                        <Link to={AppRoutesConstants.SIGNUP_PAGE}>
-                            <input type="button" value="Regístrate" />
-                        </Link>
+                        <div>
+                            <Link to={AppRoutesConstants.LOGIN_PAGE}>
+                                <input type="button" value="Iniciar sesión" />
+                            </Link>
+                            <Link to={AppRoutesConstants.SIGNUP_PAGE}>
+                                <input type="button" value="Regístrate" />
+                            </Link>
+                        </div>
                     </div>
                 </section>
             )}

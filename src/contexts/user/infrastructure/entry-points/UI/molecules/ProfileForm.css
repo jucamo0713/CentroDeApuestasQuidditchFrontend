@@ -41,3 +41,28 @@ p {
     color: #fff;
     display: block; /* Asegura que las etiquetas estén separadas de los inputs */
 }
+
+.form-edit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.input-edit {
+    font-family: inherit;
+    border-radius: 6px;
+    font-size: 17px;
+    padding: 14px 16px;
+    width: 330px;
+    max-width: 100%;
+}
+
+.input-edit label {
+    align-self: start;
+}
+
+.algo {
+    align-items: flex-start;
+}
