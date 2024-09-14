@@ -1,3 +1,7 @@
+section {
+    padding: 10px;
+}
+
 .nav-bar {
     display: flex;
     align-items: center;
@@ -71,7 +75,6 @@
 @media (max-width: 768px) {
     .nav-bar {
         height: auto;
-        flex-direction: column;
     }
 
     .nav-bar .menu ul {
@@ -115,7 +118,7 @@
     position: absolute;
     width: 100%;
     height: 4px;
-    background-color: var(--secondary-color); /* Cambia al color que quieras */
+    background-color: var(--secondary-color);
     transition: all 0.3s ease;
 }
 

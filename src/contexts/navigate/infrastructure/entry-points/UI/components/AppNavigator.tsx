@@ -54,10 +54,6 @@ export default function AppNavigator() {
                 <span>CAQ</span>
             </section>
 
-            <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
-                <span></span>
-            </button>
-
             <nav className={`menu ${isMenuOpen ? 'active' : ''}`}>
                 <ul>
                     <li>
@@ -121,6 +117,11 @@ export default function AppNavigator() {
                         </div>
                     </>
                 )}
+            </section>
+            <section>
+                <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+                    <span></span>
+                </button>
             </section>
         </header>
     );
