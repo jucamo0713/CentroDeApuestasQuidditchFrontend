@@ -92,52 +92,52 @@
   "world": [
     {
       "name": "Argentina",
-      "description": "",
+      "description": "Conocida como los Cóndores Plateados, es reconocida por su estilo de juego veloz y estratégico, inspirado en la diversidad de paisajes del país, desde la Patagonia hasta las Pampas. Han sido varias veces campeones del circuito sudamericano, destacando por su capacidad para adaptarse a todo tipo de condiciones. Su entrenamiento en el estadio Ventisquero Azul, el más austral del mundo, les otorga una resistencia inigualable frente a rivales de todo el globo.",
       "image": "/images/Argentina.jpeg"
     },
     {
       "name": "Brasil",
-      "description": "",
+      "description": "Conocida como los Tiburones de Copacabana, combina la destreza y la creatividad en un juego fluido y dinámico, inspirado en la energía vibrante de las playas y selvas del país. Campeones frecuentes en el panorama sudamericano, se destacan por su enfoque ofensivo y su habilidad para realizar maniobras complejas con una aparente facilidad. Entrenan en el famoso estadio Maré Alta, ubicado en Río de Janeiro.",
       "image": "/images/Brasil.jpeg"
     },
     {
       "name": "Perú",
-      "description": "",
+      "description": "Conocida como los Cóndores Rojos, es famosa por su juego metódico y estratégico, inspirado en la rica historia y geografía del país, desde los Andes hasta la Amazonía. Con una sólida trayectoria en el circuito sudamericano, destacan por su tenacidad en defensa y su capacidad para sorprender con tácticas inesperadas.",
       "image": "/images/Peru.jpeg"
     },
     {
       "name": "Colombia",
-      "description": "",
+      "description": "Conocida como los Jaguares Dorados, es reconocida por su juego rápido y audaz, inspirado en la diversidad de su tierra, desde los valles hasta las montañas y selvas. Con una destacada presencia en torneos sudamericanos, se caracterizan por su agilidad y precisión en el campo. Entrenan en el legendario estadio Sierra Nevada, ubicado en la región cafetera, lo que les otorga una resistencia única y la capacidad de mantener un ritmo de juego intenso en cualquier terreno o clima.",
       "image": "/images/Colombia.jpeg"
     },
     {
       "name": "Noruega",
-      "description": "",
+      "description": "Conocida como los Dragones del Fiordo, destaca por su juego implacable y disciplinado, reflejando el espíritu de los paisajes escarpados y los inviernos largos de su país. Con una reputación creciente en el circuito europeo, son expertos en tácticas defensivas y en controlar el ritmo del partido.",
       "image": "/images/Noruega.jpeg"
     },
     {
       "name": "Irlanda",
-      "description": "",
+      "description": "Conocida como los Tréboles Esmeralda, es célebre por su juego rápido y lleno de ingenio, inspirado en las antiguas leyendas y paisajes verdes de la isla. Con una rica tradición en el quidditch europeo, se destacan por su ofensiva ágil y su capacidad para ejecutar complejas jugadas en equipo. Entrenan en el histórico estadio de Tara.",
       "image": "/images/Irlanda.jpeg"
     },
     {
       "name": "Nueva Zelanda",
-      "description": "",
+      "description": "Conocida como los Kiwis Negros, se caracteriza por su estilo de juego veloz y feroz, inspirado en la majestuosidad de sus montañas y costas. Con una presencia fuerte en el circuito oceánico, son conocidos por su agresiva defensa y su habilidad para ejecutar maniobras aéreas con gran precisión.",
       "image": "/images/Nueva_Zelanda.jpeg"
     },
     {
       "name": "Australia",
-      "description": "",
+      "description": "Conocida como los Canguros de Fuego, es famosa por su estilo de juego rápido y potente, inspirado en la vastedad de sus desiertos y la diversidad de su fauna. Dominantes en el circuito oceánico, se destacan por su agresividad en el ataque y su resistencia física, lo que los convierte en rivales formidables.",
       "image": "/images/Australia.jpeg"
     },
     {
       "name": "Uganda",
-      "description": "",
+      "description": "Conocida como los Leones del Nilo, se destaca por su juego enérgico y creativo, inspirado en los vibrantes paisajes y la rica cultura del país. Con una creciente reputación en el circuito africano, son conocidos por su habilidad para adaptarse rápidamente a cualquier situación en el campo, combinando defensa sólida con jugadas ofensivas sorprendentes.",
       "image": "/images/Uganda.jpeg"
     },
     {
       "name": "Canadá",
-      "description": "",
+      "description": "Conocida como los Alces Árticos, es reconocida por su juego sólido y estratégico, inspirado en la vastedad de sus bosques y la fuerza de sus inviernos. Con una destacada presencia en el circuito norteamericano, se distinguen por su robusta defensa y su capacidad para ejecutar jugadas bien coordinadas bajo presión.",
       "image": "/images/Canada.jpeg"
     }
   ]
