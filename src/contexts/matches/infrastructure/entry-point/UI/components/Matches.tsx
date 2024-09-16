@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
+//import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
 import './Matches.css';
 
 // Definimos el tipo para los datos de los partidos
@@ -10,6 +10,7 @@ interface MatchData {
     empate: '';
     imageA: '';
     imageB: '';
+    matchId: '';
     teamA: '';
     teamB: '';
 }
@@ -55,7 +56,7 @@ export function Matches() {
                                     {match.teamB}: {match.B}
                                 </button>
 
-                                <Link to={AppRoutesConstants.MATCH_DETAIL}>
+                                <Link to={`/match/${match.matchId}`}>
                                     <input type="button" value="Detalle" />
                                 </Link>
                             </div>

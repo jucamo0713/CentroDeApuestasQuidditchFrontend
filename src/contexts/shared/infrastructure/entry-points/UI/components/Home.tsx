@@ -12,6 +12,7 @@ interface MatchData {
     empate: '';
     imageA: '';
     imageB: '';
+    matchId: '';
     teamA: '';
     teamB: '';
 }
@@ -85,7 +86,7 @@ export function Home() {
                                     {match.teamB}: {match.B}
                                 </button>
 
-                                <Link to={AppRoutesConstants.MATCH_DETAIL}>
+                                <Link to={`/match/${match.matchId}`}>
                                     <input type="button" value="Detalle" />
                                 </Link>
                             </div>

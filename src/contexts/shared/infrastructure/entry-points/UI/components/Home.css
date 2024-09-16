@@ -1,6 +1,5 @@
 .scheme img {
-    max-width: 100%; /* Para asegurarte que las imágenes se ajusten al contenedor */
-    height: auto;
+    max-width: 100%;
 }
 
 /*Grid Container*/
@@ -48,7 +47,7 @@
 @media (max-width: 768px) {
     .scheme .buttons-container button{
         font-size: 12px;
-        padding: 8px 12px; /* Botones más pequeños en pantallas pequeñas */
+        padding: 8px 12px;
     }
 
 
@@ -60,12 +59,12 @@
     }
 
     .scheme img {
-        width: 80px; /* Reducir el tamaño de las imágenes en pantallas pequeñas */
+        width: 80px;
     }
 
     .scheme .buttons-container button{
         font-size: 10px;
-        padding: 6px 10px; /* Ajustar el botón a pantallas móviles */
+        padding: 6px 10px;
     }
 
     .buttons-container button {

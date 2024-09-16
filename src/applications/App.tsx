@@ -16,6 +16,61 @@ import { Favorites } from '../contexts/favorites/infrastructure/entry-point/UI/c
 import { LoginPage } from '../contexts/login/infrastructure/entry-point/UI/components/LoginPage';
 import { SignUp } from '../contexts/signup/infrastructure/entry-points/UI/components/SignUp';
 import { Home } from '../contexts/shared/infrastructure/entry-points/UI/components/Home';
+import { MatchDetails } from '../contexts/details/infrastructure/entry-point/UI/components/details';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+interface MatchDetailsType {
+    highlights: {
+        description: string;
+        time: string;
+    }[];
+    id: number;
+    scoreA: number;
+    scoreB: number;
+    teamA: {
+        image: string;
+        name: string;
+    };
+    teamB: {
+        image: string;
+        name: string;
+    };
+}
+
+function MatchDetailsWrapper() {
+    const { matchId } = useParams();
+    const [matchDetails, setMatchDetails] = useState<MatchDetailsType | null>(null);
+
+    useEffect(() => {
+        async function fetchMatchDetails() {
+            try {
+                const response = await fetch('/detailsMatches.json');
+                const data = await response.json();
+                const match = data.find((m: MatchDetailsType) => m.id === Number(matchId));
+                setMatchDetails(match || null);
+            } catch (error) {
+                console.error('Error al cargar el archivo JSON:', error);
+            }
+        }
+
+        fetchMatchDetails();
+    }, [matchId]);
+
+    if (!matchDetails) {
+        return <div>No se encontraron detalles para este partido.</div>;
+    }
+
+    return (
+        <MatchDetails
+            teamA={matchDetails.teamA}
+            teamB={matchDetails.teamB}
+            scoreA={matchDetails.scoreA}
+            scoreB={matchDetails.scoreB}
+            highlights={matchDetails.highlights}
+        />
+    );
+}
 
 const routes: RouteObject[] = [
     {
@@ -55,7 +110,7 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.BET_DETAIL,
     },
     {
-        element: <div>MatchDetail!</div>,
+        element: <MatchDetailsWrapper />,
         path: AppRoutesConstants.MATCH_DETAIL,
     },
     {

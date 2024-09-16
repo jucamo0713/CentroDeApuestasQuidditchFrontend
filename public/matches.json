@@ -1,5 +1,6 @@
 [
     {
+      "matchId": "1",
       "teamA": "Appleby Arrows",
       "teamB": "Avispas de Wimbourne",
       "imageA": "/images/Appleby_Arrows.jpeg",
@@ -9,6 +10,7 @@
       "empate": "2"
     },
     {
+      "matchId": "2",
       "teamA": "Gryffindor",
       "teamB": "Slytherin",
       "imageA": "/images/Gryffindor.jpeg",
@@ -18,6 +20,7 @@
       "empate": "2"
     },
     {
+      "matchId": "3",
       "teamA": "Argentina",
       "teamB": "Brasil",
       "imageA": "/images/Argentina.jpeg",
@@ -27,40 +30,44 @@
       "empate": "2"
     },
     {
-        "teamA": "Perú",
-        "teamB": "Brasil",
-        "imageA": "/images/Peru.jpeg",
-        "imageB": "/images/Brasil.jpeg",
-        "A" : "3.5",
-        "B" : "1.4",
-        "empate": "2"
+      "matchId": "4",
+      "teamA": "Perú",
+      "teamB": "Brasil",
+      "imageA": "/images/Peru.jpeg",
+      "imageB": "/images/Brasil.jpeg",
+      "A" : "3.5",
+      "B" : "1.4",
+      "empate": "2"
     },
     {
-        "teamA": "Irlanda",
-        "teamB": "Nueva Zelanda",
-        "imageA": "/images/Irlanda.jpeg",
-        "imageB": "/images/Nueva_Zelanda.jpeg",
-        "A" : "3.5",
-        "B" : "1.4",
-        "empate": "2"
+      "matchId": "5",
+      "teamA": "Irlanda",
+      "teamB": "Nueva Zelanda",
+      "imageA": "/images/Irlanda.jpeg",
+      "imageB": "/images/Nueva_Zelanda.jpeg",
+      "A" : "3.5",
+      "B" : "1.4",
+      "empate": "2"
     },
     {
-        "teamA": "Hufflepuff",
-        "teamB": "Ravenclaw",
-        "imageA": "/images/Hufflepuff.jpeg",
-        "imageB": "/images/Ravenclaw.jpeg",
-        "A" : "3.5",
-        "B" : "1.4",
-        "empate": "2"
+      "matchId": "6",
+      "teamA": "Hufflepuff",
+      "teamB": "Ravenclaw",
+      "imageA": "/images/Hufflepuff.jpeg",
+      "imageB": "/images/Ravenclaw.jpeg",
+      "A" : "3.5",
+      "B" : "1.4",
+      "empate": "2"
     },
     {
-        "teamA": "Gryffindor",
-        "teamB": "Hufflepuff",
-        "imageA": "/images/Gryffindor.jpeg",
-        "imageB": "/images/Hufflepuff.jpeg",
-        "A" : "3.5",
-        "B" : "1.4",
-        "empate": "2"
+      "matchId": "7",
+      "teamA": "Gryffindor",
+      "teamB": "Hufflepuff",
+      "imageA": "/images/Gryffindor.jpeg",
+      "imageB": "/images/Hufflepuff.jpeg",
+      "A" : "3.5",
+      "B" : "1.4",
+      "empate": "2"
     }
   ]
   
