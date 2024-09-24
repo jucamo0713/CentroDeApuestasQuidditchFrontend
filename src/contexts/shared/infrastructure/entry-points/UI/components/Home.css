@@ -3,6 +3,7 @@
 }
 
 /*Grid Container*/
+
 .dashboard-matches {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -44,6 +45,7 @@
 }
 
 /* Media Queries para pantallas pequeñas */
+
 @media (max-width: 768px) {
     .scheme .buttons-container button{
         font-size: 12px;

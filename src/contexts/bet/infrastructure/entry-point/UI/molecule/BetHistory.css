@@ -2,18 +2,18 @@
 @media (max-width: 768px) {
     table {
         display: block;
-        overflow-x: auto; /* Hacer que la tabla sea desplazable */
-        white-space: nowrap; /* Evitar que las celdas se rompan en varias líneas */
+        overflow-x: auto;
+        white-space: nowrap;
     }
 
     .history-table th, .history-table td {
         padding: 10px;
-        font-size: 12px; /* Reducir tamaño de fuente */
+        font-size: 12px;
     }
 
     .pagination-container button {
         font-size: 12px;
-        padding: 8px 12px; /* Ajustar el botón a pantallas móviles */
+        padding: 8px 12px;
     }
 
     .pagination-info {
@@ -24,12 +24,12 @@
 @media (max-width: 480PX) {
     .history-table th, .history-table td {
         padding: 8px;
-        font-size: 10px; /* Reducir tamaño de fuente */
+        font-size: 10px;
     }
 
     .pagination-container button {
         font-size: 10px;
-        padding: 6px 10px; /* Ajustar el botón a pantallas móviles */
+        padding: 6px 10px;
     }
 
     .pagination-info {

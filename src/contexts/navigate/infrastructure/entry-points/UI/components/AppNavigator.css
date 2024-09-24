@@ -59,6 +59,7 @@ section {
 }
 
 /*Login en barra de navegación*/
+
 .nav-bar section {
     color: #fff;
     font-size: 0.8rem;
@@ -71,35 +72,10 @@ section {
     align-items: center;
 }
 
-/* Media query para pantallas pequeñas (tablets y móviles) */
-@media (max-width: 768px) {
-    .nav-bar {
-        height: auto;
-    }
+/* Estilo general para el botón hamburguesa */
 
-    .nav-bar .menu ul {
-        flex-direction: column;
-        display: none; /* Ocultar menú por defecto en pantallas pequeñas */
-        position: absolute;
-        top: 100%; /* Justo debajo de la barra de navegación */
-        left: 0;
-        background-color: #1c1613;
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    .nav-bar .menu li {
-        margin: 10px 0;
-    }
-
-    .nav-bar .menu.active ul {
-        display: flex; /* Mostrar el menú cuando está activo */
-    }
-}
-
-    /* Estilo general para el botón hamburguesa */
 .hamburger {
-    display: none; /* Por defecto no mostrar, solo en pantallas pequeñas */
+    display: none;
     position: relative;
     width: 30px;
     height: 30px;
@@ -111,6 +87,7 @@ section {
 }
 
 /* Definimos las tres barras del menú hamburguesa */
+
 .hamburger::before,
 .hamburger::after,
 .hamburger span {
@@ -123,22 +100,26 @@ section {
 }
 
 /* La primera barra (superior) */
+
 .hamburger::before {
     top: 0;
 }
 
 /* La segunda barra (media) */
+
 .hamburger span {
     top: 50%;
     transform: translateY(-50%);
 }
 
 /* La tercera barra (inferior) */
+
 .hamburger::after {
     bottom: 0;
 }
 
 /* Efecto de transformación cuando se abre el menú */
+
 .hamburger.active::before {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
@@ -154,6 +135,7 @@ section {
 }
 
 /* Mostrar el botón hamburguesa solo en pantallas pequeñas */
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -161,6 +143,7 @@ section {
 }
 
 /* Media query para pantallas muy pequeñas (móviles pequeños) */
+
 @media (max-width: 480px) {
     .nav-bar .logo span {
         font-size: 1em;
@@ -168,5 +151,32 @@ section {
 
     .nav-bar .menu a {
         font-size: 0.7rem;
+    }
+}
+
+/* Media query para pantallas pequeñas (tablets y móviles) */
+
+@media (max-width: 768px) {
+    .nav-bar {
+        height: auto;
+    }
+
+    .nav-bar .menu ul {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #1c1613;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-bar .menu li {
+        margin: 10px 0;
+    }
+
+    .nav-bar .menu.active ul {
+        display: flex;
     }
 }

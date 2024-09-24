@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 //import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
 import './Matches.css';
 
-// Definimos el tipo para los datos de los partidos
+//TODO: Antes estaba {AppRoutesConstants.MATCH_DETAIL} -> Hacer correcciones al conectar con el Backend
+
 interface MatchData {
     A: '';
     B: '';
@@ -20,7 +21,7 @@ export function Matches() {
 
     useEffect(() => {
         // Cargar el archivo JSON
-        fetch('/matches.json') // Ajusta el path dependiendo de donde tengas tu archivo
+        fetch('/matches.json')
             .then((response) => response.json())
             .then((data) => setMatches(data))
             .catch((error) => console.error('Error al cargar los datos de los partidos:', error));

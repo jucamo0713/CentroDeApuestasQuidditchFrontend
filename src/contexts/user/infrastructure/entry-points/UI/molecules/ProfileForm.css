@@ -1,4 +1,5 @@
 /* Estilo general para inputs */
+
 input[type="text"],
 input[type="email"],
 input[type="date"] {
@@ -28,6 +29,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* Estilo para contenedor de input y label */
+
 .input-container {
     display: flex;
     align-items: center;
@@ -37,6 +39,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* Estilo para los labels */
+
 label {
     font-size: 1.2rem;
     color: #fff;

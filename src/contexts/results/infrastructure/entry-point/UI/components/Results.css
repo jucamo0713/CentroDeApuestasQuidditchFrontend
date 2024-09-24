@@ -18,7 +18,7 @@ tbody td {
 }
 
 tbody tr:hover {
-    background-color: #3a3a3a; /* Cambia el color cuando pasas el ratón sobre la fila */
+    background-color: #3a3a3a;
 }
 
 td input[type="button"] {
@@ -31,7 +31,7 @@ td input[type="button"] {
 }
 
 td input[type="button"]:hover {
-    background-color: #c4a44b; /* Color al pasar el ratón sobre el botón */
+    background-color: #c4a44b;
 }
 
 /* Media Queries para pantallas pequeñas */

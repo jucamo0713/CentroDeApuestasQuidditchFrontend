@@ -3,23 +3,90 @@
         "teamA": "Gryffindor",
         "teamB": "Slytherin",
         "teamWinning": "Gryffindor",
-        "result": "2 - 1"
+        "result": "120 - 110"
     },
     {
         "teamA": "Argentina",
         "teamB": "Brasil",
         "teamWinning": "Brasil",
-        "result": "2 - 3"
+        "result": "210 - 300"
     },
     {
         "teamA": "Perú",
         "teamB": "Holanda",
         "teamWinning": "Holanda",
-        "result": "2 - 5"
-    },    {
+        "result": "200 - 210"
+    },    
+    {
         "teamA": "Colombia",
         "teamB": "Argentina",
         "teamWinning": "Colombia",
-        "result": "10 - 1"
+        "result": "100 - 10"
+    },    
+    {
+        "teamA": "Appleby Arrows",
+        "teamB": "Avispas de Wimbourne",
+        "teamWinning": "Avispas de Wimbourne",
+        "result": "120 - 180"
+    },    
+    {
+        "teamA": "Caerphilly Catapults",
+        "teamB": "Avispas de Wimbourne",
+        "teamWinning": "Avispas de Wimbourne",
+        "result": "120 - 190"
+    },    
+    {
+        "teamA": "Caerphilly Catapults",
+        "teamB": "Chudley Cannons",
+        "teamWinning": "Chudley Cannons",
+        "result": "120 - 190"
+    },    
+    {
+        "teamA": "Caerphilly Catapults",
+        "teamB": "Falmouth Falcons",
+        "teamWinning": "Falmouth Falcons",
+        "result": "140 - 200"
+    },    
+    {
+        "teamA": "Holyhead Harpies",
+        "teamB": "Kenmare Kestrels",
+        "teamWinning": "Kenmare Kestrels",
+        "result": "10 - 85"
+    },    
+    {
+        "teamA": "Montrose Magpies",
+        "teamB": "Murciélagos de Ballycastle",
+        "teamWinning": "Montrose Magpies",
+        "result": "100 - 85"
+    },    
+    {
+        "teamA": "Pride of Portree",
+        "teamB": "Puddlemere United",
+        "teamWinning": "Puddlemere United",
+        "result": "100 - 169"
+    },    
+    {
+        "teamA": "Tutshill Tornados",
+        "teamB": "Wigtown Wanderers",
+        "teamWinning": "Wigtown Wanderers",
+        "result": "180 - 220"
+    },    
+    {
+        "teamA": "Hufflepuff",
+        "teamB": "Gryffindor",
+        "teamWinning": "Gryffindor",
+        "result": "200 - 320"
+    },    
+    {
+        "teamA": "Ravenclaw",
+        "teamB": "Slytherin",
+        "teamWinning": "Slytherin",
+        "result": "200 - 210"
+    },    
+    {
+        "teamA": "Uganda",
+        "teamB": "Canadá",
+        "teamWinning": "Uganda",
+        "result": "120 - 30"
     }
 ]

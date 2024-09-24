@@ -43,7 +43,7 @@
 @media (max-width: 768px) {
     .scheme .buttons-container button{
         font-size: 12px;
-        padding: 8px 12px; /* Botones más pequeños en pantallas pequeñas */
+        padding: 8px 12px;
     }
 
 
@@ -52,6 +52,6 @@
 @media (max-width: 480px) {
     .scheme .buttons-container button{
         font-size: 10px;
-        padding: 6px 10px; /* Ajustar el botón a pantallas móviles */
+        padding: 6px 10px;
     }
 }

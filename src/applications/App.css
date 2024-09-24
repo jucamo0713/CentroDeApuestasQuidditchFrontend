@@ -58,7 +58,7 @@ tbody {
     color: #fff;
 }
 
-/*Estilo para los input de tipo button*/
+/*Estilo general para los input*/
 
 input[type="submit"],
 input[type="button"] {
@@ -119,7 +119,7 @@ tbody td {
 }
 
 tbody tr:hover {
-    background-color: #3a3a3a; /* Cambia el color cuando pasas el ratón sobre la fila */
+    background-color: #3a3a3a;
 }
 
 td input[type="button"] {
@@ -132,10 +132,10 @@ td input[type="button"] {
 }
 
 td input[type="button"]:hover {
-    background-color: #c4a44b; /* Color al pasar el ratón sobre el botón */
+    background-color: #c4a44b;
 }
 
-/*Estilo para la paginación*/
+/*Estilo para la paginación del historial de apuestas*/
 
 .pagination-container {
     display: flex;
@@ -185,6 +185,10 @@ td input[type="button"]:hover {
     .pagination-container{
         display: block;
     }
+
+    p, label{
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -192,16 +196,7 @@ td input[type="button"]:hover {
         font-size: 10px;
         padding: 6px 10px; /* Ajustar el botón a pantallas móviles */
     }
-}
 
-/* Media Queries para pantallas pequeñas */
-@media (max-width: 768px) {
-    p, label{
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 480px) {
     p, label{
         font-size: 10px;
     }
