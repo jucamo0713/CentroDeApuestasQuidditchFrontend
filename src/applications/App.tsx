@@ -25,6 +25,7 @@ interface MatchDetailsType {
         time: string;
     }[];
     id: number;
+    odds: { draw: number; teamA: number; teamB: number }; // Agregamos las cuotas de ganancia
     scoreA: number;
     scoreB: number;
     teamA: {
@@ -67,6 +68,7 @@ function MatchDetailsWrapper() {
             scoreA={matchDetails.scoreA}
             scoreB={matchDetails.scoreB}
             highlights={matchDetails.highlights}
+            odds={matchDetails.odds}
         />
     );
 }

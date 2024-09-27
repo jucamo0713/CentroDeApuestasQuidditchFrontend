@@ -22,7 +22,8 @@
           "time": "08:15",
           "description": "Avispas de Wimbourne toma la delantera con una quaffle"
         }
-      ]
+      ],
+      "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     },
     {
       "id": 2,
@@ -47,7 +48,8 @@
           "time": "05:14",
           "description": "Slytherin toma la delantera con una quaffle"
         }
-      ]
+      ],
+      "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     },
     {
       "id": 3,
@@ -72,7 +74,8 @@
           "time": "05:14",
           "description": "Brasil toma la delantera con una quaffle"
         }
-      ]
+      ],
+      "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     },
     {
       "id": 4,
@@ -97,7 +100,8 @@
           "time": "05:14",
           "description": "Brasil toma la delantera con una quaffle"
         }
-      ]
+      ],
+      "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     },
     {
       "id": 5,
@@ -122,7 +126,8 @@
           "time": "05:14",
           "description": "Nueva Zelanda toma la delantera con una quaffle"
         }
-      ]
+      ],
+      "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     },
     {
       "id": 6,
@@ -147,7 +152,8 @@
           "time": "20:05",
           "description": "Hufflepuff iguala el marcador con un golpe limpio"
         }
-      ]
+      ],
+      "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     },
     {
       "id": 7,
@@ -172,7 +178,8 @@
           "time": "20:05",
           "description": "Gryffindor iguala el marcador con un golpe limpio"
         }
-      ]
+      ],
+      "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     }
   ]
   
