@@ -1,7 +1,9 @@
 export enum AppRoutesConstants {
     BET_DETAIL = '/bet/:betId',
+    ENGLISHLEAGUE_PAGE = '/englishleaguedetails',
     EVENTS_PAGE = '/events',
     FAVORITE = '/favorites',
+    HOGWARTSCUP_PAGE = '/hogwartscupdetails',
     LOGIN_PAGE = '/login',
     MAIN_PAGE = '/',
     MATCHES_PAGE = '/matches',
@@ -12,4 +14,5 @@ export enum AppRoutesConstants {
     RESULTS_PAGE = '/results',
     SIGNUP_PAGE = '/signup',
     TEAMS_PAGE = '/teams',
+    WORLDCUP_PAGE = '/worldcupdetails',
 }

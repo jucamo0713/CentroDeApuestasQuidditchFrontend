@@ -16,6 +16,9 @@ import { LoginPage } from '../contexts/user/infrastructure/entry-points/UI/pages
 import { SignUpPage } from '../contexts/user/infrastructure/entry-points/UI/pages/SignUpPage';
 import { Home } from '../contexts/shared/infrastructure/entry-points/UI/components/Home';
 import { MatchDetails } from '../contexts/details/infrastructure/entry-point/UI/components/details';
+import { WorldCupDetails } from '../contexts/events/infrastructure/entry-point/UI/components/WorldCupDetails';
+import { EnglishLeagueDetails } from '../contexts/events/infrastructure/entry-point/UI/components/EnglishLeagueDetails';
+import { HogwartsCupDetails } from '../contexts/events/infrastructure/entry-point/UI/components/HogwartsCupDetails';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -89,6 +92,18 @@ const routes: RouteObject[] = [
     {
         element: <Events />,
         path: AppRoutesConstants.EVENTS_PAGE,
+    },
+    {
+        element: <WorldCupDetails />,
+        path: AppRoutesConstants.WORLDCUP_PAGE,
+    },
+    {
+        element: <EnglishLeagueDetails />,
+        path: AppRoutesConstants.ENGLISHLEAGUE_PAGE,
+    },
+    {
+        element: <HogwartsCupDetails />,
+        path: AppRoutesConstants.HOGWARTSCUP_PAGE,
     },
     {
         element: <Favorites />,

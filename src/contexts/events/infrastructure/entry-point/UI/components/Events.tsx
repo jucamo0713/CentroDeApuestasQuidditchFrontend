@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container, Typography, Box, Button, Grid, Card, CardContent, CardMedia } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export function Events() {
+    const navigate = useNavigate();
     return (
         <Box
             sx={{ backgroundColor: '#1c1613', color: '#fff', minHeight: '100vh', padding: '20px', textAlign: 'center' }}
@@ -27,7 +29,7 @@ export function Events() {
                                     <Button
                                         variant="contained"
                                         color="info"
-                                        onClick={() => {}}
+                                        onClick={() => navigate('/worldCupDetails')}
                                         sx={{ marginTop: '10px' }}
                                     >
                                         Más información
@@ -51,7 +53,7 @@ export function Events() {
                                     <Button
                                         variant="contained"
                                         color="info"
-                                        onClick={() => {}}
+                                        onClick={() => navigate('/EnglishLeagueDetails')}
                                         sx={{ marginTop: '10px' }}
                                     >
                                         Más información
@@ -80,7 +82,7 @@ export function Events() {
                                     <Button
                                         variant="contained"
                                         color="info"
-                                        onClick={() => {}}
+                                        onClick={() => navigate('/HogwartsCupDetails')}
                                         sx={{ marginTop: '10px' }}
                                     >
                                         Más información
