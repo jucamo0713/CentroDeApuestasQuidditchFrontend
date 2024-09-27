@@ -21,7 +21,7 @@ export function ProfileForm({ loginData }: { loginData: SessionData }) {
     });
 
     const [editableData, setEditableData] = useState<User>({ ...profile });
-    const [changePassword, setChangePassword] = useState({ confirmPassword: '', password: '' });
+    const [changePassword, setChangePassword] = useState({ confirmPassword: '', currentPassword: '', password: '' });
     const [passwordError, setPasswordError] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,7 +79,7 @@ export function ProfileForm({ loginData }: { loginData: SessionData }) {
             UserUseCaseInstance.updatePassword(changePassword.password, loginData)
                 .then(() => {
                     toast.success('Contraseña cambiada con exito');
-                    setChangePassword({ confirmPassword: '', password: '' });
+                    setChangePassword({ confirmPassword: '', currentPassword: '', password: '' });
                 })
                 .finally(() => {
                     setChange(false);
@@ -151,6 +151,15 @@ export function ProfileForm({ loginData }: { loginData: SessionData }) {
             >
                 <ThemeProvider theme={theme}>
                     <TextField
+                        label="Contraseña actual"
+                        type="password"
+                        name="currentPassword"
+                        value={changePassword.currentPassword}
+                        onChange={handlePasswordChange}
+                        fullWidth
+                        required
+                    />
+                    <TextField
                         label="Contraseña"
                         type="password"
                         name="password"
@@ -176,7 +185,7 @@ export function ProfileForm({ loginData }: { loginData: SessionData }) {
                         variant="contained"
                         onClick={() => {
                             setChange(false);
-                            setChangePassword({ confirmPassword: '', password: '' });
+                            setChangePassword({ confirmPassword: '', currentPassword: '', password: '' });
                         }}
                     >
                         Descartar Cambios

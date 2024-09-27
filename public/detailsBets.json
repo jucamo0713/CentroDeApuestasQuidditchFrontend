@@ -1,0 +1,126 @@
+[ 
+    {
+      "id": "16d325b2-b01d-402a-b5a6-121ea39e2976",
+      "teamA": {
+        "name": "Appleby Arrows",
+        "image": "/images/Appleby_Arrows.jpeg"
+      },
+      "teamB": {
+        "name": "Avispas de Wimbourne",
+        "image": "/images/Avispas_Wimbourne.jpeg"
+      },
+      "scoreA": 10,
+      "scoreB": 60,
+      "location": "Campo de Quidditch de Hogwarts",
+      "date": "2024-09-14",
+      "money": 74,
+      "multiplier": 13548,
+      "status": "Pendiente"
+    },
+    {
+      "id": "c3dfbfe1-69b5-4b39-8786-a96eeb416c2c",
+      "teamA": {
+        "name": "Gryffindor",
+        "image": "/images/Gryffindor.jpeg"
+      },
+      "teamB": {
+        "name": "Slytherin",
+        "image": "/images/Slytherin.jpeg"
+      },
+      "money": 110,
+      "multiplier": 12667,
+      "status": "Pendiente"
+    },
+    {
+      "id": "ee5683ed-39f6-42f9-b71d-a4e865651ff8",
+      "teamA": {
+        "name": "Argentina",
+        "image": "/images/Argentina.jpeg"
+      },
+      "teamB": {
+        "name": "Brasil",
+        "image": "/images/Brasil.jpeg"
+      },
+      "scoreA": 180,
+      "scoreB": 220,
+      "location": "Campo de Quidditch de Maré Alta",
+      "date": "2024-09-01",
+      "money": 15,
+      "multiplier": 16212,
+      "status": "Pendiente"
+    },
+    {
+      "id": "dd7897c5-59c4-40c3-95fb-595e650dacee",
+      "teamA": {
+        "name": "Perú",
+        "image": "/images/Peru.jpeg"
+      },
+      "teamB": {
+        "name": "Brasil",
+        "image": "/images/Brasil.jpeg"
+      },
+      "scoreA": 20,
+      "scoreB": 40,
+      "location": "Campo de Quidditch de Maré Alta",
+      "date": "2024-09-03",
+      "money": 152,
+      "multiplier": 9404,
+      "status": "Pendiente"
+    },
+    {
+      "id": "47276595-c9b4-4f2c-9fe1-db10fdde141c",
+      "teamA": {
+        "name": "Irlanda",
+        "image": "/images/Irlanda.jpeg"
+      },
+      "teamB": {
+        "name": "Nueva Zelanda",
+        "image": "/images/Nueva_Zelanda.jpeg"
+      },
+      "scoreA": 160,
+      "scoreB": 100,
+      "location": "Campo de Quidditch de Tara",
+      "date": "2024-09-11",
+      "money": 177,
+      "multiplier": 15829,
+      "status": "Pendiente"
+    },
+    {
+      "id": "1a0dcb12-f22e-40d7-9e3b-c1451f9469cc",
+      "teamA": {
+        "name": "Hufflepuff",
+        "image": "/images/Hufflepuff.jpeg"
+      },
+      "teamB": {
+        "name": "Ravenclaw",
+        "image": "/images/Ravenclaw.jpeg"
+      },
+      "scoreA": 100,
+      "scoreB": 90,
+      "location": "Campo de Quidditch de Hogwarts",
+      "date": "2024-09-11",
+      "money": 79,
+      "multiplier": 541,
+      "status": "Pendiente"
+    },
+    {
+      "id": "057925ad-ee79-412e-86bd-b876284274a5",
+      "teamA": {
+        "name": "Gryffindor",
+        "image": "/images/Gryffindor.jpeg"
+      },
+      "teamB": {
+        "name": "Hufflepuff",
+        "image": "/images/Hufflepuff.jpeg"
+      },
+      "scoreA": 200,
+      "scoreB": 90,
+      "location": "Campo de Quidditch de Hogwarts",
+      "date": "2024-09-16",
+      "money": 24,
+      "multiplier": 1418,
+      "status": "Pendiente"
+    }
+  ]
+  
+  

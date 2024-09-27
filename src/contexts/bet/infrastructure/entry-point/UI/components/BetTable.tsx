@@ -2,8 +2,8 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { Bet } from '../../../../domain/model/Bet';
-import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
 import Balance from '../../../../../money/infrastructure/entry-points/UI/molecule/Balance';
+import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
 
 interface BetTableProps {
     bets: Bet[];
@@ -52,7 +52,7 @@ const BetTable: React.FC<BetTableProps> = ({ bets, limitPerPage, page }) => {
                                         variant="contained"
                                         color="info"
                                         onClick={() =>
-                                            navigate(AppRoutesConstants.BET_DETAIL.replace(':betId', bet.betId))
+                                            navigate(AppRoutesConstants.BET_DETAIL_PAGE.replace(':betId', bet.betId))
                                         }
                                     >
                                         Detalle

@@ -1,5 +1,6 @@
 export enum AppRoutesConstants {
-    BET_DETAIL = '/bet/:betId',
+    BET_DETAIL = '/bet',
+    BET_DETAIL_PAGE = '/bet/:betId',
     ENGLISHLEAGUE_PAGE = '/englishleaguedetails',
     EVENTS_PAGE = '/events',
     FAVORITE = '/favorites',

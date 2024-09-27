@@ -6,7 +6,6 @@ import { Loading } from '../contexts/shared/infrastructure/entry-points/UI/molec
 import { ToastContainer } from 'react-toastify';
 import Profile from '../contexts/user/infrastructure/entry-points/UI/components/Profile';
 import Recharge from '../contexts/money/infrastructure/entry-points/UI/components/Recharge';
-import { BetDetail } from '../contexts/bet/infrastructure/entry-point/UI/components/BetDetail';
 import { Teams } from '../contexts/teams/infrastructure/entry-point/UI/components/Teams';
 import { Events } from '../contexts/events/infrastructure/entry-point/UI/components/Events';
 import { Matches } from '../contexts/matches/infrastructure/entry-point/UI/components/Matches';
@@ -19,6 +18,7 @@ import { MatchDetails } from '../contexts/details/infrastructure/entry-point/UI/
 import { WorldCupDetails } from '../contexts/events/infrastructure/entry-point/UI/components/WorldCupDetails';
 import { EnglishLeagueDetails } from '../contexts/events/infrastructure/entry-point/UI/components/EnglishLeagueDetails';
 import { HogwartsCupDetails } from '../contexts/events/infrastructure/entry-point/UI/components/HogwartsCupDetails';
+import { BetDetailPage } from '../contexts/bet/infrastructure/entry-point/UI/pages/BetDetailPage';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,7 +29,7 @@ interface MatchDetailsType {
         time: string;
     }[];
     id: number;
-    odds: { draw: number; teamA: number; teamB: number }; // Agregamos las cuotas de ganancia
+    odds: { draw: number; teamA: number; teamB: number };
     scoreA: number;
     scoreB: number;
     teamA: {
@@ -42,23 +42,41 @@ interface MatchDetailsType {
     };
 }
 
+interface BetDetailsType {
+    date: string;
+    id: string;
+    money: number;
+    multiplier: number;
+    scoreA: number;
+    scoreB: number;
+    status: string;
+    teamA: {
+        image: string;
+        name: string;
+    };
+    teamB: {
+        image: string;
+        name: string;
+    };
+}
+
+async function fetchData<T>(url: string, id: string | number, key: keyof T): Promise<T | null> {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.find((item: T) => item[key] === id) || null;
+    } catch (error) {
+        console.error('Error al cargar los datos JSON:', error);
+        return null;
+    }
+}
+
 function MatchDetailsWrapper() {
     const { matchId } = useParams();
     const [matchDetails, setMatchDetails] = useState<MatchDetailsType | null>(null);
 
     useEffect(() => {
-        async function fetchMatchDetails() {
-            try {
-                const response = await fetch('/detailsMatches.json');
-                const data = await response.json();
-                const match = data.find((m: MatchDetailsType) => m.id === Number(matchId));
-                setMatchDetails(match || null);
-            } catch (error) {
-                console.error('Error al cargar el archivo JSON:', error);
-            }
-        }
-
-        fetchMatchDetails();
+        fetchData<MatchDetailsType>('/detailsMatches.json', Number(matchId), 'id').then(setMatchDetails);
     }, [matchId]);
 
     if (!matchDetails) {
@@ -73,6 +91,34 @@ function MatchDetailsWrapper() {
             scoreB={matchDetails.scoreB}
             highlights={matchDetails.highlights}
             odds={matchDetails.odds}
+        />
+    );
+}
+
+function BetDetailsWrapper() {
+    const { betId } = useParams(); // Obteniendo el betId de la URL
+    const [betDetails, setBetDetails] = useState<BetDetailsType | null>(null);
+
+    useEffect(() => {
+        if (betId) {
+            fetchData<BetDetailsType>('/detailsBets.json', betId, 'id').then(setBetDetails);
+        }
+    }, [betId]);
+
+    if (!betDetails) {
+        return <div>No se encontraron detalles para esta apuesta.</div>;
+    }
+
+    return (
+        <BetDetailPage
+            teamA={betDetails.teamA}
+            teamB={betDetails.teamB}
+            scoreA={betDetails.scoreA}
+            scoreB={betDetails.scoreB}
+            money={betDetails.money}
+            multiplier={betDetails.multiplier}
+            date={betDetails.date}
+            status={betDetails.status}
         />
     );
 }
@@ -123,8 +169,8 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.PROFILE,
     },
     {
-        element: <BetDetail />,
-        path: AppRoutesConstants.BET_DETAIL,
+        element: <BetDetailsWrapper />,
+        path: AppRoutesConstants.BET_DETAIL_PAGE,
     },
     {
         element: <MatchDetailsWrapper />,
