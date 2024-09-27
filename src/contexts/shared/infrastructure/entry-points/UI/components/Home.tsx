@@ -6,7 +6,6 @@ import { SessionManageUseCase } from '../../../../../auth/domain/usecase/Session
 import { AppRoutesConstants } from '../../../../domain/model/constants/AppRoutes.Constants';
 import { blueGrey } from '@mui/material/colors';
 
-// Definimos el tipo para los datos de los partidos
 interface MatchData {
     A: string;
     B: string;
@@ -22,9 +21,8 @@ export function Home() {
     const navigate = useNavigate();
     const [loginData, setLoginData] = useState<SessionData | undefined>(undefined);
     const [matches, setMatches] = useState<MatchData[]>([]);
-    const [loading, setLoading] = useState<boolean>(true); // Estado de carga
+    const [loading, setLoading] = useState<boolean>(true);
 
-    // Cargar los datos de los partidos desde el archivo JSON
     useEffect(() => {
         const fetchMatches = async () => {
             try {
@@ -35,18 +33,26 @@ export function Home() {
             } catch (error) {
                 console.error('Error al cargar los datos de los partidos:', error);
             } finally {
-                setLoading(false); // Finalizamos la carga
+                setLoading(false);
             }
         };
 
         fetchMatches();
     }, []);
 
-    // Gestionar la sesión
     useEffect(() => {
         const subscription = SessionManageUseCase.subjectOfSessionData.subscribe(setLoginData);
         return () => subscription.unsubscribe();
     }, [navigate]);
+
+    // Función para manejar la redirección o acción según el estado de la sesión
+    const handleBetClick = (team: string) => {
+        if (!loginData) {
+            navigate(AppRoutesConstants.LOGIN_PAGE); // Redirige a la página de inicio de sesión si no hay sesión activa
+        } else {
+            alert(`Equipo ${team} seleccionado`); // Acción cuando la sesión está activa
+        }
+    };
 
     return (
         <Box
@@ -154,7 +160,7 @@ export function Home() {
                                                 backgroundColor: blueGrey[700],
                                             }}
                                             variant="contained"
-                                            onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}
+                                            onClick={() => handleBetClick(match.teamA)}
                                         >
                                             {match.teamA}: {match.A}
                                         </Button>
@@ -164,7 +170,7 @@ export function Home() {
                                                 backgroundColor: blueGrey[700],
                                             }}
                                             variant="contained"
-                                            onClick={() => alert('Empate seleccionado')}
+                                            onClick={() => handleBetClick('Empate')}
                                         >
                                             Empate: {match.empate}
                                         </Button>
@@ -174,7 +180,7 @@ export function Home() {
                                                 backgroundColor: blueGrey[700],
                                             }}
                                             variant="contained"
-                                            onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}
+                                            onClick={() => handleBetClick(match.teamB)}
                                         >
                                             {match.teamB}: {match.B}
                                         </Button>
