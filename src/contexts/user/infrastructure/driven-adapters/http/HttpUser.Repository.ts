@@ -7,6 +7,7 @@ export class HttpUserRepository implements UserHttpRepository {
     private static exampleUser: User = {
         email: 'harrypotter@gmail.com',
         fullName: 'Harry James Potter',
+        password: 'hh',
         username: 'H.J.Potter',
     };
     //TODO:
@@ -26,6 +27,16 @@ export class HttpUserRepository implements UserHttpRepository {
         HttpUserRepository.exampleUser.email = email;
         HttpUserRepository.exampleUser.username = username;
         HttpUserRepository.exampleUser.fullName = name;
+        return HttpUserRepository.exampleUser;
+    }
+
+    async updatePassword(
+        password: string,
+        //TODO:
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        loginData: SessionData,
+    ): Promise<User> {
+        HttpUserRepository.exampleUser.password = password;
         return HttpUserRepository.exampleUser;
     }
 }

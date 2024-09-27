@@ -12,4 +12,8 @@ export class UserUseCase {
     async updateUser(email: string, username: string, name: string, loginData: SessionData): Promise<User> {
         return this.httpRepository.updateUser(email, username, name, loginData);
     }
+
+    async updatePassword(password: string, loginData: SessionData): Promise<User> {
+        return this.httpRepository.updatePassword(password, loginData);
+    }
 }
