@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { createBrowserRouter, Outlet, RouteObject, RouterProvider } from 'react-router-dom';
-import './App.css';
 import { AppRoutesConstants } from '../contexts/shared/domain/model/constants/AppRoutes.Constants';
 import AppNavigator from '../contexts/navigate/infrastructure/entry-points/UI/components/AppNavigator';
 import { Loading } from '../contexts/shared/infrastructure/entry-points/UI/molecule/Loading';
@@ -13,8 +12,8 @@ import { Events } from '../contexts/events/infrastructure/entry-point/UI/compone
 import { Matches } from '../contexts/matches/infrastructure/entry-point/UI/components/Matches';
 import { Results } from '../contexts/results/infrastructure/entry-point/UI/components/Results';
 import { Favorites } from '../contexts/favorites/infrastructure/entry-point/UI/components/Favorites';
-import { LoginPage } from '../contexts/login/infrastructure/entry-point/UI/components/LoginPage';
-import { SignUp } from '../contexts/signup/infrastructure/entry-points/UI/components/SignUp';
+import { LoginPage } from '../contexts/user/infrastructure/entry-points/UI/pages/LoginPage';
+import { SignUpPage } from '../contexts/user/infrastructure/entry-points/UI/pages/SignUpPage';
 import { Home } from '../contexts/shared/infrastructure/entry-points/UI/components/Home';
 import { MatchDetails } from '../contexts/details/infrastructure/entry-point/UI/components/details';
 import { useParams } from 'react-router-dom';
@@ -118,7 +117,7 @@ const routes: RouteObject[] = [
         path: AppRoutesConstants.LOGIN_PAGE,
     },
     {
-        element: <SignUp />,
+        element: <SignUpPage />,
         path: AppRoutesConstants.SIGNUP_PAGE,
     },
     {

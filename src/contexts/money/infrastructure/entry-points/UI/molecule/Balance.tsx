@@ -1,18 +1,17 @@
 import React from 'react';
-import './Balance.css';
 import { MoneyData } from '../../../../../money/domain/model/MoneyData';
-import { GalleonIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/galleons/GalleonIcon';
-import { KnutIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/knuts/KnutIcon';
-import { SicklesIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/sickles/SicklesIcon';
+import { GalleonIconTable } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/galleons/GalleonIconTable';
+import { KnutIconTable } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/knuts/KnutIconTable';
+import { SicklesIconTable } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/sickles/SicklesIconTable';
 
 export default function Balance(params: MoneyData) {
     return (
         <div className="balance-container">
-            <GalleonIcon />
+            <GalleonIconTable />
             {params?.galleons ?? 0} |&nbsp;
-            <SicklesIcon />
+            <SicklesIconTable />
             {params?.sickles ?? 0} |&nbsp;
-            <KnutIcon />
+            <KnutIconTable />
             {params?.knuts ?? 0}
         </div>
     );

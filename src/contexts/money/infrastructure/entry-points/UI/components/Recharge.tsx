@@ -1,105 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import './Recharge.css';
-import { MoneyManageInstance } from '../../../../../money/applications/dependencyInjection/MoneyManageInstance';
-import { SessionData } from '../../../../../auth/domain/model/SessionData';
-import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
-import { useNavigate } from 'react-router-dom';
-import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
-import './Recharge.css';
-import { GalleonIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/galleons/GalleonIcon';
-import { KnutIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/knuts/KnutIcon';
-import { SicklesIcon } from '../../../../../shared/infrastructure/entry-points/UI/atoms/coins/sickles/SicklesIcon';
+import React from 'react';
+import { Box, Card, CardContent, Typography } from '@mui/material';
+import { RechargeForm } from './RechargeForm';
+import { RechargeIcons } from './RechargeIcons';
+import useRecharge from './useRecharge';
 
 export default function Recharge() {
-    const navigate = useNavigate();
-    const [loginData, setLoginData] = useState<SessionData | undefined>(undefined);
-    const [selectedCurrency, setSelectedCurrency] = useState('galleons'); // Estado para la moneda seleccionada
+    const { loginData, handleSubmit, selectedCurrency, setSelectedCurrency, amount, setAmount } = useRecharge();
 
-    useEffect(() => {
-        SessionManageUseCase.subjectOfSessionData.subscribe({
-            next: (v) => {
-                if (!v) {
-                    navigate('/');
-                }
-                setLoginData(v);
-            },
-        });
-    }, [navigate]);
-    if (loginData) {
-        return (
-            <main className="main-section">
-                <section className="dashboard">
-                    <div className="scheme">
-                        <form className="form-edit">
-                            <h2>Recargar</h2>
-                            <p>
-                                <GalleonIcon />
-                                <SicklesIcon />
-                                <KnutIcon />
-                            </p>
-                            <form
-                                className="form-edit"
-                                onSubmit={(e) => {
-                                    e.preventDefault();
-                                    LoadingSourceUseCase.setLoading();
-                                    const amountInput = e.currentTarget.amount;
-                                    const amountValue = parseInt(amountInput.value);
-
-                                    // Validar que el input no esté vacío o tenga valores negativos
-                                    if (amountInput.value === '' || isNaN(amountValue) || amountValue < 0) {
-                                        amountInput.className = 'error-input';
-                                        amountInput.setCustomValidity('El valor debe ser un número positivo.');
-                                        amountInput.reportValidity();
-                                        LoadingSourceUseCase.unsetLoading();
-                                        return;
-                                    }
-
-                                    // Dependiendo de la moneda seleccionada, recargar la correspondiente
-                                    const rechargeData = {
-                                        galleons: selectedCurrency === 'galleons' ? amountValue : 0,
-                                        knuts: selectedCurrency === 'knuts' ? amountValue : 0,
-                                        sickles: selectedCurrency === 'sickles' ? amountValue : 0,
-                                    };
-
-                                    MoneyManageInstance.rechargeMoney(rechargeData, loginData).finally(() => {
-                                        LoadingSourceUseCase.unsetLoading();
-                                    });
-                                }}
-                            >
-                                <div className="input-container">
-                                    <label htmlFor="currency">Seleccionar moneda:</label>
-                                    <select
-                                        name="currency"
-                                        value={selectedCurrency}
-                                        onChange={(e) => setSelectedCurrency(e.target.value)}
-                                    >
-                                        <option value="galleons">
-                                            <GalleonIcon /> | Galleons
-                                        </option>
-                                        <option value="sickles">
-                                            <SicklesIcon /> | Sickles
-                                        </option>
-                                        <option value="knuts">
-                                            <KnutIcon /> | Knuts
-                                        </option>
-                                    </select>
-                                </div>
-                                <div className="input-container">
-                                    <label htmlFor="amount">
-                                        {selectedCurrency.charAt(0).toUpperCase() + selectedCurrency.slice(1)}:
-                                    </label>
-                                    <input type="number" name="amount" min={0} step={1} required />
-                                </div>
-                                <div className="buttons-container">
-                                    <input type="submit" value="Recargar" />
-                                </div>
-                            </form>
-                        </form>
-                    </div>
-                </section>
-            </main>
-        );
-    } else {
+    if (!loginData) {
         return <>Unauthorized</>;
     }
+
+    return (
+        <Box
+            sx={{
+                alignItems: 'center',
+                backgroundColor: '#1c1613',
+                color: '#fff',
+                display: 'flex',
+                justifyContent: 'center',
+                minHeight: '100vh',
+                textAlign: 'center',
+            }}
+        >
+            <Card sx={{ backgroundColor: '#333', color: '#fff', maxWidth: 600, minWidth: 400, padding: '20px' }}>
+                <CardContent>
+                    <Typography variant="h4" gutterBottom>
+                        Recargar
+                    </Typography>
+                    <RechargeIcons />
+                    <RechargeForm
+                        handleSubmit={handleSubmit}
+                        selectedCurrency={selectedCurrency}
+                        setSelectedCurrency={setSelectedCurrency}
+                        amount={amount}
+                        setAmount={setAmount}
+                    />
+                </CardContent>
+            </Card>
+        </Box>
+    );
 }

@@ -1,0 +1,80 @@
+/*Estilo para la paginación del historial de apuestas*/
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination-container button {
+    background-color: #b3923b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-container button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.pagination-container button.active {
+    box-shadow: 0 1px 10px var(--accent-color);
+}
+
+.pagination-container button:hover:not(:disabled) {
+    background-color: #f0c84a;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6);
+}
+
+.pagination-info {
+    margin-left: 15px;
+    color: #fff;
+}
+
+
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .history-table th, .history-table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .pagination-container button {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .pagination-info {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480PX) {
+    .history-table th, .history-table td {
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .pagination-container button {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    .pagination-info {
+        font-size: 10px;
+    }
+}
+

@@ -4,12 +4,16 @@ export function KnutIcon() {
     return (
         <div
             style={{
-                aspectRatio: 1,
+                alignItems: 'center',
+                aspectRatio: '1 / 1',
                 backgroundColor: '#b87333',
-                borderRadius: '100%',
+                borderRadius: '50%',
                 color: '#8A4A24',
-                display: 'inline-block',
+                display: 'flex',
+                justifyContent: 'center',
+                margin: '0 0.5rem',
                 minWidth: '1rem',
+                padding: '0.5rem',
             }}
         >
             ₭

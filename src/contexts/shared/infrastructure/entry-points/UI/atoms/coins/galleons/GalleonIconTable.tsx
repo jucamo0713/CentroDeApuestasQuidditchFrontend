@@ -1,20 +1,18 @@
 import React from 'react';
 
-export function GalleonIcon() {
+export function GalleonIconTable() {
     return (
         <div
             style={{
                 alignItems: 'center',
-                aspectRatio: '1 / 1',
+                aspectRatio: 1,
                 backgroundColor: 'gold',
-                borderRadius: '50%',
+                borderRadius: '100%',
                 boxSizing: 'border-box',
                 color: '#8B0000',
-                display: 'flex',
+                display: 'inline-flex',
                 justifyContent: 'center',
-                margin: '0 0.5rem',
                 minWidth: '1rem',
-                padding: '0.5rem',
             }}
         >
             ₲
