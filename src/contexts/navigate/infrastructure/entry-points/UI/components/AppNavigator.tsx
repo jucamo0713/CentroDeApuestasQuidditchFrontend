@@ -190,15 +190,21 @@ export default function AppNavigator() {
                     >
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.MAIN_PAGE)}>Inicio</MenuItem>
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.MATCHES_PAGE)}>Partidos</MenuItem>
-                        <MenuItem onClick={() => handleNavigation(AppRoutesConstants.RESULTS_PAGE)}>Resultados</MenuItem>
+                        <MenuItem onClick={() => handleNavigation(AppRoutesConstants.RESULTS_PAGE)}>
+                            Resultados
+                        </MenuItem>
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.EVENTS_PAGE)}>Eventos</MenuItem>
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.TEAMS_PAGE)}>Equipos</MenuItem>
 
                         {/* Mostrar opciones de perfil o iniciar sesión dependiendo del estado de sesión */}
                         {loginData ? (
                             <>
-                                <MenuItem onClick={() => handleNavigation(AppRoutesConstants.FAVORITE)}>Favoritos</MenuItem>
-                                <MenuItem onClick={() => handleNavigation(AppRoutesConstants.RECHARGE)}>Recargar</MenuItem>
+                                <MenuItem onClick={() => handleNavigation(AppRoutesConstants.FAVORITE)}>
+                                    Favoritos
+                                </MenuItem>
+                                <MenuItem onClick={() => handleNavigation(AppRoutesConstants.RECHARGE)}>
+                                    Recargar
+                                </MenuItem>
                                 <MenuItem onClick={() => handleNavigation(AppRoutesConstants.PROFILE)}>Perfil</MenuItem>
                                 <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
                                 {/* Mostrar el balance en el menú de pantallas pequeñas */}

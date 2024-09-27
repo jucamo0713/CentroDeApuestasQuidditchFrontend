@@ -9,6 +9,7 @@ export const useSignUpForm = () => {
     const [formData, setFormData] = useState({
         confirmPassword: '',
         email: '',
+        name: '',
         password: '',
         username: '',
     });
@@ -16,6 +17,7 @@ export const useSignUpForm = () => {
     const [errors, setErrors] = useState({
         confirmPassword: '',
         email: '',
+        name: '',
         password: '',
         username: '',
     });
@@ -32,10 +34,16 @@ export const useSignUpForm = () => {
         const newErrors: typeof errors = {
             confirmPassword: '',
             email: '',
+            name: '',
             password: '',
             username: '',
         };
         let isValid = true;
+
+        if (formData.name.trim() === '') {
+            newErrors.name = 'El nombre es requerido.';
+            isValid = false;
+        }
 
         if (formData.username.trim() === '') {
             newErrors.username = 'El nombre de usuario es requerido.';

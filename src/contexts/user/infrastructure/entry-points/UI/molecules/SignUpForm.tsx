@@ -31,6 +31,18 @@ export function SignUpForm() {
                             <ThemeProvider theme={theme}>
                                 <TextField
                                     type="text"
+                                    label="Nombre completo"
+                                    variant="outlined"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    required
+                                    fullWidth
+                                    error={!!errors.name}
+                                    helperText={errors.name}
+                                />
+                                <TextField
+                                    type="text"
                                     label="Nombre de usuario"
                                     variant="outlined"
                                     name="username"
