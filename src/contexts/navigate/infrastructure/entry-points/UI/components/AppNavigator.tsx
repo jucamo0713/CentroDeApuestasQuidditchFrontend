@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
 import logo from '../../../../../shared/domain/model/resources/logo.png';
 import React, { useEffect, useRef, useState } from 'react';
-import './AppNavigator.css';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
 import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
@@ -87,7 +86,7 @@ export default function AppNavigator() {
                     </Typography>
                 </Box>
 
-                {/* Menu for large screens */}
+                {/* Menu para pantallas grandes */}
                 <Box sx={{ display: { md: 'flex', xs: 'none' } }}>
                     <Button
                         sx={{ color: 'var(--secondary-color)', fontWeight: 'bold' }}
@@ -176,7 +175,7 @@ export default function AppNavigator() {
                     )}
                 </Box>
 
-                {/* Hamburger menu for small screens */}
+                {/* Menu hamburguesa para pantallas pequeñas */}
                 <Box sx={{ display: { md: 'none', xs: 'flex' } }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenuOpen}>
                         <MenuIcon />
@@ -191,15 +190,15 @@ export default function AppNavigator() {
                     >
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.MAIN_PAGE)}>Inicio</MenuItem>
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.MATCHES_PAGE)}>Partidos</MenuItem>
-                        <MenuItem onClick={() => handleNavigation(AppRoutesConstants.RESULTS_PAGE)}>
-                            Resultados
-                        </MenuItem>
+                        <MenuItem onClick={() => handleNavigation(AppRoutesConstants.RESULTS_PAGE)}>Resultados</MenuItem>
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.EVENTS_PAGE)}>Eventos</MenuItem>
                         <MenuItem onClick={() => handleNavigation(AppRoutesConstants.TEAMS_PAGE)}>Equipos</MenuItem>
 
                         {/* Mostrar opciones de perfil o iniciar sesión dependiendo del estado de sesión */}
                         {loginData ? (
                             <>
+                                <MenuItem onClick={() => handleNavigation(AppRoutesConstants.FAVORITE)}>Favoritos</MenuItem>
+                                <MenuItem onClick={() => handleNavigation(AppRoutesConstants.RECHARGE)}>Recargar</MenuItem>
                                 <MenuItem onClick={() => handleNavigation(AppRoutesConstants.PROFILE)}>Perfil</MenuItem>
                                 <MenuItem onClick={handleLogout}>Cerrar sesión</MenuItem>
                                 {/* Mostrar el balance en el menú de pantallas pequeñas */}
