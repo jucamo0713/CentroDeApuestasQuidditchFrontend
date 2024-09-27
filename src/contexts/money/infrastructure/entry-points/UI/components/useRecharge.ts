@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MoneyManageInstance } from '../../../../../money/applications/dependencyInjection/MoneyManageInstance';
 import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
 import { useNavigate } from 'react-router-dom';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
+import { toast } from 'react-toastify';
 
 // Enum para las monedas
 const Currency = {
@@ -20,12 +21,12 @@ const useRecharge = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        LoadingSourceUseCase.setLoading();
+        const processId = LoadingSourceUseCase.addLoaderProcess();
 
         const amountValue = parseInt(amount);
         if (isNaN(amountValue) || amountValue < 0) {
-            alert('El valor debe ser un número positivo.');
-            LoadingSourceUseCase.unsetLoading();
+            toast.error('El valor debe ser un número positivo.');
+            LoadingSourceUseCase.removeLoaderProcess(processId);
             return;
         }
 
@@ -37,7 +38,7 @@ const useRecharge = () => {
 
         if (loginData) {
             MoneyManageInstance.rechargeMoney(rechargeData, loginData).finally(() => {
-                LoadingSourceUseCase.unsetLoading();
+                LoadingSourceUseCase.removeLoaderProcess(processId);
             });
         }
     };

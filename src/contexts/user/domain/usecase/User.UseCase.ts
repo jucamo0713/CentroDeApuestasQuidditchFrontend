@@ -16,4 +16,13 @@ export class UserUseCase {
     async updatePassword(password: string, loginData: SessionData): Promise<User> {
         return this.httpRepository.updatePassword(password, loginData);
     }
+
+    async signupUser(
+        email: string,
+        password: string,
+        name: string,
+        username: string,
+    ): Promise<SessionData | undefined> {
+        return this.httpRepository.signup(email, password, name, username);
+    }
 }

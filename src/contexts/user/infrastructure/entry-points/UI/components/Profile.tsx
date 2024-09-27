@@ -53,9 +53,9 @@ export default function Profile() {
                                     color="info"
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        LoadingSourceUseCase.setLoading();
+                                        const processId = LoadingSourceUseCase.addLoaderProcess();
                                         SessionManageInstance.closeSession().finally(() => {
-                                            LoadingSourceUseCase.unsetLoading();
+                                            LoadingSourceUseCase.removeLoaderProcess(processId);
                                             navigate('/');
                                         });
                                     }}

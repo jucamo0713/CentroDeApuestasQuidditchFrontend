@@ -8,10 +8,8 @@
     "@eslint/js": "^9.4.0",
     "@mui/icons-material": "^6.1.1",
     "@mui/material": "^6.1.1",
-    "@types/node": "^20.14.2",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
     "@typescript-eslint/parser": "^7.13.0",
+    "axios": "^1.7.7",
     "depcheck": "^1.4.7",
     "eslint": "^9.4.0",
     "eslint-config-prettier": "^9.1.0",
@@ -29,6 +27,7 @@
     "rxjs": "^7.8.1",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.13.0",
+    "uuid": "^10.0.0",
     "web-vitals": "^4.1.0"
   },
   "scripts": {
@@ -66,5 +65,11 @@
     "node": "^20.12.2",
     "npm": "^10.5.0",
     "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "@types/uuid": "^10.0.0",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
   }
 }

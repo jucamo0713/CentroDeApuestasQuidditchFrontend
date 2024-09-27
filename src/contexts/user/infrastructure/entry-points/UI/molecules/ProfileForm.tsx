@@ -7,6 +7,7 @@ import { blueGrey } from '@mui/material/colors';
 import { Box, Button, TextField } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme/theme';
+import { toast } from 'react-toastify';
 
 export function ProfileForm({ loginData }: { loginData: SessionData }) {
     const [edit, setEdit] = useState(false);
@@ -48,7 +49,7 @@ export function ProfileForm({ loginData }: { loginData: SessionData }) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        LoadingSourceUseCase.setLoading();
+        const processId = LoadingSourceUseCase.addLoaderProcess();
 
         if (editableData.email && editableData.username && editableData.fullName) {
             UserUseCaseInstance.updateUser(editableData.email, editableData.username, editableData.fullName, loginData)
@@ -57,35 +58,36 @@ export function ProfileForm({ loginData }: { loginData: SessionData }) {
                 })
                 .finally(() => {
                     setEdit(false);
-                    LoadingSourceUseCase.unsetLoading();
+                    LoadingSourceUseCase.removeLoaderProcess(processId);
                 });
         } else {
-            LoadingSourceUseCase.unsetLoading();
+            LoadingSourceUseCase.removeLoaderProcess(processId);
         }
     };
 
     const handlePasswordSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        LoadingSourceUseCase.setLoading();
+        const process = LoadingSourceUseCase.addLoaderProcess();
 
         if (changePassword.password !== changePassword.confirmPassword) {
             setPasswordError('Las contraseñas no coinciden');
-            LoadingSourceUseCase.unsetLoading();
+            LoadingSourceUseCase.removeLoaderProcess(process);
             return;
         }
 
         if (changePassword.password) {
             UserUseCaseInstance.updatePassword(changePassword.password, loginData)
                 .then(() => {
+                    toast.success('Contraseña cambiada con exito');
                     setChangePassword({ confirmPassword: '', password: '' });
                 })
                 .finally(() => {
                     setChange(false);
-                    LoadingSourceUseCase.unsetLoading();
+                    LoadingSourceUseCase.removeLoaderProcess(process);
                 });
         } else {
             setPasswordError('Por favor ingresa una contraseña');
-            LoadingSourceUseCase.unsetLoading();
+            LoadingSourceUseCase.removeLoaderProcess(process);
         }
     };
 

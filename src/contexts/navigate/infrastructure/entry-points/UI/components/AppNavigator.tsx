@@ -48,9 +48,9 @@ export default function AppNavigator() {
     };
 
     const handleLogout = () => {
-        LoadingSourceUseCase.setLoading();
+        const processId = LoadingSourceUseCase.addLoaderProcess();
         SessionManageInstance.closeSession().finally(() => {
-            LoadingSourceUseCase.unsetLoading();
+            LoadingSourceUseCase.removeLoaderProcess(processId);
             navigate('/');
         });
     };

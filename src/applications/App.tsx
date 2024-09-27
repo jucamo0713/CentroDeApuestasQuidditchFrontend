@@ -21,6 +21,7 @@ import { EnglishLeagueDetails } from '../contexts/events/infrastructure/entry-po
 import { HogwartsCupDetails } from '../contexts/events/infrastructure/entry-point/UI/components/HogwartsCupDetails';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface MatchDetailsType {
     highlights: {

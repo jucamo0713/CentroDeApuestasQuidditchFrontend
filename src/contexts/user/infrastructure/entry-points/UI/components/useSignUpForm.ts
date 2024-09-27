@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
 import { LoadingSourceUseCase } from '../../../../../shared/domain/usecase/LoadingSource.UseCase';
-import { loginUser } from '../services/authService';
+import { UserUseCaseInstance } from '../../../../application/dependencyInjection/UserUseCaseInstance';
+import { toast } from 'react-toastify';
+import { SessionManageInstance } from '../../../../../auth/applications/dependencyInjection/SessionManageInstance';
 
 export const useSignUpForm = () => {
     const navigate = useNavigate();
@@ -55,9 +57,10 @@ export const useSignUpForm = () => {
             newErrors.email = 'Por favor, ingresa un correo electrónico válido.';
             isValid = false;
         }
-
-        if (formData.password.length < 6) {
-            newErrors.password = 'La contraseña debe tener al menos 6 caracteres.';
+        const passwordRegex = /^(?=.*\d)(?=.*\p{Ll})(?=.*\p{Lu})(?=.*[^\p{L}\d])\S{8,}$/u;
+        if (!passwordRegex.test(formData.password)) {
+            newErrors.password =
+                'La contraseña debe ser de almenos 8 caracteres, almenos una minuscula, una mayuscula, un numero, y un caracter especial.';
             isValid = false;
         }
 
@@ -73,12 +76,21 @@ export const useSignUpForm = () => {
     const handleSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
         if (validateForm()) {
-            LoadingSourceUseCase.setLoading();
+            const processId = LoadingSourceUseCase.addLoaderProcess();
             try {
-                await loginUser(formData.email, formData.password);
-                navigate(AppRoutesConstants.MAIN_PAGE);
+                const response = await UserUseCaseInstance.signupUser(
+                    formData.email,
+                    formData.password,
+                    formData.name,
+                    formData.username,
+                );
+                if (response) {
+                    await SessionManageInstance.saveSessionData(response);
+                    toast.success('Usuario registrado exitosamente');
+                    navigate(AppRoutesConstants.MAIN_PAGE);
+                }
             } finally {
-                LoadingSourceUseCase.unsetLoading();
+                LoadingSourceUseCase.removeLoaderProcess(processId);
             }
         }
     };
