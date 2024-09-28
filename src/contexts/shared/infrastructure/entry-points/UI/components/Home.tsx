@@ -76,14 +76,8 @@ export function Home() {
                     setLoading(false);
                 }
             } catch (err: unknown) {
-                if (isMounted) {
-                    if (err instanceof Error) {
-                        setError(err.message);
-                    } else {
-                        setError('Error desconocido');
-                    }
-                    setLoading(false);
-                }
+                setLoading(false);
+                console.error(err);
             }
         };
 
