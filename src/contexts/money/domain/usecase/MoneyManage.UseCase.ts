@@ -1,6 +1,5 @@
 import { MoneyData } from '../model/MoneyData';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
-import { SessionData } from '../../../auth/domain/model/SessionData';
 import { MoneyHttpRepository } from '../model/gateways/MoneyHttp.Repository';
 
 export class MoneyManageUseCase {
@@ -24,11 +23,8 @@ export class MoneyManageUseCase {
         return currentData;
     }
 
-    async rechargeMoney(moneyToRecharge: MoneyData, loginData: SessionData): Promise<MoneyData | undefined> {
-        const updatedMoneyData: MoneyData | undefined = await this.httpMoneyRepository.rechargeMoney(
-            moneyToRecharge,
-            loginData,
-        );
+    async rechargeMoney(moneyToRecharge: MoneyData): Promise<MoneyData | undefined> {
+        const updatedMoneyData: MoneyData | undefined = await this.httpMoneyRepository.rechargeMoney(moneyToRecharge);
         const currentData = await firstValueFrom(MoneyManageUseCase.MoneyData$);
         if (
             updatedMoneyData &&

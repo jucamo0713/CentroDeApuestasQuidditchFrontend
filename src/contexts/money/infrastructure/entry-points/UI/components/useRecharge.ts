@@ -18,7 +18,7 @@ const useRecharge = () => {
         const processId = LoadingSourceUseCase.addLoaderProcess();
 
         const amountValue = parseInt(amount);
-        if (isNaN(amountValue) || amountValue < 0) {
+        if (isNaN(amountValue) || amountValue < 1) {
             toast.error('El valor debe ser un número positivo.');
             LoadingSourceUseCase.removeLoaderProcess(processId);
             return;
@@ -31,9 +31,17 @@ const useRecharge = () => {
         };
 
         if (loginData) {
-            MoneyManageInstance.rechargeMoney(rechargeData, loginData).finally(() => {
-                LoadingSourceUseCase.removeLoaderProcess(processId);
-            });
+            MoneyManageInstance.rechargeMoney(rechargeData)
+                .then((v) => {
+                    if (v) {
+                        toast.success('La recarga se realizó con éxito', {
+                            position: 'bottom-right',
+                        });
+                    }
+                })
+                .finally(() => {
+                    LoadingSourceUseCase.removeLoaderProcess(processId);
+                });
         }
     };
 
