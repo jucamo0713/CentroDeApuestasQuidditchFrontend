@@ -41,11 +41,13 @@ export function ProfileForm({ loginData }: { loginData: SessionData }) {
     };
 
     useEffect(() => {
-        UserUseCaseInstance.getUser(loginData).then((user) => {
-            setProfile(user);
-            setEditableData({ ...user });
+        UserUseCaseInstance.getUser().then((user) => {
+            if (user) {
+                setProfile(user);
+                setEditableData({ ...user });
+            }
         });
-    }, [loginData]);
+    }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

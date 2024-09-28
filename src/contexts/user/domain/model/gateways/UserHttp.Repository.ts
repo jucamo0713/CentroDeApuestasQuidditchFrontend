@@ -2,7 +2,7 @@ import { User } from '../User';
 import { SessionData } from '../../../../auth/domain/model/SessionData';
 
 export interface UserHttpRepository {
-    getUser(session: SessionData): Promise<User>;
+    getUser(): Promise<User | undefined>;
 
     signup(email: string, password: string, name: string, username: string): Promise<SessionData | undefined>;
 

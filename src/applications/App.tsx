@@ -22,25 +22,7 @@ import { BetDetailPage } from '../contexts/bet/infrastructure/entry-point/UI/pag
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-
-interface MatchDetailsType {
-    highlights: {
-        description: string;
-        time: string;
-    }[];
-    id: number;
-    odds: { draw: number; teamA: number; teamB: number };
-    scoreA: number;
-    scoreB: number;
-    teamA: {
-        image: string;
-        name: string;
-    };
-    teamB: {
-        image: string;
-        name: string;
-    };
-}
+import { MatchDetailData } from '../contexts/matches/domain/model/matchDetailData';
 
 interface BetDetailsType {
     date: string;
@@ -73,26 +55,17 @@ async function fetchData<T>(url: string, id: string | number, key: keyof T): Pro
 
 function MatchDetailsWrapper() {
     const { matchId } = useParams();
-    const [matchDetails, setMatchDetails] = useState<MatchDetailsType | null>(null);
+    const [matchDetails, setMatchDetails] = useState<MatchDetailData | null>(null);
 
     useEffect(() => {
-        fetchData<MatchDetailsType>('/detailsMatches.json', Number(matchId), 'id').then(setMatchDetails);
+        fetchData<MatchDetailData>('/detailsMatches.json', matchId!, 'matchId').then(setMatchDetails);
     }, [matchId]);
 
     if (!matchDetails) {
         return <div>No se encontraron detalles para este partido.</div>;
     }
 
-    return (
-        <MatchDetails
-            teamA={matchDetails.teamA}
-            teamB={matchDetails.teamB}
-            scoreA={matchDetails.scoreA}
-            scoreB={matchDetails.scoreB}
-            highlights={matchDetails.highlights}
-            odds={matchDetails.odds}
-        />
-    );
+    return <MatchDetails {...matchDetails} />;
 }
 
 function BetDetailsWrapper() {

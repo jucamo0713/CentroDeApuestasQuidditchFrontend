@@ -1,14 +1,10 @@
 [ 
     {
-      "id": 1,
-      "teamA": {
-        "name": "Appleby Arrows",
-        "image": "/images/Appleby_Arrows.jpeg"
-      },
-      "teamB": {
-        "name": "Avispas de Wimbourne",
-        "image": "/images/Avispas_Wimbourne.jpeg"
-      },
+      "matchId": "1",
+      "teamA": "Appleby Arrows",
+      "imageA": "/images/Appleby_Arrows.jpeg",
+      "teamB":"Avispas de Wimbourne",
+      "imageB": "/images/Avispas_Wimbourne.jpeg",
       "scoreA": 10,
       "scoreB": 60,
       "location": "Campo de Quidditch de Hogwarts",
@@ -26,7 +22,7 @@
       "odds": { "teamA": 3.5, "teamB": 1.4, "draw": 2 }
     },
     {
-      "id": 2,
+      "matchId": "2",
       "teamA": {
         "name": "Gryffindor",
         "image": "/images/Gryffindor.jpeg"

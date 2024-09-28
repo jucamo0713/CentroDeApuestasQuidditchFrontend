@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, Observable } from 'rxjs';
 import { SessionData } from '../model/SessionData';
 import { AuthRepository } from '../model/gateways/Auth.Repository';
 import { AuthHttpRepository } from '../model/gateways/AuthHttp.Repository';
@@ -16,8 +16,10 @@ export class SessionManageUseCase {
     }
 
     public async saveSessionData(data: SessionData): Promise<void> {
-        SessionManageUseCase._subjectOfSessionData.next(data);
         await this.authRepository.setSessionData(data);
+        if (data !== (await firstValueFrom(SessionManageUseCase._subjectOfSessionData))) {
+            SessionManageUseCase._subjectOfSessionData.next(data);
+        }
     }
 
     public async loginUser(email: string, password: string): Promise<void> {

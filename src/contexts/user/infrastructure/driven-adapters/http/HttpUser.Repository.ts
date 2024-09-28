@@ -12,10 +12,24 @@ export class HttpUserRepository implements UserHttpRepository {
         password: 'hh',
         username: 'H.J.Potter',
     };
-    //TODO:
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    async getUser(sessionData: SessionData): Promise<User> {
-        return HttpUserRepository.exampleUser;
+
+    async getUser(): Promise<User | undefined> {
+        const data = await BackendRepository.get<{
+            email: string;
+            fullName: string;
+            success: boolean;
+            username: string;
+        }>({
+            URL: BackendUrlConstants.ME,
+        });
+        return data
+            ? {
+                  email: data?.email,
+                  fullName: data?.fullName,
+                  password: '',
+                  username: data.username,
+              }
+            : undefined;
     }
 
     async updateUser(email: string, username: string, name: string): Promise<User> {

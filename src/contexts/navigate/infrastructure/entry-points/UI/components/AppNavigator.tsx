@@ -56,13 +56,13 @@ export default function AppNavigator() {
     };
 
     useEffect(() => {
-        if (loginData) {
+        if (loginData && (!moneySubscription.current || moneySubscription.current?.closed)) {
             moneySubscription.current = MoneyManageUseCase.MoneyData$.subscribe({
                 next: setMoneyData,
             });
             firstValueFrom(MoneyManageUseCase.MoneyData$).then(async (value) => {
                 if (!value) {
-                    await MoneyManageInstance.findMoneyData(loginData);
+                    await MoneyManageInstance.findMoneyData();
                 }
             });
         } else if (moneySubscription.current) {
@@ -70,6 +70,7 @@ export default function AppNavigator() {
             moneySubscription.current = undefined;
             setMoneyData(undefined);
         }
+        return () => moneySubscription.current?.unsubscribe();
     }, [loginData]);
 
     return (

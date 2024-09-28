@@ -11,27 +11,18 @@ import {
     Box,
     Divider,
     Button,
+    Modal,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { blueGrey } from '@mui/material/colors';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
 import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
-
-interface MatchDetailsProps {
-    highlights: { description: string; time: string }[];
-    odds: { draw: number; teamA: number; teamB: number }; // Agregamos las cuotas de ganancia
-    scoreA: number;
-    scoreB: number;
-    teamA: {
-        image: string;
-        name: string;
-    };
-    teamB: {
-        image: string;
-        name: string;
-    };
-}
+import { MatchDetailData } from '../../../../../matches/domain/model/matchDetailData';
+import { RechargeForm } from '../../../../../money/infrastructure/entry-points/UI/components/RechargeForm';
+import { toast } from 'react-toastify';
+import { currencyConstants } from '../../../../../money/domain/model/currencyConstants';
+import { BetUseCaseInstance } from '../../../../../bet/application/dependencyInjection/BetUseCaseInstance';
 
 // Componente para mostrar los detalles de cada equipo
 const TeamCard: React.FC<{ score: number; scoreColor: string; team: { image: string; name: string } }> = ({
@@ -50,9 +41,55 @@ const TeamCard: React.FC<{ score: number; scoreColor: string; team: { image: str
     </Grid>
 );
 
-export const MatchDetails: React.FC<MatchDetailsProps> = ({ teamA, teamB, scoreA, scoreB, highlights, odds }) => {
+export const MatchDetails: React.FC<MatchDetailData> = ({
+    matchId,
+    teamA,
+    teamB,
+    scoreA,
+    scoreB,
+    highlights,
+    odds,
+    imageA,
+    imageB,
+}) => {
     const navigate = useNavigate();
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
     const [loginData, setLoginData] = useState<SessionData | undefined>(undefined);
+    const [betType, SetBetType] = useState<string | undefined>(undefined);
+    const [amount, setAmount] = useState<string>('0');
+    const [selectedCurrency, setSelectedCurrency] = useState<string>('galleons');
+
+    const style = {
+        bgcolor: '#333',
+        border: '2px solid #000',
+        boxShadow: 24,
+        left: '50%',
+        p: 4,
+        position: 'absolute' as const,
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+    };
+
+    const handlePay = (e: React.FormEvent) => {
+        e.preventDefault();
+        const amountValue = parseInt(amount);
+        if (isNaN(amountValue) || amountValue < 1) {
+            toast.error('El valor debe ser un número positivo.');
+        } else if (!betType) {
+            toast.error('Error debe seleccionar tipo de apuesta');
+        } else {
+            BetUseCaseInstance.create(amountValue, selectedCurrency, betType, matchId).then((val) => {
+                if (val) {
+                    toast.success('Realizaste la apuesta correctamente');
+                    setModalIsOpen(false);
+                    setAmount('0');
+                    setSelectedCurrency(currencyConstants.GALLEONS);
+                    SetBetType(undefined);
+                }
+            });
+        }
+    };
 
     // Gestionar la sesión
     useEffect(() => {
@@ -61,26 +98,46 @@ export const MatchDetails: React.FC<MatchDetailsProps> = ({ teamA, teamB, scoreA
     }, []);
 
     // Función para manejar la apuesta (redirige a la página de login si no hay sesión)
-    const handleBet = (team: string) => {
+    const handleBet = (type: string) => {
         if (!loginData) {
             navigate(AppRoutesConstants.LOGIN_PAGE);
         } else {
-            alert(`Apuesta realizada por ${team}`);
+            setModalIsOpen(true);
+            SetBetType(type);
         }
     };
 
     return (
         <Box sx={{ backgroundColor: '#1c1613', color: '#fff', minHeight: '100vh', padding: '20px' }}>
+            <Modal
+                open={modalIsOpen}
+                onClose={() => {
+                    setModalIsOpen(false);
+                    SetBetType(undefined);
+                }}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <RechargeForm
+                        handleSubmit={handlePay}
+                        selectedCurrency={selectedCurrency}
+                        setSelectedCurrency={setSelectedCurrency}
+                        amount={amount}
+                        setAmount={setAmount}
+                    />
+                </Box>
+            </Modal>
             <Grid container spacing={3} justifyContent="center">
                 <Grid item xs={12} sm={5}>
                     <Card sx={{ backgroundColor: '#333', color: '#fff', padding: '20px' }}>
                         <CardContent>
                             <Grid container justifyContent="center" alignItems="center">
-                                <TeamCard team={teamA} score={scoreA} scoreColor="#4caf50" />
+                                <TeamCard team={{ image: imageA, name: teamA }} score={scoreA} scoreColor="#4caf50" />
                                 <Grid item xs={2} sx={{ textAlign: 'center' }}>
                                     <Typography variant="h5">VS</Typography>
                                 </Grid>
-                                <TeamCard team={teamB} score={scoreB} scoreColor="#f44336" />
+                                <TeamCard team={{ image: imageB, name: teamB }} score={scoreB} scoreColor="#f44336" />
                             </Grid>
 
                             {/* Botones de apuesta */}
@@ -98,9 +155,9 @@ export const MatchDetails: React.FC<MatchDetailsProps> = ({ teamA, teamB, scoreA
                                         backgroundColor: blueGrey[700],
                                     }}
                                     variant="contained"
-                                    onClick={() => handleBet(teamA.name)}
+                                    onClick={() => handleBet('A')}
                                 >
-                                    {teamA.name} - {odds.teamA}
+                                    {teamA} - {odds.teamA}
                                 </Button>
                                 <Button
                                     sx={{
@@ -108,7 +165,7 @@ export const MatchDetails: React.FC<MatchDetailsProps> = ({ teamA, teamB, scoreA
                                         backgroundColor: blueGrey[700],
                                     }}
                                     variant="contained"
-                                    onClick={() => handleBet('Empate')}
+                                    onClick={() => handleBet('DRAW')}
                                 >
                                     Empate - {odds.draw}
                                 </Button>
@@ -118,9 +175,9 @@ export const MatchDetails: React.FC<MatchDetailsProps> = ({ teamA, teamB, scoreA
                                         backgroundColor: blueGrey[700],
                                     }}
                                     variant="contained"
-                                    onClick={() => handleBet(teamB.name)}
+                                    onClick={() => handleBet('B')}
                                 >
-                                    {teamB.name} - {odds.teamB}
+                                    {teamB} - {odds.teamB}
                                 </Button>
                             </Box>
                         </CardContent>

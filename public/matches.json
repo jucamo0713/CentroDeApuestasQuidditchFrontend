@@ -5,9 +5,8 @@
       "teamB": "Avispas de Wimbourne",
       "imageA": "/images/Appleby_Arrows.jpeg",
       "imageB": "/images/Avispas_Wimbourne.jpeg",
-      "A" : "3.5",
-      "B" : "1.4",
-      "empate": "2"
+      "odds": { "teamA": 1.2, "teamB": 1.2, "draw": 1.4 },
+      "date": "2011-10-05T14:48:00.000Z"
     },
     {
       "matchId": "2",
@@ -15,9 +14,8 @@
       "teamB": "Slytherin",
       "imageA": "/images/Gryffindor.jpeg",
       "imageB": "/images/Slytherin.jpeg",
-      "A" : "3.5",
-      "B" : "1.4",
-      "empate": "2"
+      "odds": { "teamA": 1.2, "teamB": 1.2, "draw": 1.4 },
+      "date": "2011-10-05T14:48:00.000Z"
     },
     {
       "matchId": "3",
@@ -25,9 +23,8 @@
       "teamB": "Brasil",
       "imageA": "/images/Argentina.jpeg",
       "imageB": "/images/Brasil.jpeg",
-      "A" : "3.5",
-      "B" : "1.4",
-      "empate": "2"
+      "odds": { "teamA": 1.2, "teamB": 1.2, "draw": 1.4 },
+      "date": "2011-10-05T14:48:00.000Z"
     },
     {
       "matchId": "4",
@@ -35,9 +32,8 @@
       "teamB": "Brasil",
       "imageA": "/images/Peru.jpeg",
       "imageB": "/images/Brasil.jpeg",
-      "A" : "3.5",
-      "B" : "1.4",
-      "empate": "2"
+      "odds": { "teamA": 1.2, "teamB": 1.2, "draw": 1.4 },
+      "date": "2011-10-05T14:48:00.000Z"
     },
     {
       "matchId": "5",
@@ -45,9 +41,8 @@
       "teamB": "Nueva Zelanda",
       "imageA": "/images/Irlanda.jpeg",
       "imageB": "/images/Nueva_Zelanda.jpeg",
-      "A" : "3.5",
-      "B" : "1.4",
-      "empate": "2"
+      "odds": { "teamA": 1.2, "teamB": 1.2, "draw": 1.4 },
+      "date": "2011-10-05T14:48:00.000Z"
     },
     {
       "matchId": "6",
@@ -55,9 +50,8 @@
       "teamB": "Ravenclaw",
       "imageA": "/images/Hufflepuff.jpeg",
       "imageB": "/images/Ravenclaw.jpeg",
-      "A" : "3.5",
-      "B" : "1.4",
-      "empate": "2"
+      "odds": { "teamA": 1.2, "teamB": 1.2, "draw": 1.4 },
+      "date": "2011-10-05T14:48:00.000Z"
     },
     {
       "matchId": "7",
@@ -65,9 +59,8 @@
       "teamB": "Hufflepuff",
       "imageA": "/images/Gryffindor.jpeg",
       "imageB": "/images/Hufflepuff.jpeg",
-      "A" : "3.5",
-      "B" : "1.4",
-      "empate": "2"
+      "odds": { "teamA": 1.2, "teamB": 1.2, "draw": 1.4 },
+      "date": "2011-10-05T14:48:00.000Z"
     }
   ]
   

@@ -6,13 +6,14 @@ import { GalleonIconTable } from '../../../../../shared/infrastructure/entry-poi
 import { blueGrey } from '@mui/material/colors';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme/theme';
+import { currencyConstants } from '../../../../domain/model/currencyConstants';
 
 interface RechargeFormProps {
     amount: string;
     handleSubmit: (e: React.FormEvent) => void;
     selectedCurrency: string;
     setAmount: (value: string) => void;
-    setSelectedCurrency: (value: string) => void;
+    setSelectedCurrency: (value: currencyConstants) => void;
 }
 
 export const RechargeForm: React.FC<RechargeFormProps> = ({
@@ -30,16 +31,16 @@ export const RechargeForm: React.FC<RechargeFormProps> = ({
                     <Select
                         labelId="currency-label"
                         value={selectedCurrency}
-                        onChange={(e) => setSelectedCurrency(e.target.value)}
+                        onChange={(e) => setSelectedCurrency(e.target.value as currencyConstants)}
                         label="Seleccionar moneda"
                     >
-                        <MenuItem value="galleons">
+                        <MenuItem value={currencyConstants.GALLEONS}>
                             <GalleonIconTable /> Galleons
                         </MenuItem>
-                        <MenuItem value="sickles">
+                        <MenuItem value={currencyConstants.SICKLES}>
                             <SicklesIconTable /> Sickles
                         </MenuItem>
-                        <MenuItem value="knuts">
+                        <MenuItem value={currencyConstants.KNUTS}>
                             <KnutIconTable /> Knuts
                         </MenuItem>
                     </Select>

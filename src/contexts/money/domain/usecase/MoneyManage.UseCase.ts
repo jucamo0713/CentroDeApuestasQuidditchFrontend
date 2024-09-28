@@ -8,14 +8,15 @@ export class MoneyManageUseCase {
 
     constructor(private readonly httpMoneyRepository: MoneyHttpRepository) {}
 
-    async findMoneyData(loginData: SessionData): Promise<MoneyData> {
-        const updatedMoneyData = await this.httpMoneyRepository.getMoneyData(loginData);
+    async findMoneyData(): Promise<MoneyData | undefined> {
+        const updatedMoneyData = await this.httpMoneyRepository.getMoneyData();
         const currentData = await firstValueFrom(MoneyManageUseCase.MoneyData$);
         if (
-            !currentData ||
-            currentData.galleons !== updatedMoneyData.galleons ||
-            currentData.sickles !== updatedMoneyData.sickles ||
-            currentData.knuts !== updatedMoneyData.knuts
+            updatedMoneyData &&
+            (!currentData ||
+                currentData.galleons !== updatedMoneyData.galleons ||
+                currentData.sickles !== updatedMoneyData.sickles ||
+                currentData.knuts !== updatedMoneyData.knuts)
         ) {
             MoneyManageUseCase.MoneyData$.next(updatedMoneyData);
             return updatedMoneyData;
@@ -23,14 +24,18 @@ export class MoneyManageUseCase {
         return currentData;
     }
 
-    async rechargeMoney(moneyToRecharge: MoneyData, loginData: SessionData): Promise<MoneyData> {
-        const updatedMoneyData: MoneyData = await this.httpMoneyRepository.rechargeMoney(moneyToRecharge, loginData);
+    async rechargeMoney(moneyToRecharge: MoneyData, loginData: SessionData): Promise<MoneyData | undefined> {
+        const updatedMoneyData: MoneyData | undefined = await this.httpMoneyRepository.rechargeMoney(
+            moneyToRecharge,
+            loginData,
+        );
         const currentData = await firstValueFrom(MoneyManageUseCase.MoneyData$);
         if (
-            !currentData ||
-            currentData.galleons !== updatedMoneyData.galleons ||
-            currentData.sickles !== updatedMoneyData.sickles ||
-            currentData.knuts !== updatedMoneyData.knuts
+            updatedMoneyData &&
+            (!currentData ||
+                currentData.galleons !== updatedMoneyData.galleons ||
+                currentData.sickles !== updatedMoneyData.sickles ||
+                currentData.knuts !== updatedMoneyData.knuts)
         ) {
             MoneyManageUseCase.MoneyData$.next(updatedMoneyData);
             return updatedMoneyData;

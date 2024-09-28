@@ -5,7 +5,14 @@ import { BackendUrlConstants } from '../../../../shared/infrastructure/driven-ad
 
 export class HttpAuthRepository implements AuthHttpRepository {
     async loginUser(email: string, password: string): Promise<SessionData | undefined> {
-        const response = await BackendRepository.post<SessionData, { email: string; password: string }>(
+        const response = await BackendRepository.post<
+            {
+                accessToken: string;
+                refreshToken: string;
+                success: boolean;
+            },
+            { email: string; password: string }
+        >(
             {
                 email,
                 password,
@@ -20,7 +27,7 @@ export class HttpAuthRepository implements AuthHttpRepository {
         return response
             ? {
                   refreshToken: response.refreshToken,
-                  token: response.token,
+                  token: response.accessToken,
               }
             : undefined;
     }

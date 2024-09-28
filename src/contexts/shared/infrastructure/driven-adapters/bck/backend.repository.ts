@@ -7,39 +7,47 @@ import { BackendUrlConstants } from './backend-url.constants';
 import { AppRoutesConstants } from '../../../domain/model/constants/AppRoutes.Constants';
 import { SessionManageInstance } from '../../../../auth/applications/dependencyInjection/SessionManageInstance';
 import { toast } from 'react-toastify';
+import { firstValueFrom } from 'rxjs';
 
 export class BackendRepository {
-    public static sessionData: SessionData | undefined = undefined;
-
     private static async refreshTokens(): Promise<SessionData | undefined> {
-        const response = await this.post<SessionData, NonNullable<unknown>>(
-            {},
-            {
-                URL: BackendUrlConstants.REFRESH_TOKENS,
-                headers: {
-                    'refresh-token': BackendRepository.sessionData!.refreshToken,
+        const session = await firstValueFrom(SessionManageUseCase.subjectOfSessionData);
+        if (session) {
+            const response = await this.post<SessionData, NonNullable<unknown>>(
+                {},
+                {
+                    URL: BackendUrlConstants.REFRESH_TOKENS,
+                    headers: {
+                        'refresh-token': session.refreshToken,
+                    },
+                    requireAccessToken: false,
+                    retry: false,
                 },
-                requireAccessToken: false,
-                retry: false,
-            },
-        );
-        if (response) {
-            await SessionManageInstance.saveSessionData(response);
+            );
+            if (response) {
+                await SessionManageInstance.saveSessionData(response);
+            } else {
+                await SessionManageInstance.closeSession();
+            }
+            return response;
         } else {
             await SessionManageInstance.closeSession();
+            return undefined;
         }
-        return response;
     }
 
-    private static buildRequestConfig(options?: BackendOptions): AxiosRequestConfig {
+    private static async buildRequestConfig(options?: BackendOptions): Promise<AxiosRequestConfig> {
         const baseURL = options?.baseURL ?? process.env.REACT_APP_BACKEND_BASE_URL;
         const requireAccessToken = options?.requireAccessToken ?? true;
         const config: AxiosRequestConfig = {
             baseURL,
         };
         if (requireAccessToken) {
-            const accessToken: string | undefined = BackendRepository.sessionData?.token;
+            const accessToken: string | undefined = (await firstValueFrom(SessionManageUseCase.subjectOfSessionData))
+                ?.token;
             if (!accessToken) {
+                console.log(accessToken);
+                console.log(options);
                 throw new Error('Access_Token_Not_Found');
             } else {
                 config.headers = { authorization: `Bearer ${accessToken}` };
@@ -49,7 +57,7 @@ export class BackendRepository {
     }
 
     private static resolveIfCanRetry(status: number, options?: BackendOptions): boolean {
-        return (options?.retry ?? true) && this.resolveIfIsUnauthorized(status) && !!this.sessionData?.refreshToken;
+        return (options?.retry ?? true) && this.resolveIfIsUnauthorized(status);
     }
 
     private static resolveIfIsUnauthorized(status?: number, message?: string): boolean {
@@ -93,7 +101,7 @@ export class BackendRepository {
     ): Promise<Res | undefined> {
         const process = options.createLoaderProcess ?? true ? LoadingSourceUseCase.addLoaderProcess() : undefined;
         try {
-            const config: AxiosRequestConfig = BackendRepository.buildRequestConfig(options);
+            const config: AxiosRequestConfig = await BackendRepository.buildRequestConfig(options);
             if (query) config.params = query;
             return await axios.get<Res>(String(options.URL), config).then((res: AxiosResponse<Res>) => res.data);
         } catch (e: unknown) {
@@ -123,7 +131,7 @@ export class BackendRepository {
     ): Promise<Res | undefined> {
         const process = options.createLoaderProcess ?? true ? LoadingSourceUseCase.addLoaderProcess() : undefined;
         try {
-            const config: AxiosRequestConfig = BackendRepository.buildRequestConfig(options);
+            const config: AxiosRequestConfig = await BackendRepository.buildRequestConfig(options);
             return await axios
                 .post<Res>(String(options.URL), body, { ...config })
                 .then((res: AxiosResponse<Res>) => res.data);
@@ -154,7 +162,7 @@ export class BackendRepository {
     ): Promise<Res | undefined> {
         const process = options.createLoaderProcess ?? true ? LoadingSourceUseCase.addLoaderProcess() : undefined;
         try {
-            const config: AxiosRequestConfig = BackendRepository.buildRequestConfig(options);
+            const config: AxiosRequestConfig = await BackendRepository.buildRequestConfig(options);
             return await axios.put<Res>(String(options.URL), body, config).then((res: AxiosResponse<Res>) => res.data);
         } catch (e: unknown) {
             const { status, message } = this.processError(e, options);
@@ -183,7 +191,7 @@ export class BackendRepository {
     ): Promise<Res | undefined> {
         const process = options.createLoaderProcess ?? true ? LoadingSourceUseCase.addLoaderProcess() : undefined;
         try {
-            const config: AxiosRequestConfig = BackendRepository.buildRequestConfig(options);
+            const config: AxiosRequestConfig = await BackendRepository.buildRequestConfig(options);
             return await axios
                 .patch<Res>(String(options.URL), body, config)
                 .then((res: AxiosResponse<Res>) => res.data);
@@ -214,7 +222,7 @@ export class BackendRepository {
     ): Promise<Res | undefined> {
         const process = options.createLoaderProcess ?? true ? LoadingSourceUseCase.addLoaderProcess() : undefined;
         try {
-            const config: AxiosRequestConfig = BackendRepository.buildRequestConfig(options);
+            const config: AxiosRequestConfig = await BackendRepository.buildRequestConfig(options);
             config.params = query;
             return await axios.delete<Res>(String(options.URL), config).then((res: AxiosResponse<Res>) => res.data);
         } catch (e: unknown) {
@@ -238,5 +246,3 @@ export class BackendRepository {
         }
     }
 }
-
-SessionManageUseCase.subjectOfSessionData.subscribe((v) => (BackendRepository.sessionData = v));

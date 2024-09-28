@@ -2,23 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Typography, Card, CardContent, CardMedia, Button, Box } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
-
-interface MatchData {
-    A: string;
-    B: string;
-    empate: string;
-    imageA: string;
-    imageB: string;
-    matchId: string;
-    teamA: string;
-    teamB: string;
-}
+import { MatchData } from '../../../../domain/model/matchData';
 
 interface MatchCardProps {
+    betAction: (type: string, matchId: string) => void;
     match: MatchData;
 }
 
-const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
+const MatchCard: React.FC<MatchCardProps> = ({ match, betAction }) => {
     return (
         <Card
             sx={{
@@ -31,6 +22,9 @@ const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
             }}
         >
             <CardContent>
+                <Typography variant="subtitle1" component="div" sx={{ color: '#eedd82' }}>
+                    {match.date.toLocaleString()}
+                </Typography>
                 <Typography variant="h5" component="div">
                     {match.teamA} vs. {match.teamB}
                 </Typography>
@@ -54,23 +48,23 @@ const MatchCard: React.FC<MatchCardProps> = ({ match }) => {
                     <Button
                         sx={{ ':hover': { backgroundColor: blueGrey[400] }, backgroundColor: blueGrey[700] }}
                         variant="contained"
-                        onClick={() => alert(`Equipo ${match.teamA} seleccionado`)}
+                        onClick={() => betAction('A', match.matchId)}
                     >
-                        {match.teamA}: {match.A}
+                        {match.teamA}: {match.odds.teamA}
                     </Button>
                     <Button
                         sx={{ ':hover': { backgroundColor: blueGrey[400] }, backgroundColor: blueGrey[700] }}
                         variant="contained"
-                        onClick={() => alert('Empate seleccionado')}
+                        onClick={() => betAction('DRAW', match.matchId)}
                     >
-                        Empate: {match.empate}
+                        Empate: {match.odds.draw}
                     </Button>
                     <Button
                         sx={{ ':hover': { backgroundColor: blueGrey[400] }, backgroundColor: blueGrey[700] }}
                         variant="contained"
-                        onClick={() => alert(`Equipo ${match.teamB} seleccionado`)}
+                        onClick={() => betAction('B', match.matchId)}
                     >
-                        {match.teamB}: {match.B}
+                        {match.teamB}: {match.odds.teamB}
                     </Button>
                     <Button variant="contained" color="info" component={Link} to={`/match/${match.matchId}`}>
                         Detalle

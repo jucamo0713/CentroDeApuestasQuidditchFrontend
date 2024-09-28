@@ -5,8 +5,8 @@ import { UserHttpRepository } from '../model/gateways/UserHttp.Repository';
 export class UserUseCase {
     constructor(private readonly httpRepository: UserHttpRepository) {}
 
-    async getUser(session: SessionData): Promise<User> {
-        return this.httpRepository.getUser(session);
+    async getUser(): Promise<User | undefined> {
+        return this.httpRepository.getUser();
     }
 
     async updateUser(email: string, username: string, name: string, loginData: SessionData): Promise<User> {

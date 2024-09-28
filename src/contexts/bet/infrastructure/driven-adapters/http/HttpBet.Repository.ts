@@ -2,6 +2,9 @@ import { BetHttpRepository } from '../../../domain/model/gateways/BetHttp.Reposi
 import { SessionData } from '../../../../auth/domain/model/SessionData';
 import { PaginatedModel } from '../../../../shared/domain/model/PaginatedModel';
 import { Bet } from '../../../domain/model/Bet';
+import { MoneyData } from '../../../../money/domain/model/MoneyData';
+import { BackendRepository } from '../../../../shared/infrastructure/driven-adapters/bck/backend.repository';
+import { BackendUrlConstants } from '../../../../shared/infrastructure/driven-adapters/bck/backend-url.constants';
 
 export class HttpBetRepository implements BetHttpRepository {
     //TODO:
@@ -385,5 +388,14 @@ export class HttpBetRepository implements BetHttpRepository {
             metadata,
         };
         return response;
+    }
+    async create(betValue: MoneyData, betType: string, matchId: string): Promise<boolean> {
+        const data = await BackendRepository.post(
+            { matchId: matchId, type: betType, value: betValue },
+            {
+                URL: BackendUrlConstants.CREATE_BET,
+            },
+        );
+        return !!data;
     }
 }

@@ -1,43 +1,97 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Typography, Card, CardContent, CardMedia, Button, Grid, Box } from '@mui/material';
+import { Typography, Card, CardContent, CardMedia, Button, Grid, Box, Modal } from '@mui/material';
 import { SessionData } from '../../../../../auth/domain/model/SessionData';
 import { SessionManageUseCase } from '../../../../../auth/domain/usecase/SessionManage.UseCase';
 import { AppRoutesConstants } from '../../../../domain/model/constants/AppRoutes.Constants';
 import { blueGrey } from '@mui/material/colors';
-
-interface MatchData {
-    A: string;
-    B: string;
-    empate: string;
-    imageA: string;
-    imageB: string;
-    matchId: string;
-    teamA: string;
-    teamB: string;
-}
+import { MatchData } from '../../../../../matches/domain/model/matchData';
+import { toast } from 'react-toastify';
+import { BetUseCaseInstance } from '../../../../../bet/application/dependencyInjection/BetUseCaseInstance';
+import { currencyConstants } from '../../../../../money/domain/model/currencyConstants';
+import { RechargeForm } from '../../../../../money/infrastructure/entry-points/UI/components/RechargeForm';
 
 export function Home() {
     const navigate = useNavigate();
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
     const [loginData, setLoginData] = useState<SessionData | undefined>(undefined);
     const [matches, setMatches] = useState<MatchData[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [matchSelected, setMatchSelected] = useState<string | undefined>(undefined);
+    const [betType, SetBetType] = useState<string | undefined>(undefined);
+    const [amount, setAmount] = useState<string>('0');
+    const [selectedCurrency, setSelectedCurrency] = useState<string>('galleons');
+
+    const style = {
+        bgcolor: '#333',
+        border: '2px solid #000',
+        boxShadow: 24,
+        left: '50%',
+        p: 4,
+        position: 'absolute' as const,
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+    };
+
+    const handlePay = (e: React.FormEvent) => {
+        e.preventDefault();
+        const amountValue = parseInt(amount);
+        if (isNaN(amountValue) || amountValue < 1) {
+            toast.error('El valor debe ser un número positivo.');
+        } else if (!betType) {
+            toast.error('Error debe seleccionar tipo de apuesta');
+        } else if (!matchSelected) {
+            toast.error('Error debe equipo para apostar');
+        } else {
+            BetUseCaseInstance.create(amountValue, selectedCurrency, betType, matchSelected).then((val) => {
+                if (val) {
+                    toast.success('Realizaste la apuesta correctamente');
+                    setModalIsOpen(false);
+                    setAmount('0');
+                    setSelectedCurrency(currencyConstants.GALLEONS);
+                    SetBetType(undefined);
+                    setMatchSelected(undefined);
+                }
+            });
+        }
+    };
 
     useEffect(() => {
+        let isMounted = true;
+
         const fetchMatches = async () => {
             try {
                 const response = await fetch('/matches.json');
-                if (!response.ok) throw new Error('Error en la respuesta del servidor');
-                const data: MatchData[] = await response.json();
-                setMatches(data);
-            } catch (error) {
-                console.error('Error al cargar los datos de los partidos:', error);
-            } finally {
-                setLoading(false);
+                if (!response.ok) {
+                    throw new Error('Error al cargar los partidos');
+                }
+                const data = await response.json();
+                if (isMounted) {
+                    setMatches(
+                        data.map((v: MatchData) => {
+                            return { ...v, date: new Date(v.date) };
+                        }),
+                    );
+                    setLoading(false);
+                }
+            } catch (err: unknown) {
+                if (isMounted) {
+                    if (err instanceof Error) {
+                        setError(err.message);
+                    } else {
+                        setError('Error desconocido');
+                    }
+                    setLoading(false);
+                }
             }
         };
 
         fetchMatches();
+
+        return () => {
+            isMounted = false;
+        };
     }, []);
 
     useEffect(() => {
@@ -45,12 +99,13 @@ export function Home() {
         return () => subscription.unsubscribe();
     }, [navigate]);
 
-    // Función para manejar la redirección o acción según el estado de la sesión
-    const handleBetClick = (team: string) => {
+    const handleBetClick = (type: string, matchId: string) => {
         if (!loginData) {
-            navigate(AppRoutesConstants.LOGIN_PAGE); // Redirige a la página de inicio de sesión si no hay sesión activa
+            navigate(AppRoutesConstants.LOGIN_PAGE);
         } else {
-            alert(`Equipo ${team} seleccionado`); // Acción cuando la sesión está activa
+            setModalIsOpen(true);
+            setMatchSelected(matchId);
+            SetBetType(type);
         }
     };
 
@@ -58,6 +113,26 @@ export function Home() {
         <Box
             sx={{ backgroundColor: '#1c1613', color: '#fff', minHeight: '100vh', padding: '20px', textAlign: 'center' }}
         >
+            <Modal
+                open={modalIsOpen}
+                onClose={() => {
+                    setModalIsOpen(false);
+                    setMatchSelected(undefined);
+                    SetBetType(undefined);
+                }}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <RechargeForm
+                        handleSubmit={handlePay}
+                        selectedCurrency={selectedCurrency}
+                        setSelectedCurrency={setSelectedCurrency}
+                        amount={amount}
+                        setAmount={setAmount}
+                    />
+                </Box>
+            </Modal>
             {!loginData && (
                 <Card sx={{ backgroundColor: '#333', color: '#fff', padding: '20px' }}>
                     <CardContent>
@@ -120,6 +195,9 @@ export function Home() {
                                 }}
                             >
                                 <CardContent>
+                                    <Typography variant="subtitle1" component="div" sx={{ color: '#eedd82' }}>
+                                        {match.date.toLocaleString()}
+                                    </Typography>
                                     <Typography variant="h5" component="div">
                                         {match.teamA} vs. {match.teamB}
                                     </Typography>
@@ -160,9 +238,9 @@ export function Home() {
                                                 backgroundColor: blueGrey[700],
                                             }}
                                             variant="contained"
-                                            onClick={() => handleBetClick(match.teamA)}
+                                            onClick={() => handleBetClick('A', match.matchId)}
                                         >
-                                            {match.teamA}: {match.A}
+                                            {match.teamA}: {match.odds.teamA}
                                         </Button>
                                         <Button
                                             sx={{
@@ -170,9 +248,9 @@ export function Home() {
                                                 backgroundColor: blueGrey[700],
                                             }}
                                             variant="contained"
-                                            onClick={() => handleBetClick('Empate')}
+                                            onClick={() => handleBetClick('DRAW', match.matchId)}
                                         >
-                                            Empate: {match.empate}
+                                            Empate: {match.odds.draw}
                                         </Button>
                                         <Button
                                             sx={{
@@ -180,9 +258,9 @@ export function Home() {
                                                 backgroundColor: blueGrey[700],
                                             }}
                                             variant="contained"
-                                            onClick={() => handleBetClick(match.teamB)}
+                                            onClick={() => handleBetClick('B', match.matchId)}
                                         >
-                                            {match.teamB}: {match.B}
+                                            {match.teamB}: {match.odds.teamB}
                                         </Button>
                                         <Button
                                             variant="contained"
