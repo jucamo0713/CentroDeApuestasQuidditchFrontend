@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
     Typography,
     Card,
     CardContent,
-    Button,
     Table,
     TableBody,
     TableCell,
@@ -14,19 +12,14 @@ import {
     Paper,
     Box,
 } from '@mui/material';
-import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
+import { MatchData } from '../../../../domain/model/matchData';
+import { MatchRow } from './MatchRow';
 import './Results.css';
 
-interface MatchData {
-    result: string;
-    teamA: string;
-    teamB: string;
-    teamWinning: string;
-}
-
+// Componente principal
 export function Results() {
     const [matches, setMatches] = useState<MatchData[]>([]);
-    const [loading, setLoading] = useState<boolean>(true); // Estado para la carga
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
         const fetchMatches = async () => {
@@ -38,10 +31,9 @@ export function Results() {
             } catch (error) {
                 console.error('Error al cargar los datos de los partidos:', error);
             } finally {
-                setLoading(false); // Finalizamos la carga
+                setLoading(false);
             }
         };
-
         fetchMatches();
     }, []);
 
@@ -82,24 +74,7 @@ export function Results() {
                                         </TableCell>
                                     </TableRow>
                                 ) : (
-                                    matches.map((match, index) => (
-                                        <TableRow key={index}>
-                                            <TableCell sx={{ color: '#fff' }}>{match.teamA}</TableCell>
-                                            <TableCell sx={{ color: '#fff' }}>{match.teamB}</TableCell>
-                                            <TableCell sx={{ color: '#fff' }}>{match.teamWinning}</TableCell>
-                                            <TableCell sx={{ color: '#fff' }}>{match.result}</TableCell>
-                                            <TableCell>
-                                                <Button
-                                                    variant="contained"
-                                                    color="info"
-                                                    component={Link}
-                                                    to={AppRoutesConstants.MATCH_DETAIL}
-                                                >
-                                                    Detalle
-                                                </Button>
-                                            </TableCell>
-                                        </TableRow>
-                                    ))
+                                    matches.map((match, index) => <MatchRow key={index} match={match} />)
                                 )}
                             </TableBody>
                         </Table>

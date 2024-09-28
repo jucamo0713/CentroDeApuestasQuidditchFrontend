@@ -23,6 +23,7 @@ import { RechargeForm } from '../../../../../money/infrastructure/entry-points/U
 import { toast } from 'react-toastify';
 import { currencyConstants } from '../../../../../money/domain/model/currencyConstants';
 import { BetUseCaseInstance } from '../../../../../bet/application/dependencyInjection/BetUseCaseInstance';
+import { style } from '../../../../../bet/infrastructure/entry-point/UI/styles/styleModal';
 
 // Componente para mostrar los detalles de cada equipo
 const TeamCard: React.FC<{ score: number; scoreColor: string; team: { image: string; name: string } }> = ({
@@ -58,18 +59,6 @@ export const MatchDetails: React.FC<MatchDetailData> = ({
     const [betType, SetBetType] = useState<string | undefined>(undefined);
     const [amount, setAmount] = useState<string>('0');
     const [selectedCurrency, setSelectedCurrency] = useState<string>('galleons');
-
-    const style = {
-        bgcolor: '#333',
-        border: '2px solid #000',
-        boxShadow: 24,
-        left: '50%',
-        p: 4,
-        position: 'absolute' as const,
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 400,
-    };
 
     const handlePay = (e: React.FormEvent) => {
         e.preventDefault();
