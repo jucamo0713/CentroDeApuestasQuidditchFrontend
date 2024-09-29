@@ -60,9 +60,10 @@ export function Results() {
                             <TableHead>
                                 <TableRow>
                                     <TableCell>Equipo A</TableCell>
+                                    <TableCell>Puntos A</TableCell>
                                     <TableCell>Equipo B</TableCell>
-                                    <TableCell>Equipo Ganador</TableCell>
-                                    <TableCell>Resultado</TableCell>
+                                    <TableCell>Puntos B</TableCell>
+                                    <TableCell>Fecha</TableCell>
                                     <TableCell>Acción</TableCell>
                                 </TableRow>
                             </TableHead>

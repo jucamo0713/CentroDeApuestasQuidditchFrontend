@@ -1,92 +1,324 @@
 [
     {
-        "teamA": "Gryffindor",
-        "teamB": "Slytherin",
-        "teamWinning": "Gryffindor",
-        "result": "120 - 110"
-    },
-    {
-        "teamA": "Argentina",
-        "teamB": "Brasil",
-        "teamWinning": "Brasil",
-        "result": "210 - 300"
-    },
-    {
-        "teamA": "Perú",
-        "teamB": "Holanda",
-        "teamWinning": "Holanda",
-        "result": "200 - 210"
-    },    
-    {
-        "teamA": "Colombia",
-        "teamB": "Argentina",
-        "teamWinning": "Colombia",
-        "result": "100 - 10"
-    },    
-    {
+        "matchId": "1",
         "teamA": "Appleby Arrows",
+        "imageA": "/images/Appleby_Arrows.jpeg",
         "teamB": "Avispas de Wimbourne",
-        "teamWinning": "Avispas de Wimbourne",
-        "result": "120 - 180"
-    },    
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 70,
+        "scoreB": 200,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "event": "Copa de Hogwarts",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },
     {
-        "teamA": "Caerphilly Catapults",
-        "teamB": "Avispas de Wimbourne",
-        "teamWinning": "Avispas de Wimbourne",
-        "result": "120 - 190"
-    },    
-    {
-        "teamA": "Caerphilly Catapults",
-        "teamB": "Chudley Cannons",
-        "teamWinning": "Chudley Cannons",
-        "result": "120 - 190"
-    },    
-    {
-        "teamA": "Caerphilly Catapults",
-        "teamB": "Falmouth Falcons",
-        "teamWinning": "Falmouth Falcons",
-        "result": "140 - 200"
-    },    
-    {
-        "teamA": "Holyhead Harpies",
-        "teamB": "Kenmare Kestrels",
-        "teamWinning": "Kenmare Kestrels",
-        "result": "10 - 85"
-    },    
-    {
-        "teamA": "Montrose Magpies",
-        "teamB": "Murciélagos de Ballycastle",
-        "teamWinning": "Montrose Magpies",
-        "result": "100 - 85"
-    },    
-    {
-        "teamA": "Pride of Portree",
-        "teamB": "Puddlemere United",
-        "teamWinning": "Puddlemere United",
-        "result": "100 - 169"
-    },    
-    {
-        "teamA": "Tutshill Tornados",
-        "teamB": "Wigtown Wanderers",
-        "teamWinning": "Wigtown Wanderers",
-        "result": "180 - 220"
-    },    
-    {
-        "teamA": "Hufflepuff",
-        "teamB": "Gryffindor",
-        "teamWinning": "Gryffindor",
-        "result": "200 - 320"
-    },    
-    {
-        "teamA": "Ravenclaw",
+        "matchId": "2",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Gryffindor.jpeg",
         "teamB": "Slytherin",
-        "teamWinning": "Slytherin",
-        "result": "200 - 210"
+        "imageB": "/images/Slytherin.jpeg",
+        "scoreA": 150,
+        "scoreB": 120,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-10",
+        "event": "Copa de Hogwarts",
+        "highlights": [
+          {
+            "time": "15:32",
+            "description": "Gran atrapada de la snitch por Gryffindor"
+          },
+          {
+            "time": "05:14",
+            "description": "Slytherin toma la delantera con una quaffle"
+          }
+        ]
+    },
+    {
+        "matchId": "3",
+        "teamA" : "Argentina",
+        "imageA": "/images/Argentina.jpeg",
+        "teamB": "Brasil",
+        "imageB": "/images/Brasil.jpeg",
+        "scoreA": 180,
+        "scoreB": 220,
+        "location": "Campo de Quidditch de Maré Alta",
+        "date": "2024-09-01",
+        "event": "Copa del Mundo",
+        "highlights": [
+          {
+            "time": "15:32",
+            "description": "Gran jugada de anotación por parte de Argentina"
+          },
+          {
+            "time": "05:14",
+            "description": "Brasil toma la delantera con una quaffle"
+          }
+        ]
+      },    
+    {
+        "matchId": "4",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "event": "Copa de Hogwarts",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
     },    
     {
-        "teamA": "Uganda",
-        "teamB": "Canadá",
-        "teamWinning": "Uganda",
-        "result": "120 - 30"
+        "matchId": "5",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "event": "Copa de Hogwarts",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "6",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "event": "Copa de Hogwarts",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "7",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "event": "Copa de Hogwarts",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "8",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "9",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "10",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "11",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "12",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "13",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "14",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
+    },    
+    {
+        "matchId": "15",
+        "teamA": "Gryffindor",
+        "imageA": "/images/Appleby_Arrows.jpeg",
+        "teamB": "Slytherin",
+        "imageB": "/images/Avispas_Wimbourne.jpeg",
+        "scoreA": 10,
+        "scoreB": 60,
+        "location": "Campo de Quidditch de Hogwarts",
+        "date": "2024-09-14",
+        "highlights": [
+            {
+            "time": "13:31",
+            "description": "Appleby Arrows"
+            },
+            {
+            "time": "08:15",
+            "description": "Avispas de Wimbourne toma la delantera con una quaffle"
+            }
+        ]
     }
 ]

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Button, TableCell, TableRow } from '@mui/material';
-import { AppRoutesConstants } from '../../../../../shared/domain/model/constants/AppRoutes.Constants';
 import { MatchData } from '../../../../domain/model/matchData';
 import './Results.css';
 
@@ -8,11 +7,12 @@ import './Results.css';
 export const MatchRow = ({ match }: { match: MatchData }) => (
     <TableRow>
         <TableCell sx={{ color: '#fff' }}>{match.teamA}</TableCell>
+        <TableCell sx={{ color: '#fff' }}>{match.scoreA}</TableCell>
         <TableCell sx={{ color: '#fff' }}>{match.teamB}</TableCell>
-        <TableCell sx={{ color: '#fff' }}>{match.teamWinning}</TableCell>
-        <TableCell sx={{ color: '#fff' }}>{match.result}</TableCell>
+        <TableCell sx={{ color: '#fff' }}>{match.scoreB}</TableCell>
+        <TableCell sx={{ color: '#fff' }}>{match.date.toLocaleString()}</TableCell>
         <TableCell>
-            <Button variant="contained" color="info" component={Link} to={AppRoutesConstants.MATCH_DETAIL}>
+            <Button variant="contained" color="info" component={Link} to={`/match-result/${match.matchId}`}>
                 Detalle
             </Button>
         </TableCell>

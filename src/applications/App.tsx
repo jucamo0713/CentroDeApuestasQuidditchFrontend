@@ -23,24 +23,9 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { MatchDetailData } from '../contexts/matches/domain/model/matchDetailData';
-
-interface BetDetailsType {
-    date: string;
-    id: string;
-    money: number;
-    multiplier: number;
-    scoreA: number;
-    scoreB: number;
-    status: string;
-    teamA: {
-        image: string;
-        name: string;
-    };
-    teamB: {
-        image: string;
-        name: string;
-    };
-}
+import { MatchFinData } from '../contexts/matches/domain/model/matchFinData';
+import MatchResultPage from '../contexts/results/infrastructure/entry-point/UI/pages/MatchResultPage';
+import { BetDetailsData } from '../contexts/bet/domain/model/BetDetailsData';
 
 async function fetchData<T>(url: string, id: string | number, key: keyof T): Promise<T | null> {
     try {
@@ -68,13 +53,28 @@ function MatchDetailsWrapper() {
     return <MatchDetails {...matchDetails} />;
 }
 
+function MatchFDetailsWrapper() {
+    const { matchId } = useParams();
+    const [matchDetails, setMatchDetails] = useState<MatchFinData | null>(null);
+
+    useEffect(() => {
+        fetchData<MatchFinData>('/results.json', matchId!, 'matchId').then(setMatchDetails);
+    }, [matchId]);
+
+    if (!matchDetails) {
+        return <div>No se encontraron detalles para este partido.</div>;
+    }
+
+    return <MatchResultPage {...matchDetails} />;
+}
+
 function BetDetailsWrapper() {
-    const { betId } = useParams(); // Obteniendo el betId de la URL
-    const [betDetails, setBetDetails] = useState<BetDetailsType | null>(null);
+    const { betId } = useParams();
+    const [betDetails, setBetDetails] = useState<BetDetailsData | null>(null);
 
     useEffect(() => {
         if (betId) {
-            fetchData<BetDetailsType>('/detailsBets.json', betId, 'id').then(setBetDetails);
+            fetchData<BetDetailsData>('/detailsBets.json', betId, 'id').then(setBetDetails);
         }
     }, [betId]);
 
@@ -82,18 +82,7 @@ function BetDetailsWrapper() {
         return <div>No se encontraron detalles para esta apuesta.</div>;
     }
 
-    return (
-        <BetDetailPage
-            teamA={betDetails.teamA}
-            teamB={betDetails.teamB}
-            scoreA={betDetails.scoreA}
-            scoreB={betDetails.scoreB}
-            money={betDetails.money}
-            multiplier={betDetails.multiplier}
-            date={betDetails.date}
-            status={betDetails.status}
-        />
-    );
+    return <BetDetailPage {...betDetails} />;
 }
 
 const routes: RouteObject[] = [
@@ -148,6 +137,10 @@ const routes: RouteObject[] = [
     {
         element: <MatchDetailsWrapper />,
         path: AppRoutesConstants.MATCH_DETAIL,
+    },
+    {
+        element: <MatchFDetailsWrapper />,
+        path: AppRoutesConstants.MATCH_F_DETAIL,
     },
     {
         element: <LoginPage />,

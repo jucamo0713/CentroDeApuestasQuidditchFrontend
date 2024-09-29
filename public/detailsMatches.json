@@ -23,18 +23,15 @@
     },
     {
       "matchId": "2",
-      "teamA": {
-        "name": "Gryffindor",
-        "image": "/images/Gryffindor.jpeg"
-      },
-      "teamB": {
-        "name": "Slytherin",
-        "image": "/images/Slytherin.jpeg"
-      },
+      "teamA": "Gryffindor",
+      "imageA": "/images/Gryffindor.jpeg",
+      "teamB": "Slytherin",
+      "imageB": "/images/Slytherin.jpeg",
       "scoreA": 150,
       "scoreB": 120,
       "location": "Campo de Quidditch de Hogwarts",
       "date": "2024-09-10",
+      "event": "Copa de Hogwarts",
       "highlights": [
         {
           "time": "15:32",
@@ -49,14 +46,10 @@
     },
     {
       "id": 3,
-      "teamA": {
-        "name": "Argentina",
-        "image": "/images/Argentina.jpeg"
-      },
-      "teamB": {
-        "name": "Brasil",
-        "image": "/images/Brasil.jpeg"
-      },
+      "teamA" : "Argentina",
+      "imageA": "/images/Argentina.jpeg",
+      "teamB": "Brasil",
+      "imageB": "/images/Brasil.jpeg",
       "scoreA": 180,
       "scoreB": 220,
       "location": "Campo de Quidditch de Maré Alta",
